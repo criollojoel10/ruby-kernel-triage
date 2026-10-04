@@ -1,0 +1,6 @@
+# collected: 2026-10-04T05:54:25Z
+# host: note12
+# cmd: uname -a; cat /proc/version
+
+Linux localhost 6.6.127-4k-ged71a8f07b9c-dirty #25 SMP PREEMPT Fri Oct  2 06:07:44 UTC 2026 aarch64 Android
+cat: /proc/version: Permission denied

@@ -1,0 +1,5 @@
+# collected: 2026-10-04T05:54:26Z
+# host: note12
+# cmd: cat /proc/cmdline
+
+cat: /proc/cmdline: Permission denied

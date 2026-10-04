@@ -1,0 +1,5 @@
+# collected: 2026-10-04T05:54:33Z
+# host: note12
+# cmd: cat /proc/loadavg; cat /proc/pressure/cpu 2>/dev/null; cat /proc/pressure/io 2>/dev/null
+
+cat: /proc/loadavg: Permission denied

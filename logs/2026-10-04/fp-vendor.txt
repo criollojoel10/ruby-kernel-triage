@@ -1,0 +1,8 @@
+# collected: 2026-10-04T05:54:42Z
+# host: note12
+# cmd: ls -la /vendor/bin/hw 2>/dev/null | grep -iE 'finger|biometric'; ls -la /vendor/lib64/hw 2>/dev/null | grep -iE 'finger|biometric'
+
+lrw-r--r--. 1 root root      40 Dec 31  2008 fingerprint.fpc.default.so -> /vendor/lib64/hw/fingerprint.fpc_isee.so
+-?????????? ? ?    ?          ?            ? fingerprint.fpc_isee.so
+lrw-r--r--. 1 root root      38 Dec 31  2008 fingerprint.goodix.default.so -> /vendor/lib64/hw/fingerprint.goodix.so
+-?????????? ? ?    ?          ?            ? fingerprint.goodix.so

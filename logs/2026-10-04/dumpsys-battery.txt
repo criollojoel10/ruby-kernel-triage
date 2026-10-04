@@ -1,0 +1,4 @@
+# collected: 2026-10-04T05:54:52Z
+# host: note12
+# cmd: dumpsys battery 2>/dev/null
+

@@ -1,0 +1,4 @@
+# collected: 2026-10-04T05:54:31Z
+# host: note12
+# cmd: cat /proc/modules 2>/dev/null | sort
+

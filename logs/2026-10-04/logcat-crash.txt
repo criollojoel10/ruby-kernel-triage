@@ -1,0 +1,103 @@
+# collected: 2026-10-04T05:54:49Z
+# host: note12
+# cmd (root): logcat -d -b crash -v threadtime
+
+--------- beginning of crash
+10-03 16:52:02.120 15917 18440 F libc    : Fatal signal 11 (SIGSEGV), code 2 (SEGV_ACCERR), fault addr 0x737d52d000 in tid 18440 (pool-4-thread-1), pid 15917 (mscanner:engine)
+10-03 16:52:04.424 19361 19361 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-03 16:52:04.424 19361 19361 F DEBUG   : LineageOS Version: '23.2-20261002-UNOFFICIAL-rubyx'
+10-03 16:52:04.424 19361 19361 F DEBUG   : Build fingerprint: 'Redmi/ruby_global/ruby:14/UP1A.230620.001/OS2.0.11.0.UMOMIXM:user/release-keys'
+10-03 16:52:04.424 19361 19361 F DEBUG   : Kernel Release: '6.6.127-4k-ged71a8f07b9c-dirty'
+10-03 16:52:04.425 19361 19361 F DEBUG   : Revision: '0'
+10-03 16:52:04.425 19361 19361 F DEBUG   : ABI: 'arm64'
+10-03 16:52:04.425 19361 19361 F DEBUG   : Timestamp: 2026-10-03 16:52:02.524063482-0500
+10-03 16:52:04.425 19361 19361 F DEBUG   : Process uptime: 13s
+10-03 16:52:04.425 19361 19361 F DEBUG   : Executable: /system/bin/app_process64
+10-03 16:52:04.425 19361 19361 F DEBUG   : Cmdline: com.intsig.camscanner:engine
+10-03 16:52:04.425 19361 19361 F DEBUG   : pid: 15917, tid: 18440, name: pool-4-thread-1  >>> com.intsig.camscanner:engine <<<
+10-03 16:52:04.425 19361 19361 F DEBUG   : uid: 10200
+10-03 16:52:04.425 19361 19361 F DEBUG   : tagged_addr_ctrl: 0000000000000001 (PR_TAGGED_ADDR_ENABLE)
+10-03 16:52:04.425 19361 19361 F DEBUG   : esr: 000000009200004f (Data Abort Exception 0x24)
+10-03 16:52:04.425 19361 19361 F DEBUG   : signal 11 (SIGSEGV), code 2 (SEGV_ACCERR), fault addr 0x000000737d52d000 (write)
+10-03 16:52:04.425 19361 19361 F DEBUG   :     x0  000000737d52d000  x1  b40000737f860400  x2  000000000079ec00  x3  000000737d52d000
+10-03 16:52:04.426 19361 19361 F DEBUG   :     x4  b40000737ffff000  x5  000000737dccbc00  x6  0000000000000000  x7  0000000000000003
+10-03 16:52:04.426 19361 19361 F DEBUG   :     x8  000000000079ec00  x9  00000000000004c8  x10 0000000000000002  x11 0000000000020002
+10-03 16:52:04.426 19361 19361 F DEBUG   :     x12 0000000000000e58  x13 0000000000000e59  x14 0000000000000000  x15 00000000000000ff
+10-03 16:52:04.426 19361 19361 F DEBUG   :     x16 0000007371d43518  x17 000000775c0a6800  x18 0000000000000004  x19 00000074bf7fa5f8
+10-03 16:52:04.426 19361 19361 F DEBUG   :     x20 b400007582a60a10  x21 00000074bf7f9d70  x22 0000000000000003  x23 0000000000000000
+10-03 16:52:04.426 19361 19361 F DEBUG   :     x24 0000000000000002  x25 00000074bf7fa480  x26 00000074bf7fb640  x27 0000000042ff0000
+10-03 16:52:04.426 19361 19361 F DEBUG   :     x28 00000074bf7fa438  x29 00000074bf7fa4f0
+10-03 16:52:04.426 19361 19361 F DEBUG   :     lr  0000007371810910  sp  00000074bf7f9d20  pc  000000775c0a6900  pst 0000000020001000
+10-03 16:52:04.426 19361 19361 F DEBUG   :     esr 000000009200004f
+10-03 16:52:04.426 19361 19361 F DEBUG   : 31 total frames
+10-03 16:52:04.426 19361 19361 F DEBUG   : backtrace:
+10-03 16:52:04.427 19361 19361 F DEBUG   :       #00 pc 0000000000066900  /apex/com.android.runtime/lib64/bionic/libc.so (__memcpy_aarch64_simd+256) (BuildId: 65f295eca3cef32923650f9f464bbefa)
+10-03 16:52:04.427 19361 19361 F DEBUG   :       #01 pc 000000000001090c  /data/app/~~AWqyfmJdiMfvIhbmSCSIYQ==/com.intsig.camscanner-GGIHzMF1M70ZEu_WJHEMBw==/lib/arm64/libmagicenhancer.so (Java_com_intsig_nativelib_MagicEnhancer_deshadowBitmap2+1412) (BuildId: 10547c3ffe2423ed6a08feb5d5fa4f7129bb94c6)
+10-03 16:52:04.427 19361 19361 F DEBUG   :       #02 pc 00000000002e9100  /apex/com.android.art/lib64/libart.so (art_quick_generic_jni_trampoline+144) (BuildId: 1ccc007706e8fe8920610268144d1834)
+10-03 16:52:04.427 19361 19361 F DEBUG   :       #03 pc 000000000066ec68  /apex/com.android.art/lib64/libart.so (nterp_helper+152) (BuildId: 1ccc007706e8fe8920610268144d1834)
+10-03 16:52:04.428 19361 19361 F DEBUG   :       #04 pc 000000000019219c  /data/app/~~AWqyfmJdiMfvIhbmSCSIYQ==/com.intsig.camscanner-GGIHzMF1M70ZEu_WJHEMBw==/base.apk (offset 0x48a6000) (com.intsig.camscanner.scanner.ScannerUtils.enhanceImage+336)
+10-03 16:52:04.428 19361 19361 F DEBUG   :       #05 pc 000000000066f3b4  /apex/com.android.art/lib64/libart.so (nterp_helper+2020) (BuildId: 1ccc007706e8fe8920610268144d1834)
+10-03 16:52:04.428 19361 19361 F DEBUG   :       #06 pc 0000000000192364  /data/app/~~AWqyfmJdiMfvIhbmSCSIYQ==/com.intsig.camscanner-GGIHzMF1M70ZEu_WJHEMBw==/base.apk (offset 0x48a6000) (com.intsig.camscanner.scanner.ScannerUtils.enhanceImageMultiProcess+0)
+10-03 16:52:04.428 19361 19361 F DEBUG   :       #07 pc 000000000066f3b4  /apex/com.android.art/lib64/libart.so (nterp_helper+2020) (BuildId: 1ccc007706e8fe8920610268144d1834)
+10-03 16:52:04.428 19361 19361 F DEBUG   :       #08 pc 00000000003af132  /data/app/~~AWqyfmJdiMfvIhbmSCSIYQ==/com.intsig.camscanner-GGIHzMF1M70ZEu_WJHEMBw==/base.apk (offset 0x383a000) (com.intsig.camscanner.imagescanner.ImageScannerEngine.Oooo8o0〇+18)
+10-03 16:52:04.428 19361 19361 F DEBUG   :       #09 pc 0000000000670228  /apex/com.android.art/lib64/libart.so (nterp_helper+5720) (BuildId: 1ccc007706e8fe8920610268144d1834)
+10-03 16:52:04.428 19361 19361 F DEBUG   :       #10 pc 00000000003af2fc  /data/app/~~AWqyfmJdiMfvIhbmSCSIYQ==/com.intsig.camscanner-GGIHzMF1M70ZEu_WJHEMBw==/base.apk (offset 0x383a000) (com.intsig.camscanner.imagescanner.ImageScannerEngine.〇O00+0)
+10-03 16:52:04.428 19361 19361 F DEBUG   :       #11 pc 000000000066f3b4  /apex/com.android.art/lib64/libart.so (nterp_helper+2020) (BuildId: 1ccc007706e8fe8920610268144d1834)
+10-03 16:52:04.428 19361 19361 F DEBUG   :       #12 pc 00000000003af054  /data/app/~~AWqyfmJdiMfvIhbmSCSIYQ==/com.intsig.camscanner-GGIHzMF1M70ZEu_WJHEMBw==/base.apk (offset 0x383a000) (com.intsig.camscanner.imagescanner.ImageScannerEngine.Oo08+0)
+10-03 16:52:04.428 19361 19361 F DEBUG   :       #13 pc 000000000066f3b4  /apex/com.android.art/lib64/libart.so (nterp_helper+2020) (BuildId: 1ccc007706e8fe8920610268144d1834)
+10-03 16:52:04.429 19361 19361 F DEBUG   :       #14 pc 00000000003aeb6c  /data/app/~~AWqyfmJdiMfvIhbmSCSIYQ==/com.intsig.camscanner-GGIHzMF1M70ZEu_WJHEMBw==/base.apk (offset 0x383a000) (com.intsig.camscanner.imagescanner.〇080.invoke+32)
+10-03 16:52:04.429 19361 19361 F DEBUG   :       #15 pc 0000000000670944  /apex/com.android.art/lib64/libart.so (nterp_helper+7540) (BuildId: 1ccc007706e8fe8920610268144d1834)
+10-03 16:52:04.429 19361 19361 F DEBUG   :       #16 pc 00000000003b0ac4  /data/app/~~AWqyfmJdiMfvIhbmSCSIYQ==/com.intsig.camscanner-GGIHzMF1M70ZEu_WJHEMBw==/base.apk (offset 0x383a000) (com.intsig.camscanner.imagescanner.ImageScannerEngine.〇00+24)
+10-03 16:52:04.429 19361 19361 F DEBUG   :       #17 pc 000000000066ec04  /apex/com.android.art/lib64/libart.so (nterp_helper+52) (BuildId: 1ccc007706e8fe8920610268144d1834)
+10-03 16:52:04.429 19361 19361 F DEBUG   :       #18 pc 00000000003b0a90  /data/app/~~AWqyfmJdiMfvIhbmSCSIYQ==/com.intsig.camscanner-GGIHzMF1M70ZEu_WJHEMBw==/base.apk (offset 0x383a000) (com.intsig.camscanner.imagescanner.ImageScannerEngine.〇o00〇〇Oo+0)
+10-03 16:52:04.429 19361 19361 F DEBUG   :       #19 pc 000000000066ec04  /apex/com.android.art/lib64/libart.so (nterp_helper+52) (BuildId: 1ccc007706e8fe8920610268144d1834)
+10-03 16:52:04.429 19361 19361 F DEBUG   :       #20 pc 00000000003aecf0  /data/app/~~AWqyfmJdiMfvIhbmSCSIYQ==/com.intsig.camscanner-GGIHzMF1M70ZEu_WJHEMBw==/base.apk (offset 0x383a000) (com.intsig.camscanner.imagescanner.o〇0.call+8)
+10-03 16:52:04.429 19361 19361 F DEBUG   :       #21 pc 0000000000215208  /system/framework/arm64/boot.oat (java.util.concurrent.FutureTask.run+184) (BuildId: f0ffd7f4fff892dc790372f6e040cf7681131a71)
+10-03 16:52:04.429 19361 19361 F DEBUG   :       #22 pc 0000000000220b98  /system/framework/arm64/boot.oat (java.util.concurrent.ThreadPoolExecutor.runWorker+968) (BuildId: f0ffd7f4fff892dc790372f6e040cf7681131a71)
+10-03 16:52:04.430 19361 19361 F DEBUG   :       #23 pc 0000000000225238  /system/framework/arm64/boot.oat (java.util.concurrent.ThreadPoolExecutor$Worker.run+56) (BuildId: f0ffd7f4fff892dc790372f6e040cf7681131a71)
+10-03 16:52:04.430 19361 19361 F DEBUG   :       #24 pc 00000000000a97f0  /system/framework/arm64/boot.oat (java.lang.Thread.run+64) (BuildId: f0ffd7f4fff892dc790372f6e040cf7681131a71)
+10-03 16:52:04.430 19361 19361 F DEBUG   :       #25 pc 00000000002d1d94  /apex/com.android.art/lib64/libart.so (art_quick_invoke_stub+612) (BuildId: 1ccc007706e8fe8920610268144d1834)
+10-03 16:52:04.430 19361 19361 F DEBUG   :       #26 pc 000000000026fce0  /apex/com.android.art/lib64/libart.so (art::ArtMethod::Invoke(art::Thread*, unsigned int*, unsigned int, art::JValue*, char const*)+220) (BuildId: 1ccc007706e8fe8920610268144d1834)
+10-03 16:52:04.430 19361 19361 F DEBUG   :       #27 pc 000000000049f0b0  /apex/com.android.art/lib64/libart.so (art::Thread::CreateCallback(void*)+1176) (BuildId: 1ccc007706e8fe8920610268144d1834)
+10-03 16:52:04.430 19361 19361 F DEBUG   :       #28 pc 000000000049ec08  /apex/com.android.art/lib64/libart.so (art::Thread::CreateCallbackWithUffdGc(void*)+8) (BuildId: 1ccc007706e8fe8920610268144d1834)
+10-03 16:52:04.430 19361 19361 F DEBUG   :       #29 pc 0000000000082a08  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*) (.__uniq.67847048707805468364044055584648682506)+236) (BuildId: 65f295eca3cef32923650f9f464bbefa)
+10-03 16:52:04.430 19361 19361 F DEBUG   :       #30 pc 000000000007552c  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+64) (BuildId: 65f295eca3cef32923650f9f464bbefa)
+10-03 17:56:23.669  3356  5098 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 5098 (Thread-16), pid 3356 (com.android.nfc)
+10-03 17:56:24.193 26273 26273 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-03 17:56:24.193 26273 26273 F DEBUG   : LineageOS Version: '23.2-20261002-UNOFFICIAL-rubyx'
+10-03 17:56:24.193 26273 26273 F DEBUG   : Build fingerprint: 'Redmi/ruby_global/ruby:14/UP1A.230620.001/OS2.0.11.0.UMOMIXM:user/release-keys'
+10-03 17:56:24.193 26273 26273 F DEBUG   : Kernel Release: '6.6.127-4k-ged71a8f07b9c-dirty'
+10-03 17:56:24.193 26273 26273 F DEBUG   : Revision: '0'
+10-03 17:56:24.193 26273 26273 F DEBUG   : ABI: 'arm64'
+10-03 17:56:24.193 26273 26273 F DEBUG   : Timestamp: 2026-10-03 17:56:23.803796943-0500
+10-03 17:56:24.193 26273 26273 F DEBUG   : Process uptime: 26096s
+10-03 17:56:24.193 26273 26273 F DEBUG   : Executable: /system/bin/app_process64
+10-03 17:56:24.193 26273 26273 F DEBUG   : Cmdline: com.android.nfc
+10-03 17:56:24.193 26273 26273 F DEBUG   : pid: 3356, tid: 5098, name: Thread-16  >>> com.android.nfc <<<
+10-03 17:56:24.193 26273 26273 F DEBUG   : uid: 1027
+10-03 17:56:24.193 26273 26273 F DEBUG   : tagged_addr_ctrl: 0000000000000001 (PR_TAGGED_ADDR_ENABLE)
+10-03 17:56:24.193 26273 26273 F DEBUG   : esr: 0000000092000006 (Data Abort Exception 0x24)
+10-03 17:56:24.193 26273 26273 F DEBUG   : signal 6 (SIGABRT), code -1 (SI_QUEUE), fault addr --------
+10-03 17:56:24.193 26273 26273 F DEBUG   :     x0  0000000000000000  x1  00000000000013ea  x2  0000000000000006  x3  00000074103fbb80
+10-03 17:56:24.193 26273 26273 F DEBUG   :     x4  00000074c0400008  x5  00000074c0400008  x6  00000074c0400008  x7  00000074c0400008
+10-03 17:56:24.193 26273 26273 F DEBUG   :     x8  00000000000000f0  x9  1fb889e5f8e055a6  x10 000000ff00000020  x11 0000000001ad0017
+10-03 17:56:24.193 26273 26273 F DEBUG   :     x12 0000000000000000  x13 b4000076529e3210  x14 00000074103fba48  x15 b400007652a14ad0
+10-03 17:56:24.193 26273 26273 F DEBUG   :     x16 000000775c128120  x17 000000775c110c40  x18 000000740d228040  x19 0000000000000d1c
+10-03 17:56:24.193 26273 26273 F DEBUG   :     x20 00000000000013ea  x21 00000000ffffffff  x22 b400007632a302b0  x23 00000074103fc640
+10-03 17:56:24.193 26273 26273 F DEBUG   :     x24 b400007692a29ff0  x25 000000741ab7bfcd  x26 00000074103fc640  x27 000000741a9834a8
+10-03 17:56:24.193 26273 26273 F DEBUG   :     x28 000000741a974e4c  x29 00000074103fbc00
+10-03 17:56:24.193 26273 26273 F DEBUG   :     lr  000000775c0b2344  sp  00000074103fbb80  pc  000000775c0b2368  pst 0000000000001000
+10-03 17:56:24.193 26273 26273 F DEBUG   :     esr 0000000092000006
+10-03 17:56:24.193 26273 26273 F DEBUG   : 11 total frames
+10-03 17:56:24.193 26273 26273 F DEBUG   : backtrace:
+10-03 17:56:24.193 26273 26273 F DEBUG   :       #00 pc 0000000000072368  /apex/com.android.runtime/lib64/bionic/libc.so (abort+156) (BuildId: 65f295eca3cef32923650f9f464bbefa)
+10-03 17:56:24.193 26273 26273 F DEBUG   :       #01 pc 000000000013349c  /apex/com.android.nfcservices/lib64/libnfc_nci_jni.so (android::nfaDeviceManagementCallback(unsigned char, tNFA_DM_CBACK_DATA*)+4800) (BuildId: ff8540ceafe8e51f89db6ea23b686aa5)
+10-03 17:56:24.193 26273 26273 F DEBUG   :       #02 pc 000000000015f090  /apex/com.android.nfcservices/lib64/libnfc_nci_jni.so (nfa_dm_nfc_response_cback(unsigned short, tNFC_RESPONSE*) (.llvm.10670855084338420379)+944) (BuildId: ff8540ceafe8e51f89db6ea23b686aa5)
+10-03 17:56:24.194 26273 26273 F DEBUG   :       #03 pc 000000000019e970  /apex/com.android.nfcservices/lib64/libnfc_nci_jni.so (nfc_ncif_cmd_timeout()+184) (BuildId: ff8540ceafe8e51f89db6ea23b686aa5)
+10-03 17:56:24.194 26273 26273 F DEBUG   :       #04 pc 00000000001a24f0  /apex/com.android.nfcservices/lib64/libnfc_nci_jni.so (nfc_ncif_proc_reset_rsp(unsigned char*, bool)+380) (BuildId: ff8540ceafe8e51f89db6ea23b686aa5)
+10-03 17:56:24.194 26273 26273 F DEBUG   :       #05 pc 00000000001a3330  /apex/com.android.nfcservices/lib64/libnfc_nci_jni.so (nci_proc_core_ntf(NFC_HDR*)+388) (BuildId: ff8540ceafe8e51f89db6ea23b686aa5)
+10-03 17:56:24.194 26273 26273 F DEBUG   :       #06 pc 000000000019f398  /apex/com.android.nfcservices/lib64/libnfc_nci_jni.so (nfc_ncif_process_event(NFC_HDR*)+944) (BuildId: ff8540ceafe8e51f89db6ea23b686aa5)
+10-03 17:56:24.194 26273 26273 F DEBUG   :       #07 pc 00000000001a4fb8  /apex/com.android.nfcservices/lib64/libnfc_nci_jni.so (nfc_task(unsigned int)+404) (BuildId: ff8540ceafe8e51f89db6ea23b686aa5)
+10-03 17:56:24.194 26273 26273 F DEBUG   :       #08 pc 00000000001e9b74  /apex/com.android.nfcservices/lib64/libnfc_nci_jni.so (gki_task_entry(void*)+108) (BuildId: ff8540ceafe8e51f89db6ea23b686aa5)
+10-03 17:56:24.194 26273 26273 F DEBUG   :       #09 pc 0000000000082a08  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*) (.__uniq.67847048707805468364044055584648682506)+236) (BuildId: 65f295eca3cef32923650f9f464bbefa)
+10-03 17:56:24.194 26273 26273 F DEBUG   :       #10 pc 000000000007552c  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+64) (BuildId: 65f295eca3cef32923650f9f464bbefa)

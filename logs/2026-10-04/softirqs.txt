@@ -1,0 +1,5 @@
+# collected: 2026-10-04T05:54:33Z
+# host: note12
+# cmd: cat /proc/softirqs
+
+cat: /proc/softirqs: Permission denied

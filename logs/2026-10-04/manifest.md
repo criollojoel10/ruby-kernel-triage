@@ -1,0 +1,31 @@
+# Collection manifest
+
+- host: note12
+- date (UTC): 2026-10-04T05:54:54Z
+- files:
+  - cmdline.txt (113 bytes)
+  - cpufreq.txt (594 bytes)
+  - dmesg-warn.txt (584 bytes)
+  - dmesg.txt (2150189 bytes)
+  - dumpsys-battery.txt (85 bytes)
+  - dumpsys-cpuinfo.txt (85 bytes)
+  - dumpsys-meminfo.txt (99 bytes)
+  - fp-hal.txt (988 bytes)
+  - fp-list.txt (216 bytes)
+  - fp-services.txt (103 bytes)
+  - fp-vendor.txt (557 bytes)
+  - interrupts.txt (119 bytes)
+  - kernel.txt (231 bytes)
+  - loadavg.txt (184 bytes)
+  - logcat-crash.txt (14772 bytes)
+  - logcat-errors.txt (469 bytes)
+  - logcat-events.txt (881761 bytes)
+  - logcat-main.txt (4618209 bytes)
+  - logcat-system.txt (12602644 bytes)
+  - meminfo.txt (1337 bytes)
+  - metadata.txt (6199 bytes)
+  - modules.txt (94 bytes)
+  - props-all.txt (45882 bytes)
+  - pstore.txt (91 bytes)
+  - softirqs.txt (115 bytes)
+  - thermal.txt (1427 bytes)

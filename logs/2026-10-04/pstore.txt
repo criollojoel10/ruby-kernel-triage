@@ -1,0 +1,4 @@
+# collected: 2026-10-04T05:54:30Z
+# host: note12
+# cmd: ls -la /sys/fs/pstore 2>/dev/null
+

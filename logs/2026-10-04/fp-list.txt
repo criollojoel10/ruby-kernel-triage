@@ -1,0 +1,5 @@
+# collected: 2026-10-04T05:54:40Z
+# host: note12
+# cmd: pm list features 2>/dev/null | grep -i fingerprint; pm list packages 2>/dev/null | grep -iE 'finger|biometric|goodix|fpc'
+
+feature:android.hardware.fingerprint

@@ -1,0 +1,12 @@
+# Large raw captures are kept, but temp/scratch is not.
+*.tmp
+*.log.gz
+
+# Never commit local secrets or copies of device identifiers.
+secrets/
+*.key
+.env*
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db

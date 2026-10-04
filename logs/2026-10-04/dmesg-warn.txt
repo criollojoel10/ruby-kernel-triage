@@ -1,0 +1,10 @@
+# collected: 2026-10-04T05:54:29Z
+# host: note12
+# cmd (root): dmesg -w 2>/dev/null | grep -iE 'error|fail|warn|denied|timeout|panic|oom' | tail -n 2000
+
+/data/data/com.termux/files/usr/bin/bash: line 1: warn: command not found
+/data/data/com.termux/files/usr/bin/bash: line 1: fail: command not found
+/data/data/com.termux/files/usr/bin/bash: line 1: denied: command not found
+/data/data/com.termux/files/usr/bin/bash: line 1: panic: command not found
+/data/data/com.termux/files/usr/bin/bash: line 1: oom | tail -n 2000: command not found
+Try 'timeout --help' for more information.

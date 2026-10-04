@@ -1,0 +1,4 @@
+# collected: 2026-10-04T05:54:52Z
+# host: note12
+# cmd: dumpsys cpuinfo 2>/dev/null
+

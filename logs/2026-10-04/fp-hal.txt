@@ -1,0 +1,13 @@
+# collected: 2026-10-04T05:54:41Z
+# host: note12
+# cmd: getprop | grep -iE 'finger|biometric|goodix|fpc' | sort
+
+[persist.vendor.sys.fp.vendor]: [goodix]
+[ro.build.fingerprint]: [Redmi/ruby_global/ruby:14/UP1A.230620.001/OS2.0.11.0.UMOMIXM:user/release-keys]
+[ro.build.version.preview_sdk_fingerprint]: [REL]
+[ro.odm.build.fingerprint]: [Redmi/ruby_global/ruby:14/UP1A.230620.001/OS2.0.11.0.UMOMIXM:user/release-keys]
+[ro.product.build.fingerprint]: [Redmi/ruby_global/ruby:14/UP1A.230620.001/OS2.0.11.0.UMOMIXM:user/release-keys]
+[ro.system.build.fingerprint]: [Redmi/ruby_global/ruby:14/UP1A.230620.001/OS2.0.11.0.UMOMIXM:user/release-keys]
+[ro.system_ext.build.fingerprint]: [Redmi/ruby_global/ruby:14/UP1A.230620.001/OS2.0.11.0.UMOMIXM:user/release-keys]
+[ro.vendor.build.fingerprint]: [Redmi/ruby_global/ruby:14/UP1A.230620.001/OS2.0.11.0.UMOMIXM:user/release-keys]
+[ro.vendor_dlkm.build.fingerprint]: [Redmi/ruby_global/ruby:14/UP1A.230620.001/OS2.0.11.0.UMOMIXM:user/release-keys]

@@ -1,0 +1,4 @@
+# collected: 2026-10-04T05:54:39Z
+# host: note12
+# cmd: dumpsys fingerprint 2>/dev/null | head -n 200
+

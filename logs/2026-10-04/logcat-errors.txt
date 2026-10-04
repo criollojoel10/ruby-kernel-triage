@@ -1,0 +1,8 @@
+# collected: 2026-10-04T05:54:50Z
+# host: note12
+# cmd (root): logcat -d -v threadtime | grep -iE ' E |error|exception|fatal|denied' | tail -n 3000
+
+/data/data/com.termux/files/usr/bin/bash: line 1: error: command not found
+/data/data/com.termux/files/usr/bin/bash: line 1: exception: command not found
+/data/data/com.termux/files/usr/bin/bash: line 1: fatal: command not found
+/data/data/com.termux/files/usr/bin/bash: line 1: denied | tail -n 3000: command not found
