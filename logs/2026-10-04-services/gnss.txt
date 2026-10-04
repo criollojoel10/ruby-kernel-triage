@@ -1,0 +1,4 @@
+/system/bin/sh: gps: inaccessible or not found
+/system/bin/sh: agps: inaccessible or not found
+/system/bin/sh: supl/p: inaccessible or not found
+sed: bad pattern '/gnss'@1 (/)

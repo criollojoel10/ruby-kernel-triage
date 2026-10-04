@@ -1,0 +1,92 @@
+=== POWER/THERMAL/HEALTH/VIBRATOR HAL ===
+FM    Y android.frameworks.sensorservice@1.0::ISensorManager/default                 0/5        1802   
+DM,FC Y vendor.mediatek.hardware.mtkpower@1.0::IMtkPerf/default                      0/1        1025   
+DM,FC Y vendor.mediatek.hardware.mtkpower@1.0::IMtkPower/default                     0/1        1025   
+DM,FC Y vendor.mediatek.hardware.mtkpower@1.1::IMtkPerf/default                      0/1        1025   
+DM,FC Y vendor.mediatek.hardware.mtkpower@1.1::IMtkPower/default                     0/1        1025   
+DM,FC N vendor.mediatek.hardware.mtkpower@1.2::IMtkPerf/default                      0/1        1025   
+DM,FC N vendor.mediatek.hardware.mtkpower@1.2::IMtkPower/default                     0/1        1025   
+
+=== GNSS props ===
+[init.svc.agpsd]: [running]
+[init.svc.vendor.gnss-default]: [running]
+[init.svc_debug_pid.agpsd]: [1266]
+[init.svc_debug_pid.vendor.gnss-default]: [985]
+[persist.sys.gps.lpp]: [2]
+[ro.boottime.agpsd]: [27068336924]
+[ro.boottime.vendor.gnss-default]: [24554479154]
+[ro.vendor.mtk_log_hide_gps]: [1]
+[vendor.debug.gps.mnld.ne]: [$PMTK842,1.0,51825560,0,1*1A
+[vendor.debug.gps.support.l5]: [1]
+[vendor.gps.clock.type]: [21]
+[vendor.gps.gps.version]: [0x6877]
+
+=== POWER SUPPLY detalle (todos) ===
+--- ac ---
+  type=Mains
+  online=0
+--- battery ---
+  type=Battery
+  status=Discharging
+  present=1
+  current_now=737000
+  voltage_now=3753000
+  constant_charge_current=12400000
+  charge_control_limit=0
+  charge_control_limit_max=16
+  thermal_limit_fcc=0
+  night_charging=0
+  input_suspend=0
+--- bbc ---
+  type=Unknown
+  online=1
+  current_now=0
+  voltage_now=0
+--- bms ---
+  type=Battery
+  current_now=745000
+  voltage_now=3739000
+--- charger ---
+  type=Unknown
+  online=0
+--- cp_master ---
+  type=Unknown
+  online=1
+  current_now=3
+  voltage_now=7
+--- cp_slave ---
+  type=Unknown
+  online=1
+  current_now=3
+  voltage_now=7
+--- primary_chg ---
+  type=Unknown
+  online=0
+  status=Not charging
+--- usb ---
+  type=Unknown
+  online=0
+  present=0
+  voltage_now=0
+  input_suspend=0
+
+=== charger nodes relacionados ===
+total 0
+drwxr-xr-x 4 root root    0 2026-10-03 10:40 .
+drwxr-xr-x 5 root root    0 2026-10-03 10:40 ..
+-r--r--r-- 1 root root 4096 2026-10-04 01:51 charge_type
+lrwxrwxrwx 1 root root    0 2026-10-04 01:51 device -> ../../../mt_charger
+-r--r--r-- 1 root root 4096 2026-10-04 01:51 online
+drwxr-xr-x 2 root root    0 2026-10-04 01:51 power
+lrwxrwxrwx 1 root root    0 2026-10-04 01:51 subsystem -> ../../../../../class/power_supply
+-r--r--r-- 1 root root 4096 2026-10-03 23:57 type
+-rw-r--r-- 1 root root 4096 2026-10-04 01:51 uevent
+
+=== thermal zones: throttle ===
+mtktsbattery=32300
+mtktsAP=41006
+mtktspa=50000
+mtktsbtsmdpa=37606
+battery=32300
+mtktscharger=30000
+mtktscpu=49720
