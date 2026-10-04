@@ -1,0 +1,45 @@
+### dmesg: lineas del servicio fingerprint/goodix/fps ###
+[ 1078.320046] [goodixFP] gf_irq, 866, enter
+[ 1078.320689] [goodixFP] [gf_netlink_send] : enter, send command 1
+[ 1078.321577] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[ 1078.322556] [goodixFP] gf_irq, 883, exit
+[ 1078.339821] [goodixFP] gf_irq, 866, enter
+[ 1078.340464] [goodixFP] [gf_netlink_send] : enter, send command 1
+[ 1078.341356] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[ 1078.342411] [goodixFP] gf_irq, 883, exit
+[ 1078.359535] [goodixFP] gf_irq, 866, enter
+[ 1078.360199] [goodixFP] [gf_netlink_send] : enter, send command 1
+[ 1078.361088] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[ 1078.362089] [goodixFP] gf_irq, 883, exit
+[ 1078.379077] [goodixFP] gf_irq, 866, enter
+[ 1078.379719] [goodixFP] [gf_netlink_send] : enter, send command 1
+[ 1078.380638] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[ 1078.381737] [goodixFP] gf_irq, 883, exit
+[ 1078.398785] [goodixFP] gf_irq, 866, enter
+[ 1078.399430] [goodixFP] [gf_netlink_send] : enter, send command 1
+[ 1078.400322] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[ 1078.401261] [goodixFP] gf_irq, 883, exit
+[ 1078.418468] [goodixFP] gf_irq, 866, enter
+[ 1078.419108] [goodixFP] [gf_netlink_send] : enter, send command 1
+[ 1078.420001] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[ 1078.420942] [goodixFP] gf_irq, 883, exit
+[ 1078.438146] [goodixFP] gf_irq, 866, enter
+[ 1078.438823] [goodixFP] [gf_netlink_send] : enter, send command 1
+[ 1078.439733] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[ 1078.440673] [goodixFP] gf_irq, 883, exit
+[ 1078.457828] [goodixFP] gf_irq, 866, enter
+[ 1078.459823] [goodixFP] [gf_netlink_send] : enter, send command 1
+[ 1078.460717] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[ 1078.461713] [goodixFP] gf_irq, 883, exit
+[ 1078.477508] [goodixFP] gf_irq, 866, enter
+[ 1078.478285] [goodixFP] [gf_netlink_send] : enter, send command 1
+[ 1078.479192] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[ 1078.480156] [goodixFP] gf_irq, 883, exit
+[ 1078.497202] [goodixFP] gf_irq, 866, enter
+[ 1078.497899] [goodixFP] [gf_netlink_send] : enter, send command 1
+[ 1078.498792] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[ 1078.499732] [goodixFP] gf_irq, 883, exit
+
+### dmesg: avc denials fingerprint ###
+
+### logcat: lineas del vendor.fps_hal / HAL fingerprint (buffer todo) ###

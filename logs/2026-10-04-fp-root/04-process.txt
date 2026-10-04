@@ -1,0 +1,27 @@
+### ps del proceso vendor.fps_hal (pid) ###
+  987 system       android.hardware.sensors-service.xiaomi-multihal android.hardware.sensors-service.xiaomi-multihal
+ 1331 system       android.hardware.biometrics.fingerprint@2.3-service.xiaomi android.hardware.biometrics.fingerprint@2.3-service.xiaomi
+27758 system       co.aospa.dolby.xiaomi       co.aospa.dolby.xiaomi
+28069 u0_a187      com.xiaomi.wearable:device  com.xiaomi.wearable:device
+29093 u0_a187      com.xiaomi.wearable         com.xiaomi.wearable
+29173 u0_a187      com.xiaomi.wearable:persistent com.xiaomi.wearable:persistent
+
+### /proc/PID/cmdline y environ simplificado ###
+PID=1331
+/vendor/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.xiaomi 
+--- status ---
+Name:	android.hardwar
+State:	S (sleeping)
+Pid:	1331
+PPid:	1
+Uid:	1000	1000	1000	1000
+
+### ls /dev/hwbinder (existe?) ###
+lrwxrwxrwx 1 root root 22 2026-10-04 12:11 /dev/hwbinder -> /dev/binderfs/hwbinder
+
+### listar servicios en hwservicemanager ###
+lrwxrwxrwx 1 root root 20 2026-10-04 12:11 /dev/binder -> /dev/binderfs/binder
+lrwxrwxrwx 1 root root 23 2026-10-04 12:11 /dev/vndbinder -> /dev/binderfs/vndbinder
+60	auth: [android.hardware.biometrics.IAuthService]
+69	biometric: [android.hardware.biometrics.IBiometricService]
+111	fingerprint: [android.hardware.fingerprint.IFingerprintService]

@@ -1,0 +1,22 @@
+### ls /vendor/etc/init | grep -i finger ###
+-rw-r--r--  1 root root  u:object_r:vendor_configs_file:s0    340 2008-12-31 19:00 android.hardware.biometrics.fingerprint@2.3-service.xiaomi.rc
+
+### contenido de los .rc encontrados ###
+--- /vendor/etc/init/android.hardware.biometrics.fingerprint@2.3-service.xiaomi.rc ---
+service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.xiaomi
+    # "class hal" causes a race condition on some devices due to files created
+    # in /data. As a workaround, postpone startup until later in boot once
+    # /data is mounted.
+    class late_start
+    user system
+    group system input uhid
+
+--- /vendor/etc/init/android.hardware.biometrics.fingerprint@2.3-service.xiaomi.rc ---
+service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.xiaomi
+    # "class hal" causes a race condition on some devices due to files created
+    # in /data. As a workaround, postpone startup until later in boot once
+    # /data is mounted.
+    class late_start
+    user system
+    group system input uhid
+

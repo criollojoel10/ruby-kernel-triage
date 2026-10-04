@@ -1,0 +1,12 @@
+### ls -laZ /vendor/bin/hw | grep -iE finger|biometric ###
+-rwxr-xr-x 1 root shell u:object_r:hal_fingerprint_default_exec:s0           27528 2008-12-31 19:00 android.hardware.biometrics.fingerprint@2.3-service.xiaomi
+
+### file del binario (existe?) ###
+-rwxr-xr-x 1 root shell 27528 2008-12-31 19:00 /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.xiaomi
+
+### init.svc.vendor.fps_hal y relacionados ###
+[init.svc.vendor.fps_hal]: [running]
+[init.svc_debug_pid.vendor.fps_hal]: [1331]
+
+### lshal: interfaces fingerprint/biometric ###
+(lshal sin entradas)

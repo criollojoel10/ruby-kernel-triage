@@ -1,0 +1,9 @@
+### user (sin su) ###
+uid=10199(u0_a199) gid=10199(u0_a199) groups=10199(u0_a199),1077(external_storage),1079(ext_obb_rw),3003(inet),9997(everybody),20199(u0_a199_cache),50199(all_a199) context=u:r:untrusted_app_27:s0:c199,c256,c512,c768
+### su -c id ###
+uid=0(root) gid=0(root) groups=0(root) context=u:r:ksu:s0
+ENFORCE=Enforcing
+UID0=0
+### build/kernel ###
+BP4A.251205.006
+6.6.127-4k-ged71a8f07b9c-dirty
