@@ -22,7 +22,7 @@
    but does NOT register** (only 1.0/1.1 do). Performance/power-impacting
    inconsistency. See §3.
 
-## 1. Fingerprint — corrected root cause **[V]**
+## 1. Fingerprint — root cause UNKNOWN (previous theory retracted) **[?]**
 
 `device.mk` (branch `lineage-23.2`):
 
@@ -33,30 +33,33 @@
 250: .../android.hardware.fingerprint.xml  (feature declared)
 ```
 
-- The tree **ships a HIDL `@2.3`** fingerprint service and an
-  `init.fingerprint.rc`. **[V]**
+- The tree ships a HIDL `@2.3` fingerprint service and an `init.fingerprint.rc`. **[V]**
 - The running system requests
   `android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default`
-  (180× in dmesg). **[V]**
-- **A `@2.3` service does not satisfy a `@2.1` client** (`@2.3` is not
-  interface-compatible with the `@2.1` `IBiometricsFingerprint` FQN the
-  biometric service looks up). → `Fingerprint HAL not available`. **[I, high
-  confidence]**
-- There is a commit **"Move to Xiaomi fingerprint AIDL"** in the device tree,
-  and LineageOS `hardware/xiaomi` **already has the AIDL implementation**
-  (`aidl/fingerprint/`, `android.hardware.biometrics.fingerprint-service.xiaomi.rc/.xml`).
-  But that migration is **not on the `lineage-23.2` branch the device runs**. **[V]**
+  (180× in dmesg) and the bind fails (`Fingerprint HAL not available`, `HIDL
+  daemon is null`). **[V]**
 
-### Fix options
+**Retracted:** the claim that "`@2.3` cannot serve `@2.1`" is **false**. HIDL
+interfaces inherit across minor versions — `@2.3` extends `@2.2` extends `@2.1`
+— so an `@2.3` implementation **does** satisfy an `@2.1` lookup. Source: AOSP
+"Interfaces and packages", *Interface inheritance*:
+<https://source.android.com/docs/core/architecture/hidl/interfaces> **[V]**
 
-| Option | Action | Notes |
-|--------|--------|-------|
-| **A (recommended)** | Apply the "Move to Xiaomi fingerprint AIDL" commit on `lineage-23.2` | Aligns with Android 16 AIDL-first; uses existing LineageOS code |
-| B | Patch `manifest.xml`/`init.fingerprint.rc` to serve `@2.1` (or make the client accept `@2.3`) | Quick hack; fights the platform direction |
-| C | Add the AIDL `fingerprint-service.xiaomi` + its `init` rc + VINTF xml | Same as A, done by hand |
+Why the earlier evidence was weak:
+- The `dumpsys` runs were **unprivileged**, so errors were suppressed and an
+  empty `dumpsys fingerprint` does not prove the HAL is absent. **[I]**
+- The logs show the **symptom** (no binder) but not the **cause** — no `init`
+  failure line for the specific `.rc`, no AVC denial, no daemon crash captured.
 
-**Verify after fix:** `dumpsys fingerprint` shows a sensor; logcat loses
-`HIDL daemon is null`; Settings shows "Add fingerprint".
+### What would move this forward
+
+1. Re-collect **with root**: `dmesg`, logcat, `lshal`.
+2. On-device: `cat /vendor/etc/init/android.hardware.biometrics.fingerprint*`,
+   `ls -laZ /vendor/bin/hw/` — is the service declared? disabled? errored?
+3. `dmesg | grep -i avc`, `logcat | grep -i avc` around boot.
+4. Manually `setprop ctl.start <service>` and capture the exact error.
+
+**No fix can be recommended until the start-failure reason is captured.**
 
 ## 2. Service states **[V]**
 
@@ -109,7 +112,7 @@ must be corrected to declare the versions actually implemented (1.1).
 
 | # | Improvement | Basis | Priority | Risk |
 |---|-------------|-------|----------|------|
-| S1 | **Fingerprint HIDL→AIDL** | `device.mk` @2.3 vs client @2.1; LineageOS AIDL code exists | **High** | Low |
+| S1 | **Fingerprint: capture the start-failure reason with root** | service declared but never registers; cause unknown | **High** | Low |
 | S2 | **Fix/correct `mtkpower@1.2` VINTF** | manifest vs runtime mismatch | Med | Low |
 | S3 | **Disable unused/debug services** | AOSP/LineageOS defaults | Low | Low |
 | S4 | **Verify radio/telephony with a call test** | not yet tested | Med | Low |

@@ -1,143 +1,101 @@
-# ISSUE-001 — No fingerprint unlock option (PIN/pattern only)
+# ISSUE-001 — Fingerprint unlock not working
 
-- **Severity:** High (security/Ux feature missing)
-- **Status:** Investigating — root cause identified from logs, fix not yet applied
-- **Collected:** 2026-10-04, `logs/2026-10-04/`
-- **Related files:** `fp-services.txt`, `fp-list.txt`, `fp-hal.txt`,
-  `fp-vendor.txt`, `logcat-system.txt`, `dmesg.txt`
+- Status: **open, root cause UNKNOWN**
+- Device: `ruby` (MT6877V), LineageOS 23.2, kernel 6.6.127
+- Evidence: `logs/2026-10-04/fp-*.txt`, `logs/2026-10-04/dmesg.txt`,
+  `logs/2026-10-04/logcat-system.txt`
+- Legend: **[V]** verified · **[I]** inferred · **[?]** unknown
 
 ## Symptom
 
-The device has no way to enroll a fingerprint. Settings shows only PIN,
-pattern and password options; there is no "Add fingerprint" entry, so
-fingerprint unlock cannot be configured at all.
+No fingerprint enrollment possible ("Add fingerprint" absent in Settings). The
+feature is advertised (`feature:android.hardware.fingerprint` **[V]**), the
+sensor vendor prop is set (`persist.vendor.sys.fp.vendor=goodix` **[V]**), but
+`dumpsys fingerprint` returns **empty** and every HAL bind fails.
 
-## Evidence
+## Evidence (what the logs actually show) **[V]**
 
-### 1. The feature is advertised
-
-`fp-list.txt`:
-
-```
-feature:android.hardware.fingerprint
-```
-
-So the platform believes the hardware feature exists.
-
-### 2. The vendor HAL binaries exist
-
-`fp-vendor.txt`:
+`logcat-system.txt` — repeated in a tight loop:
 
 ```
-fingerprint.fpc.default.so   -> /vendor/lib64/hw/fingerprint.fpc_isee.so
-fingerprint.fpc_isee.so      (?)
-fingerprint.goodix.default.so -> /vendor/lib64/hw/fingerprint.goodix.so
-fingerprint.goodix.so        (?)
-```
-
-The device's real sensor is Goodix (`persist.vendor.sys.fp.vendor=goodix`),
-and `fingerprint.goodix.so` is present.
-
-### 3. The kernel driver works and is actively talking
-
-`dmesg.txt` shows the Goodix kernel driver firing constantly:
-
-```
-[51152.742368] [goodixFP] [gf_netlink_send] : enter, send command 1
-[51152.743315] [goodixFP] [gf_netlink_send] : send done, data length is 32
-[51152.744250] [goodixFP] gf_irq, 883, exit
-[51152.761391] [goodixFP] gf_irq, 866, enter
-```
-
-So the sensor, IRQ line and netlink channel to userspace are **alive**. This is
-not a hardware problem.
-
-### 4. But the framework cannot reach the HAL
-
-`logcat-system.txt`:
-
-```
+W HidlToAidlSensorAdapter: NoSuchElementException
 W HidlToAidlSensorAdapter: Fingerprint HAL not available
+E HidlToAidlSessionAdapter: Unable to set HIDL callback. HIDL daemon is null.
 E FingerprintUpdateActiveUserClient: Failed to setActiveGroup: HIDL daemon is null.
 ```
 
-And `dumpsys fingerprint` returns **empty** (`fp-services.txt`), meaning the
-biometric service has no registered sensor.
-
-## Analysis
-
-Two independent things are true at once:
-
-- **Kernel/driver layer:** healthy. Goodix driver probes, receives IRQs, and
-  exchanges netlink messages.
-- **Framework layer:** broken. The biometrics system service tries to bind the
-  **HIDL** `android.hardware.biometrics.fingerprint@2.1` interface, gets
-  nothing, and reports `HIDL daemon is null`. The sensor is never registered,
-  so Settings never offers enrollment.
-
-The log tag `HidlToAidlSensorAdapter` is the smoking gun: LineageOS 23.2
-(Android 16) ships a **biometric AIDL** stack, and the legacy **HIDL** HAL for
-this device is not being bridged. The `HidlToAidlSensorAdapter` is supposed to
-wrap the old HIDL HAL into the new AIDL service — it fails because the HIDL
-daemon is not running / not declared.
-
-## Root cause — a HIDL VERSION MISMATCH (confirmed)
-
-**Confirmed [V]:** the device tree `device.mk` (branch `lineage-23.2`) installs
-an **`@2.3`** service:
+`dmesg.txt` — repeated 180 times, exactly:
 
 ```
-141: # Fingerprint
-143:     android.hardware.biometrics.fingerprint@2.3-service.xiaomi
-168:     init.fingerprint.rc
+init: Control message: Could not find
+'android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default'
+for ctl.interface_start from pid: 536 (/system/system_ext/bin/hwservicemanager)
 ```
 
-But the framework requests **`@2.1`**:
+`fp-vendor.txt` — the vendor blobs are present as **HAL implementation modules**
+(`.so`), not as a standalone service binary:
 
 ```
-android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default
+/vendor/lib64/hw/fingerprint.goodix.default.so -> fingerprint.goodix.so
+/vendor/lib64/hw/fingerprint.fpc.default.so    -> fingerprint.fpc_isee.so
 ```
 
-A `@2.3` service does **not** satisfy a `@2.1` client lookup (the FQN differs),
-so `hwservicemanager`/init never resolve it → `Fingerprint HAL not available` →
-`HIDL daemon is null` → no enrollment in Settings. **[V + I, high confidence]**
+## What is established so far
 
-Additional facts **[V]**:
-- The device tree has a commit **"Move to Xiaomi fingerprint AIDL"** and
-  LineageOS `hardware/xiaomi` **already ships the AIDL implementation**
-  (`aidl/fingerprint/android.hardware.biometrics.fingerprint-service.xiaomi.*`),
-  but that migration is **not on the branch the device runs**.
-- `fp-vendor.txt` shows the Goodix `.so` files but **no** `@2.1` service binary.
+1. **The HAL binder is never registered.** `hwservicemanager` asks init to start
+   `android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default`
+   and init fails to find it. **[V]**
+2. **Vendor blobs exist** (`fingerprint.goodix.so`, `fpc` variant) and the device
+   tree ships an `@2.3` HIDL service
+   (`android.hardware.biometrics.fingerprint@2.3-service.xiaomi` in `device.mk`
+   line 143). **[V]**
+3. **Both Goodix and FPC drivers are enabled in the kernel**, including in the
+   build running here (per maintainer Aerons). So this is **not** a missing
+   variant/driver support problem. **[V, external confirmation]**
 
-## Fix proposal
+## Retracted hypothesis (was wrong)
 
-**Recommended (A):** apply the "Move to Xiaomi fingerprint AIDL" migration on the
-`lineage-23.2` branch — it aligns with Android 16's AIDL-first biometric stack
-using the AIDL code already present in LineageOS `hardware/xiaomi`. **[V]**
+❌ **"A `@2.3` service cannot serve a `@2.1` client."** This was asserted in an
+earlier revision of this issue. **It is false.** HIDL interfaces **inherit**
+across minor versions — `@2.3` extends `@2.2` extends `@2.1`, so an `@2.3`
+implementation **does** satisfy an `@2.1` lookup. Source: AOSP, "Interfaces and
+packages", *Interface inheritance*:
+<https://source.android.com/docs/core/architecture/hidl/interfaces>
 
-**Alternatives:**
-- (B) Make the tree serve `@2.1` (patch `manifest.xml` + `init.fingerprint.rc`).
-  Quick, but fights the platform direction.
-- (C) Add the AIDL `fingerprint-service.xiaomi` + its `init` rc + VINTF xml by
-  hand (same result as A).
+> "An interface can be an extension of a previously-defined interface. … Each
+> interface in a package with a non-zero minor version number must extend an
+> interface in the previous version of the package."
 
-**Steps:**
-1. Diff the "Move to Xiaomi fingerprint AIDL" commit fully (it may touch
-   `device.mk`, VINTF and init, not just `device.mk`).
-2. Apply on `lineage-23.2`, rebuild.
-3. Cross-check against a device whose Goodix sensor works on Android 16 AIDL.
+The version-mismatch theory is therefore **discarded**. The real reason the
+service is not found/started is still **unknown** at this layer. **[?]**
 
-See `docs/08-services-audit.md` §1 for the full analysis.
+## Why the earlier evidence was weaker than claimed
 
-## How other devices solved it
+- The `dumpsys` commands were run **without root**, so errors were silently
+  suppressed and `dumpsys fingerprint` came back empty for that reason too — not
+  necessarily because the HAL is absent. **[I, maintainer note]**
+- `dmesg`/`logcat` show the *symptom* (no binder) but **not the reason** the
+  service fails to start (no `init` failure line for the specific `.rc`, no
+  SELinux denial, no crash of the daemon captured).
 
-- Many MTK devices with Goodix sensors on Android 13+ needed the fingerprint
-  HAL converted from HIDL to AIDL, or the vendor HIDL service declared in
-  `vendor/etc/init/`. See `docs/references.md` for concrete examples to audit.
+## Next steps (what would actually move this)
 
-## Verification plan
+1. **Re-collect with root** (`adb root` / `su`): `dmesg`, logcat, and `lshal` —
+   so suppressed errors surface.
+2. **Inspect the vendor init `.rc`** on-device:
+   `cat /vendor/etc/init/android.hardware.biometrics.fingerprint*` and
+   `ls -laZ /vendor/bin/hw/` — check the service is declared, `class hal`, and
+   whether it is **disabled** or **errored at start**.
+3. **Check for SELinux denials**: `dmesg | grep -i avc` and
+   `logcat | grep -i avc` around boot.
+4. **Try starting it manually** and read the exact error:
+   `setprop ctl.start android.hardware.biometrics.fingerprint@2.3-service.xiaomi`
+   (or `@2.1` equivalent) and capture stderr.
+5. Collect `lshal` full output to see whether the interface is listed as
+   declared-but-not-registered.
+6. Compare against a device where Goodix works on the same MTK + AIDL stack.
 
-- After a fix: `dumpsys fingerprint` should show a registered sensor.
-- `logcat` should lose `Fingerprint HAL not available`.
-- Settings should show "Add fingerprint".
-- Kernel side already works, so no driver change is expected.
+## Fix
+
+**Not determined yet.** Do not ship a fix until the start-failure reason is
+captured with root. See `docs/08-services-audit.md` §1.
