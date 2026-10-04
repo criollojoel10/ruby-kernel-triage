@@ -85,9 +85,11 @@ This is **not one bug** — it is at least three stacked effects:
    `ahb_apb_timeout` storms add overhead and obscure real faults.
 
 The `Cache flush buffer fail, iova = ...` messages are the most suspicious:
-they point at the **GPU/IOMMU (Mali-G68)** cache-coherency path and appear
-thousands of times. If the GPU driver is mis-flushing caches, rendering jank
-follows.
+**they come from the MediaTek video codec**
+(`drivers/media/platform/mtk-vcu/mtk_vcodec_mem.c`), on the `dma_buf` cache-flush
+path — **not** from the GPU. They appear ~1 219 times in a 91 s window
+(~13/s). A stale/unmapped dma-buf attachment is being flushed and the call fails.
+See `docs/04-kernel-gpu-audit.md` §2 for the source-level confirmation.
 
 ## Root cause / hypothesis
 
@@ -95,19 +97,23 @@ follows.
   `binder space running out` kills. *Fix direction:* tune LMKD/frozen-process
   limits, reduce `MAX_CACHED_PROCESSES`, or check for a memory leak in a vendor
   daemon.
-- **H2 (cpufreq):** the governor may be missing/misconfigured. *Confirm with a
-  load test* (`scaling_governor`, `scaling_cur_freq` under load).
-- **H3 (GPU cache):** `Cache flush buffer fail` indicates a Mali/IOMMU
-  coherency bug in the 6.6 kernel GPU driver. *Fix direction:* audit the
-  Mali kbase (`kbase_mmu` / cache maintenance) against a known-good tree.
-- **H4 (logging):** rate-limit or silence the noisy `wlan`/`CONN_BUS` messages.
+- **H2 (cpufreq):** ~~the governor may be missing/misconfigured.~~ **Disproved
+  [V]:** governors `schedutil/performance/conservative/powersave` are present and
+  cores observed scaling to 1.26/1.54 GHz and up to 2.0 GHz. The earlier
+  "900 MHz" reading was an idle sample. Remaining work is *tuning* schedutil,
+  not fixing a stuck clock.
+- **H3 (codec cache flush):** `Cache flush buffer fail` is the **video codec**
+  (`mtk_vcodec_mem.c`) failing a `dma_buf` cache flush, ~13/s. *Fix:* guard the
+  flush against unmapped attachments or demote the log. See `docs/04`.
+- **H4 (logging):** rate-limit or silence the noisy `wlan`/`CONN_BUS`/`goodixFP`
+  messages (29 971 dmesg lines in 91 s).
 
 ## Fix proposal (ordered)
 
-1. **Measure, don't guess:** capture `scaling_cur_freq` and `scaling_governor`
-   for all cores *while a heavy task runs*, plus `psi` pressure. Confirm H2.
-2. **Quantify GPU noise:** count `Cache flush buffer fail` per minute; correlate
-   with `dumpsys gfxinfo` jank frames.
+1. **Measure, don't guess:** ~~capture `scaling_cur_freq` ...~~ **done** — CPU
+   scaling works (H2 disproved).
+2. **Quantify codec noise:** count `Cache flush buffer fail` per minute;
+   correlate with video playback / `dumpsys gfxinfo` jank frames.
 3. **Memory:** record per-process RSS (`dumpsys meminfo`) to find the hog.
 4. Only then choose fixes; do not tune blindly.
 
