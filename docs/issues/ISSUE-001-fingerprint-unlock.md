@@ -81,36 +81,53 @@ this device is not being bridged. The `HidlToAidlSensorAdapter` is supposed to
 wrap the old HIDL HAL into the new AIDL service — it fails because the HIDL
 daemon is not running / not declared.
 
-## Root cause / hypothesis
+## Root cause — a HIDL VERSION MISMATCH (confirmed)
 
-**Hypothesis (high confidence):** the vendor fingerprint HAL is a **HIDL 2.1**
-daemon, but it is either:
+**Confirmed [V]:** the device tree `device.mk` (branch `lineage-23.2`) installs
+an **`@2.3`** service:
 
-1. **not being started** by `init` (missing/incorrect entry in the vendor
-   `init.rc` or a `.rc` not copied for this ROM), or
-2. **declared only for the wrong interface** — the device tree ships
-   `android.hardware.biometrics.fingerprint@2.1-service` but the framework now
-   binds via AIDL `android.hardware.biometrics.fingerprint.IFingerprint`, or
-3. the **Goodix userspace daemon** (`vendor.goodix` fingerprint service) is
-   missing from `/vendor/bin/hw/` (only the `.so` is there).
+```
+141: # Fingerprint
+143:     android.hardware.biometrics.fingerprint@2.3-service.xiaomi
+168:     init.fingerprint.rc
+```
 
-Note: `fp-vendor.txt` lists the `.so` files but **no** `android.hardware.
-biometrics.fingerprint@2.1-service*` binary. That is the prime suspect.
+But the framework requests **`@2.1`**:
+
+```
+android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default
+```
+
+A `@2.3` service does **not** satisfy a `@2.1` client lookup (the FQN differs),
+so `hwservicemanager`/init never resolve it → `Fingerprint HAL not available` →
+`HIDL daemon is null` → no enrollment in Settings. **[V + I, high confidence]**
+
+Additional facts **[V]**:
+- The device tree has a commit **"Move to Xiaomi fingerprint AIDL"** and
+  LineageOS `hardware/xiaomi` **already ships the AIDL implementation**
+  (`aidl/fingerprint/android.hardware.biometrics.fingerprint-service.xiaomi.*`),
+  but that migration is **not on the branch the device runs**.
+- `fp-vendor.txt` shows the Goodix `.so` files but **no** `@2.1` service binary.
 
 ## Fix proposal
 
-1. **Confirm which HAL the ROM ships.** On device:
-   `ls -la /vendor/bin/hw/ | grep -i fingerprint` and
-   `getprop | grep -iE 'fingerprint|biometric'`.
-2. If the device tree declares a **HIDL** HAL, check the vendor `.rc` /
-   `manifest.xml` (in the device tree at `rubyx-devs/device_xiaomi_rubyx`):
-   - Ensure `android.hardware.biometrics.fingerprint@2.1-service` is built and
-     installed to `/vendor/bin/hw/`.
-   - Ensure its `init` service is `class hal` and `user system`.
-3. If the ROM is expected to use an **AIDL** HAL, add the AIDL fingerprint
-   service or ensure `HidlToAidlSensorAdapter` can bind the HIDL daemon.
-4. Cross-check against a device whose Goodix sensor works on the same stack
-   (see `docs/references.md`).
+**Recommended (A):** apply the "Move to Xiaomi fingerprint AIDL" migration on the
+`lineage-23.2` branch — it aligns with Android 16's AIDL-first biometric stack
+using the AIDL code already present in LineageOS `hardware/xiaomi`. **[V]**
+
+**Alternatives:**
+- (B) Make the tree serve `@2.1` (patch `manifest.xml` + `init.fingerprint.rc`).
+  Quick, but fights the platform direction.
+- (C) Add the AIDL `fingerprint-service.xiaomi` + its `init` rc + VINTF xml by
+  hand (same result as A).
+
+**Steps:**
+1. Diff the "Move to Xiaomi fingerprint AIDL" commit fully (it may touch
+   `device.mk`, VINTF and init, not just `device.mk`).
+2. Apply on `lineage-23.2`, rebuild.
+3. Cross-check against a device whose Goodix sensor works on Android 16 AIDL.
+
+See `docs/08-services-audit.md` §1 for the full analysis.
 
 ## How other devices solved it
 
