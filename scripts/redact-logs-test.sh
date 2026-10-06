@@ -172,6 +172,38 @@ else
 fi
 rm -f "$work/capture/scan-probe.txt"
 
+# 5b. A device-tree dump must be redacted like any other capture. The file-name
+#     filter used to accept only *.txt/*.md, so a decompiled .dts under logs/
+#     was skipped while still reporting "clean" — and its bootargs carries the
+#     real androidboot.serialno and chipid. Verified 2026-10-06.
+printf 'chosen@0 {\n\tbootargs = "androidboot.serialno=vsqkkfojvsin6xor androidboot.chipid=0x15274aa8af239568c4238d554bf418b9";\n\tcompatible = "mediatek,mt6877-pwrap";\n};\n' >"$work/capture/ruby-fdt.dts"
+out=$(bash "$REDACT" "$work/capture" 2>&1)
+if grep -qE 'vsqkkfojvsin6xor|0x15274aa8af239568c4238d554bf418b9' "$work/capture/ruby-fdt.dts" 2>/dev/null; then
+  note "leak removed: .dts bootargs" "FAIL (device tree kept a real serial/chipid)"
+  fail=1
+elif ! grep -q 'mediatek,mt6877-pwrap' "$work/capture/ruby-fdt.dts" 2>/dev/null; then
+  note "leak removed: .dts bootargs" "FAIL (redaction ate the binding evidence)"
+  fail=1
+else
+  note "leak removed: .dts bootargs" "ok"
+  note "evidence kept: mt6877-pwrap compatible" "ok"
+fi
+rm -f "$work/capture/ruby-fdt.dts"
+
+# 5c. A binary .dtb cannot be redacted with sed without corrupting the FDT
+#     string block (rewriting a value to a different length breaks the offsets
+#     that point at it). It must be refused loudly, never reported clean.
+printf '\xd0\x0d\xfe\xed\x00\x00\x04\x4b\x70wrap\x00serialno=vsqkkfojvsin6xor\x00' >"$work/capture/ruby-fdt.dtb"
+out=$(bash "$REDACT" "$work/capture" 2>&1)
+if printf '%s' "$out" | grep -q 'BINARY FILE NOT REDACTED.*ruby-fdt\.dtb'; then
+  note "binary .dtb refused, not silently skipped" "ok"
+else
+  note "binary .dtb refused, not silently skipped" "FAIL (accepted as clean)"
+  printf '%s\n' "$out" | head -5
+  fail=1
+fi
+rm -f "$work/capture/ruby-fdt.dtb"
+
 # 6. No rule may emit a sed error: an unsupported regex makes a rule a silent
 #    no-op, which is the failure mode this file exists to catch.
 errs=$(bash "$REDACT" "$work/capture" 2>&1 >/dev/null | grep -c 'Invalid\|unknown option\|bad flag')

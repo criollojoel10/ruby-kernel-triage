@@ -178,9 +178,31 @@ for dir in "$@"; do
     echo "skip (not a dir): $dir" >&2
     continue
   fi
+  # Text captures: redact, whatever the extension. The list used to be
+  # *.txt/*.md only, so a decompiled .dts was skipped while the directory still
+  # reported "clean" — and a device tree's bootargs carries the real
+  # androidboot.serialno and chipid. Found 2026-10-06.
   while IFS= read -r -d '' f; do
     redact_file "$f"
-  done < <(find "$dir" -type f \( -name '*.txt' -o -name '*.md' \) -print0)
+  done < <(find "$dir" -type f \
+             \( -name '*.txt' -o -name '*.md' \
+                -o -name '*.dts' -o -name '*.dtsi' \) -print0)
+
+  # Binaries carry the same identifiers as raw bytes (a dumped .dtb has
+  # androidboot.serialno= and androidboot.chipid= in its string block), and
+  # rewriting one with `sed -i` corrupts the blob: the FDT string block is
+  # addressed by offset, so replacing a value with a different length shifts
+  # every string after it. Refuse them loudly instead of letting them pass as
+  # "clean" — which is exactly what the extension filter used to do.
+  while IFS= read -r -d '' f; do
+    if LC_ALL=C grep -Iq . "$f" 2>/dev/null; then
+      continue
+    fi
+    if LC_ALL=C grep -qUa . "$f" 2>/dev/null; then
+      echo "BINARY FILE NOT REDACTED: $f" >&2
+      status=1
+    fi
+  done < <(find "$dir" -type f ! -path '*/.git/*' -print0)
 
   # Gate: never report a directory clean while anything recognisable is left.
   if [ -n "$(leak_scan "$dir")" ]; then
