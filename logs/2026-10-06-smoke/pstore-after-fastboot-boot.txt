@@ -1,0 +1,404 @@
+total 0
+-r--r----- 1 system log 262132 2026-10-06 13:21 console-ramoops-0
+-r--r----- 1 system log  65524 2026-10-06 13:21 pmsg-ramoops-0
+===
+0fe00][0xc0201120][0xc0201120][0xc0208963][0xc0208963][0x0000000d][0x000066ef][0x9c1fb177][0x00000101][0x08000000][0x00000000][0x000f5d20][0xc8000000][0x00000000][0x00000000]
+[17747.779072][ T9665] [rc_trace] [0x00240102][0x40c5d300][0x00000000][0x00e00102][0x4005d300][0x005c0102][0x00000000][0x4085d300][0x00240102][0x40c5d300][0x00e00102][0x4005d300][0x00438102][0x4085d300][0x00208102][0x40a5d300][0x00e00102][0x4005d300]
+[17747.781501][ T9665] [rc_timer] [0xbbd71bcb][0x80000035][0xbbd0259c][0x80000035][0xbbd02283][0x80000035][0xbbcef8f7][0x80000035][0xbbc86150][0x80000035][0xbbc85e38][0x80000035][0xbbc1e71c][0x80000035][0xbbbbd64b][0x80000035] rc status=[0x40c540c5]
+[17747.782302][ T1436] [goodixFP] gf_irq, 866, enter
+[17747.784412][ T9665] [CONN_BUS_B][0x04001000][0xc0200c0e][0x00100010][0xebe9ebe9][0x04001000][0x00000080][0xa002161f][0x00000000][0x0000003f][0xfdf5f7f0][0x00000000][0x00000000][0x00000000][0x00000000][0x00000000][0x00000006][0x02060002][0x00000001][0x00000000][0x00000000][0x00000003][0x00000000][0x3ff8777e]
+[17747.787085][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17747.787724][ T9665] [CONN_BUS_C]conn_infra_cfg_clk:[0xc0200c0e][0x00000080][0x00100010][0xebe9ebe9][0xa002161f][0x00000000] systrap:[0x436f5b66]
+[17747.791164][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17747.791970][ T9665] [CONN_BUS_C]ahb_apb_timeout:[0x18001004][0x00006000][0x18004058][0x00000002][0x00000000][0x00000000][0x00000000]
+[17747.793597][ T1436] [goodixFP] gf_irq, 883, exit
+[17747.794557][ T9665] [CONN_BUS_C]debug_ctrl_setting-1:[0xc0141502][0x07bc017f][0xfffe0001][0x7fe00011][0x00000019][0xffe00015][0xfe00011f][0x000001ff][0x74133013][0x00007c77][0x00000011]
+[17747.796668][ T9665] [CONN_BUS_C]debug_ctrl_setting-2:[0xc0121613][0x07bc017f][0xfffe0001][0x7fe00011][0x00000019][0xffe00015][0xfe00011f][0x000001ff][0x77133113][0x00007f77][0x00000011]
+[17747.798769][ T9665] [CONN_BUS_C]axi_layerdebug_ctrl_setting-1:[0x00003333][0x30030800][0x00000000]
+[17747.800848][ T9665] [CONN_BUS_C]axi_layerdebug_ctrl_setting-2:[0x00003333][0x30030800][0x00000000]
+[17747.801986][ T9665] [CONN_BUS_C]slp_prot:[0x00000000][0x0818340d][0xb0c88000][0x1f307000][0x00000000][0x00000000][0x00000000][0x08c08000][0x0d001301][0x08c08000][0x0f00093a][0x00c01000][0x0d001301][0x00c01000][0x0f00093a]
+[17747.802093][ T1436] [goodixFP] gf_irq, 866, enter
+[17747.803151][ T9665] [CONN_BUS_C]power:[0x00000003][0x1e02083f][0x00000001][0x1f0aa00c][0x0000000f][0x00000001][0x00000010][0x00000001][0x00000000][0x00000000][0x00000000][0x00000000][0x3ff00000][0x00001000][0x0000003f][0x81818183]
+[17747.805621][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17747.806207][ T9665] [CONN_BUS_C]low_power_layer_information:[0x07fc600a]
+[17747.806253][ T9665] [wlan][9665]halDumpMsduReportStats:(HAL VOC) TX_Delay D:[1:5:10:20]=[2:0:1:1:0#5] C:[10:20:50:80]=[4:0:0:0:0#0] M:[5:10:20:50]=[3:0:0:1:0#5] A:[5:10:20:50]=[0:0:0:0:0#0] F:[10:20:50:80]=[0:0:0:0:0#0] Txfail:0
+[17747.808842][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17747.809649][ T9665] [wlan][9665]halDumpHifStats:(HAL VOC) I[0 / 165517 7145 0 1259 0 0 0x0 0x0 0] T[3973 3973 3965 / 160834 160834 160834 160834] R[182609 / 12587] T_Q:T_R[0:0 0:0 0:0 0:0 0:0 0:0 0:8 0:0]  R_R:R_N[0:0 0:0 0:0 0:0 0:0] Msdu:F[2047/2048]P[0]D[0] Tok[0/2048] Rfb[2102/0/0/0/0/2102] txreg[90145] rxreg[122079]
+[17747.810489][ T1436] [goodixFP] gf_irq, 883, exit
+[17747.813434][ T9664] [wlan][9664]nicRxProcessEventPacket:(RX INFO) Not static config event: id=0x21, seq=127
+[17747.818242][ T9665] [wlan][9665]halSetFWOwn:(INIT VOC) FW OWN:1, IntSta:0x00000001
+[17747.821764][ T1436] [goodixFP] gf_irq, 866, enter
+[17747.822431][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17747.823336][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17747.824277][ T1436] [goodixFP] gf_irq, 883, exit
+[17747.841454][ T1436] [goodixFP] gf_irq, 866, enter
+[17747.842102][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17747.843063][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17747.844006][ T1436] [goodixFP] gf_irq, 883, exit
+[17747.861141][ T1436] [goodixFP] gf_irq, 866, enter
+[17747.861787][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17747.862779][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17747.863720][ T1436] [goodixFP] gf_irq, 883, exit
+[17747.880826][ T1436] [goodixFP] gf_irq, 866, enter
+[17747.881474][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17747.882448][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17747.883395][ T1436] [goodixFP] gf_irq, 883, exit
+[17747.900488][ T1436] [goodixFP] gf_irq, 866, enter
+[17747.901134][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17747.902035][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17747.903041][ T1436] [goodixFP] gf_irq, 883, exit
+[17747.920161][ T1436] [goodixFP] gf_irq, 866, enter
+[17747.920808][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17747.921710][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17747.922711][ T1436] [goodixFP] gf_irq, 883, exit
+[17747.938560][    C6] [name:spm&][SPM] MCUSYSOFF wake up by  R12_CPU_WAKEUPEVENT_B, timer_out = 0, r13 = 0x84001e00, debug_flag = 0x8000000 0x2, r12 = 0x10000000, r12_ext = 0x0, raw_sta = 0x0 0x0 0x0, idle_sta = 0x141fb, req_sta =  0x7ff83a0 0xfff0fff 0x3f0081f 0x2814180 0x0 0x28000, cg_check_sta =0x1f, isr = 0x0, rt_req_sta0 = 0x0 rt_req_sta1 = 0x0 rt_req_sta2 = 0xffffffff rt_req_sta3 = 0xffffffff dram_sw_con_3 = 0x0, raw_ext_sta = 0xe11255, wake_misc = 0x0, pcm_flag = 0x400 0x0 0x400 0x400, req = 0x4360004,  clk_settle = 0x60fe, 
+[17747.939840][ T1436] [goodixFP] gf_irq, 866, enter
+[17747.942687][    T1] init: Control message: Could not find 'android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default' for ctl.interface_start from pid: 539 (/system/system_ext/bin/hwservicemanager)
+[17747.945771][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17747.946817][    T1] init: Control message: Could not find 'android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default' for ctl.interface_start from pid: 539 (/system/system_ext/bin/hwservicemanager)
+[17747.948807][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17747.950039][    T1] init: Control message: Could not find 'android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default' for ctl.interface_start from pid: 539 (/system/system_ext/bin/hwservicemanager)
+[17747.952006][ T1436] [goodixFP] gf_irq, 883, exit
+[17747.956267][    T1] init: Control message: Could not find 'android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default' for ctl.interface_start from pid: 539 (/system/system_ext/bin/hwservicemanager)
+[17747.959152][    T1] init: Control message: Could not find 'android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default' for ctl.interface_start from pid: 539 (/system/system_ext/bin/hwservicemanager)
+[17747.959533][ T1436] [goodixFP] gf_irq, 866, enter
+[17747.961845][    T1] init: Control message: Could not find 'android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default' for ctl.interface_start from pid: 539 (/system/system_ext/bin/hwservicemanager)
+[17747.962162][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17747.964950][    T1] init: Control message: Could not find 'android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default' for ctl.interface_start from pid: 539 (/system/system_ext/bin/hwservicemanager)
+[17747.965484][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17747.968171][    T1] init: Control message: Could not find 'android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default' for ctl.interface_start from pid: 539 (/system/system_ext/bin/hwservicemanager)
+[17747.968807][ T1436] [goodixFP] gf_irq, 883, exit
+[17747.971517][    T1] init: Control message: Could not find 'android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default' for ctl.interface_start from pid: 539 (/system/system_ext/bin/hwservicemanager)
+[17747.974546][    T1] init: Control message: Could not find 'android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default' for ctl.interface_start from pid: 539 (/system/system_ext/bin/hwservicemanager)
+[17747.979198][ T1436] [goodixFP] gf_irq, 866, enter
+[17747.979829][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17747.980726][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17747.981664][ T1436] [goodixFP] gf_irq, 883, exit
+[17747.998882][ T1436] [goodixFP] gf_irq, 866, enter
+[17747.999532][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.000435][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.001376][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.018530][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.019174][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.020078][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.021018][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.038256][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.038925][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.039828][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.040769][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.057923][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.058596][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.059501][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.060441][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.073477][T26222] check_full_recharge: ffc_enable = 0, diff_fv_val = 0, iterm = 220, iterm_effective = 220, fv_effective = 4470, full_count = 0, recharge_count = 0
+[17748.073518][T26222] monitor_thermal_limit: info->psy_type = 4, thermal_level = 0, 
+[17748.075774][T26222] charge_monitor_func: bat=[3850,-139,309],step_chg=[2,2,12400,4155],sw_cv=[0,0],jeita=[4,4,12400,4]
+[17748.077623][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.079638][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.080546][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.081486][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.097260][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.097909][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.098881][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.099823][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.116989][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.117636][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.118591][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.119533][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.136634][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.137282][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.138183][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.139189][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.156318][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.156965][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.157866][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.158882][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.175985][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.176631][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.177535][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.178567][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.195680][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.196327][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.197231][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.198171][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.215363][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.216006][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.216901][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.217840][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.235026][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.235671][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.236574][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.237514][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.254645][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.255293][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.256192][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.257131][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.258402][    C6] [wlan][2277]mddpIsSupportMcifWifi:(INIT VOC) mddp enable: 1.
+[17748.259357][    C6] [wlan][2277]mddpIsSupportMcifWifi:(INIT VOC) mddp enable: 1.
+[17748.260293][    C6] [wlan][2277]mddpIsSupportMcifWifi:(INIT VOC) mddp enable: 1.
+[17748.274387][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.275038][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.275940][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.276879][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.294069][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.294743][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.295646][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.296587][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.313758][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.314432][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.315336][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.316276][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.323054][T10472] binder_alloc: 8641: pid 1792 spamming oneway? 593 buffers allocated for a total size of 485744
+[17748.333416][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.334062][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.335031][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.335973][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.353100][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.353747][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.354725][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.355667][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.372766][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.373415][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.374317][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.375307][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.392472][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.393117][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.394019][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.395034][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.412125][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.412771][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.413674][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.414695][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.431805][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.432451][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.433353][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.434294][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.451501][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.452149][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.453052][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.453992][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.462470][T26222] check_full_recharge: ffc_enable = 0, diff_fv_val = 0, iterm = 220, iterm_effective = 220, fv_effective = 4470, full_count = 0, recharge_count = 0
+[17748.462507][T26222] monitor_thermal_limit: info->psy_type = 4, thermal_level = 0, 
+[17748.464405][T26222] charge_monitor_func: bat=[3856,-139,309],step_chg=[2,2,12400,4155],sw_cv=[0,0],jeita=[4,4,12400,4]
+[17748.471163][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.473156][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.474056][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.475056][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.490902][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.491550][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.492451][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.493393][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.510573][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.511221][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.512124][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.513064][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.530218][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.530905][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.531805][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.532745][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.549911][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.550599][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.551497][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.552437][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.569585][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.570233][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.571187][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.572130][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.589254][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.589902][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.590854][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.591795][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.608933][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.609580][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.610539][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.611482][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.628613][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.629257][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.630160][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.631163][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.648320][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.648967][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.649870][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.650880][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.667991][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.668640][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.669541][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.670545][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.687654][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.688300][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.689202][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.690142][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.707324][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.707971][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.708868][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.709807][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.727009][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.727653][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.728551][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.729491][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.746684][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.747330][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.748233][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.749173][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.766418][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.767063][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.767967][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.768907][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.774442][ T9664] [wlan][9664]asicConnac2xFillCmdTxdInfo:(TX INFO) TX CMD: ID[0x85] SEQ[129] SET[0] LEN[92]
+[17748.775712][ T9664] [wlan][9664]asicConnac2xFillCmdTxdInfo:(TX INFO) TX CMD: ID[0x82] SEQ[130] SET[0] LEN[76]
+[17748.776966][ T9664] [wlan][9664]wlanLinkQualityMonitor:(SW4 VOC) Link Quality: Tx(rate:7800, total:132222, retry:13605, fail:12187, RTS fail:479, ACK fail:11708), Rx(rate:0, total:144348, dup:193, error:26), PER(0), Congestion(idle slot:86408625, diff:45395, AwakeDur:993980)
+[17748.786057][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.786748][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.786950][ T9665] [wlan][9665]wlanTxCmdDoneCb:(TX INFO) Add command: 00000000ac8230c5, 00000000e8f8965a, cmd=0x85, seq=129
+[17748.787642][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.789017][ T9665] [wlan][9665]halSwWfdmaWriteCmd:(HAL INFO) Write CMD DRV[1] FW[0] CID[0x85]
+[17748.789935][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.791983][ T9665] [wlan][9665]wlanTxCmdDoneCb:(TX INFO) Add command: 00000000eaaa6b73, 00000000d9e24ada, cmd=0x82, seq=130
+[17748.793417][ T9665] [wlan][9665]halSwWfdmaWriteCmd:(HAL INFO) Write CMD DRV[2] FW[0] CID[0x82]
+[17748.794612][ T9665] [CONN_BUS] version=20230215
+[17748.795232][ T9665] [CONN_BUS_A][RC][0x8400fe20][0xc0201120][0xc0201120][0xc0208963][0xc0208963][0x0000000d][0x000066ef][0x9c1fb177][0x00000101][0x08000000][0x00000000][0x000f5d20][0xc8000000][0x00000000][0x00000000]
+[17748.795263][ T9665] [rc_trace] [0x00240102][0x40c5d300][0x00000000][0x00e00102][0x4005d300][0x005c0102][0x00000000][0x4085d300][0x00240102][0x40c5d300][0x00e00102][0x4005d300][0x005c0102][0x4085d300][0x00240102][0x40c5d300][0x00e00102][0x4005d300]
+[17748.797686][ T9665] [rc_timer] [0xbca06edb][0x80000035][0xbc9b8dc7][0x80000035][0xbc9b8aac][0x80000035][0xbc9a184b][0x80000035][0xbc86f72f][0x80000035][0xbc86f414][0x80000035][0xbc85c8fb][0x80000035][0xbc72a650][0x80000035] rc status=[0x40c540c5]
+[17748.800592][ T9665] [CONN_BUS_B][0x04001000][0xc0200c0e][0x00100010][0xebe9ebe9][0x04001000][0x00000080][0xa002161f][0x00000000][0x0000003f][0xfdf5f7f0][0x00000000][0x00000000][0x00000000][0x00000000][0x00000000][0x00000006][0x02060002][0x00000001][0x00000000][0x00000000][0x00000003][0x00000000][0x3ff8777e]
+[17748.803391][ T9665] [CONN_BUS_C]conn_infra_cfg_clk:[0xc0200c0e][0x00000080][0x00100010][0xebe9ebe9][0xa002161f][0x00000000] systrap:[0x436f5b61]
+[17748.805711][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.806942][ T9665] [CONN_BUS_C]ahb_apb_timeout:[0x18001004][0x00006000][0x18004058][0x00000002][0x00000000][0x00000000][0x00000000]
+[17748.808483][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.809107][ T9665] [CONN_BUS_C]debug_ctrl_setting-1:[0xc0141502][0x07bc017f][0xfffe0001][0x7fe00011][0x00000019][0xffe00015][0xfe00011f][0x000001ff][0x77133113][0x00007f77][0x00000011]
+[17748.810674][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.811489][ T9665] [CONN_BUS_C]debug_ctrl_setting-2:[0xc0121613][0x07bc017f][0xfffe0001][0x7fe00011][0x00000019][0xffe00015][0xfe00011f][0x000001ff][0x77133113][0x00007f77][0x00000011]
+[17748.813542][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.814499][ T9665] [CONN_BUS_C]axi_layerdebug_ctrl_setting-1:[0x00003333][0x30030800][0x00000000]
+[17748.817282][ T9665] [CONN_BUS_C]axi_layerdebug_ctrl_setting-2:[0x00003333][0x30030800][0x00000000]
+[17748.818572][ T9665] [CONN_BUS_C]slp_prot:[0x00000000][0x080f340d][0xb0c88000][0x1f307000][0x00000000][0x00000000][0x00000000][0x08c08000][0x0d001301][0x08c08000][0x0f00093a][0x00c01000][0x0d001301][0x00c01000][0x0f00093a]
+[17748.819729][ T9665] [CONN_BUS_C]power:[0x00000003][0x1e02083f][0x00000001][0x1f0aa00c][0x0000000f][0x00000001][0x00000010][0x00000001][0x00000000][0x00000000][0x00000000][0x00000000][0x3ff00000][0x00001000][0x0000003f][0x81818183]
+[17748.822237][ T9665] [CONN_BUS_C]low_power_layer_information:[0x07fc600a]
+[17748.824935][ T9665] [wlan][9665]halDumpHifStats:(HAL VOC) I[0 / 165518 7147 0 1260 0 0 0x0 0x0 0] T[3975 3975 3968 / 160834 160834 160834 160834] R[182609 / 12590] T_Q:T_R[0:0 0:0 0:0 0:0 0:0 0:0 0:7 0:0]  R_R:R_N[0:0 0:0 0:0 0:0 0:0] Msdu:F[2047/2048]P[0]D[0] Tok[0/2048] Rfb[2102/0/0/0/0/2102] txreg[90145] rxreg[122080]
+[17748.825382][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.825975][ T9664] [wlan][9664]nicRxProcessEventPacket:(RX INFO) Not static config event: id=0x21, seq=129
+[17748.829420][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.829467][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.830140][ T9665] [wlan][9665]halSetFWOwn:(INIT VOC) FW OWN:1, IntSta:0x00000001
+[17748.831318][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.842613][T26222] check_full_recharge: ffc_enable = 0, diff_fv_val = 0, iterm = 220, iterm_effective = 220, fv_effective = 4470, full_count = 0, recharge_count = 0
+[17748.842653][T26222] monitor_thermal_limit: info->psy_type = 4, thermal_level = 0, 
+[17748.844727][T26222] charge_monitor_func: bat=[3856,-139,309],step_chg=[2,2,12400,4155],sw_cv=[0,0],jeita=[4,4,12400,4]
+[17748.845085][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.847753][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.848664][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.849608][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.864770][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.865419][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.866322][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.867366][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.884446][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.885096][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.886004][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.887003][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.904171][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.904825][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.905729][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.906726][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.923828][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.924477][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.925381][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.926325][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.943482][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.944127][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.945027][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.945967][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.963166][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.963816][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.964722][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.965684][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.982852][ T1436] [goodixFP] gf_irq, 866, enter
+[17748.983501][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17748.984403][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17748.985344][ T1436] [goodixFP] gf_irq, 883, exit
+[17748.990263][ T9665] [wlan][9665]halSetFWOwn:(INIT VOC) FW OWN:1, IntSta:0x00000004
+[17749.002556][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.003203][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.004106][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.005044][ T1436] [goodixFP] gf_irq, 883, exit
+[17749.022245][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.022968][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.023867][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.024806][ T1436] [goodixFP] gf_irq, 883, exit
+[17749.041934][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.042610][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.043512][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.044452][ T1436] [goodixFP] gf_irq, 883, exit
+[17749.061580][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.062226][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.063179][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.064120][ T1436] [goodixFP] gf_irq, 883, exit
+[17749.081277][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.081926][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.082881][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.083821][ T1436] [goodixFP] gf_irq, 883, exit
+[17749.100942][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.101587][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.102543][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.103486][ T1436] [goodixFP] gf_irq, 883, exit
+[17749.120622][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.121270][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.122172][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.123194][ T1436] [goodixFP] gf_irq, 883, exit
+[17749.140284][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.140929][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.141830][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.142844][ T1436] [goodixFP] gf_irq, 883, exit
+[17749.151423][ T9664] [wlan][9664]statsParseICMPInfo:(RX VOC) <RX> ICMP: IPID[0xe573] Type 8, Id 0x0006, Seq BE 0x0000, MAC:BSSID_REDACTED SSN:82
+[17749.153405][    C1] [wlan][2277]statsParseICMPInfo:(TX VOC) <TX> ICMP: IPID[0xfcf1] Type 0, Id 0x0006, Seq BE 0x0000, MAC:BSSID_REDACTED SeqNo: 67
+[17749.155239][ T9664] [wlan][9664]nic_txd_v2_compose:(TX INFO) TX[ICMP] WIDX[7] PID[30]
+[17749.157365][ T9664] [wlan][9664]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ICMP] Tag[0x4c22a700] WIDX:PID[7:30] SN[1225] Status[0], MAC: BSSID_REDACTED SeqNo: 67 Xmit~Hif:1.206 Hif~Done:0.960
+[17749.159623][ T9664] [wlan][9664]statsParseICMPInfo:(RX VOC) <RX> ICMP: IPID[0xe575] Type 8, Id 0x0006, Seq BE 0x0100, MAC:BSSID_REDACTED SSN:83
+[17749.159974][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.161635][    C1] [wlan][0]statsParseICMPInfo:(TX VOC) <TX> ICMP: IPID[0xfcf3] Type 0, Id 0x0006, Seq BE 0x0100, MAC:BSSID_REDACTED SeqNo: 68
+[17749.161882][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.161932][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.163644][ T9664] [wlan][9664]nic_txd_v2_compose:(TX INFO) TX[ICMP] WIDX[7] PID[31]
+[17749.164438][ T1436] [goodixFP] gf_irq, 883, exit
+[17749.166432][ T9664] [wlan][9664]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ICMP] Tag[0x4c22a400] WIDX:PID[7:31] SN[1226] Status[0], MAC: BSSID_REDACTED SeqNo: 68 Xmit~Hif:1.782 Hif~Done:1.008
+[17749.179650][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.180298][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.181203][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.182141][ T1436] [goodixFP] gf_irq, 883, exit
+[17749.199366][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.200014][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.200916][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.201856][ T1436] [goodixFP] gf_irq, 883, exit
+[17749.219019][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.219665][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.220567][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.221505][ T1436] [goodixFP] gf_irq, 883, exit
+[17749.224083][T26222] check_full_recharge: ffc_enable = 0, diff_fv_val = 0, iterm = 220, iterm_effective = 220, fv_effective = 4470, full_count = 0, recharge_count = 0
+[17749.224118][T26222] monitor_thermal_limit: info->psy_type = 4, thermal_level = 0, 
+[17749.226013][T26222] charge_monitor_func: bat=[3856,-139,309],step_chg=[2,2,12400,4155],sw_cv=[0,0],jeita=[4,4,12400,4]
+[17749.238692][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.240690][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.241592][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.242592][ T1436] [goodixFP] gf_irq, 883, exit
+[17749.258395][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.259039][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.259942][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.260882][ T1436] [goodixFP] gf_irq, 883, exit
+[17749.278070][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.278747][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.279650][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.280591][ T1436] [goodixFP] gf_irq, 883, exit
+[17749.286401][    C6] [wlan][0]mddpIsSupportMcifWifi:(INIT VOC) mddp enable: 1.
+[17749.287324][    C6] [wlan][0]mddpIsSupportMcifWifi:(INIT VOC) mddp enable: 1.
+[17749.288226][    C6] [wlan][0]mddpIsSupportMcifWifi:(INIT VOC) mddp enable: 1.
+[17749.297748][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.298432][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.299333][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.300271][ T1436] [goodixFP] gf_irq, 883, exit
+[17749.317416][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.318065][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.319016][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.319958][ T1436] [goodixFP] gf_irq, 883, exit
+[17749.337121][ T1436] [goodixFP] gf_irq, 866, enter
+[17749.337770][ T1436] [goodixFP] [gf_netlink_send] : enter, send command 1
+[17749.338730][ T1436] [goodixFP] [gf_netlink_send] : send done, data length is 32
+[17749.339671][ T1436] [goodixFP] gf_irq, 883, exit

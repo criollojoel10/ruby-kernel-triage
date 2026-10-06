@@ -37,10 +37,23 @@ See [`docs/issues/`](docs/issues/) for the per-issue write-ups (symptom → evid
 ├── docs/
 │   ├── 01-device-profile.md   # Hardware + software ground truth
 │   ├── 02-methodology.md      # How logs are collected and sanitized
+│   ├── 09-bringup-linux-ruby.md # Booting our own Linux on the device
 │   ├── issues/                # One file per ISSUE-xxx
 │   └── references.md          # Comparable devices / ROMs to learn from
 └── .gitignore
 ```
+
+## Booting Linux on the device
+
+`docs/09-bringup-linux-ruby.md` records the bring-up work: a working bidirectional
+USB serial console on the device's own 6.6 kernel, the `super` partition map that
+determines where a rootfs can live, the ten things that broke along the way, and the
+path to a postmarketOS base install.
+
+The canonical reference is **`Nxages/redmi-note-11-pro-postmarketos-server`** — a
+Redmi Note 11 Pro with the *same* MT6877 SoC and the *same* bootloader, where the
+port actually works. Build tooling lives in
+[`criollojoel10/ruby-postmarket-build`](https://github.com/criollojoel10/ruby-postmarket-build).
 
 ## Method (short)
 
