@@ -3188,7 +3188,7 @@
 10-04 00:54:30.771   536   536 I hwservicemanager: Since android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default is not registered, trying to start it as a lazy HAL (if it's not configured to be a lazy HAL, it may be stuck starting or still starting).
 10-04 00:54:30.773   536  7948 W libc    : Unable to set property "ctl.interface_start" to "android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
 10-04 00:54:30.774   536  7948 I hwservicemanager: Tried to start android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
-10-04 00:54:30.775  2925 12263 I NearbyMediums: Wifi changed new SSID: "SKYLIFE_ALEJANDRA_5G"
+10-04 00:54:30.775  2925 12263 I NearbyMediums: Wifi changed new SSID: "SSID_REDACTED"
 10-04 00:54:30.775  2925 12263 I NearbyMediums: WifiLanConnectivityInfo is not changed, skip notify.
 10-04 00:54:30.775  2925 12263 I NearbyMediums: [WifiNetworkV2] defaultNetworkCallback onCapabilitiesChanged network:102 [ WIFI VPN ] isNonBypassable:true
 10-04 00:54:30.776  1802  2338 D ConnectivityService: NetReassign [no changes] [c 0] [a 1] [i 1]

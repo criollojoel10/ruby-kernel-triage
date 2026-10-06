@@ -1,0 +1,9 @@
+# collected: 2026-10-06T14:01:15Z
+# host: note12
+# cmd (root): ls -la /sys/fs/pstore
+
+total 0
+dr-xr-x---  2 system log       0 2026-10-06 08:25 .
+drwxr-xr-x 11 root   root      0 2026-10-06 08:25 ..
+-r--r-----  1 system log  262132 2026-10-06 08:25 console-ramoops-0
+-r--r-----  1 system log   11494 2026-10-06 08:25 pmsg-ramoops-0

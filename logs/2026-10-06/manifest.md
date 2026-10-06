@@ -1,0 +1,33 @@
+# Collection manifest
+
+- host: note12
+- date (UTC): 2026-10-06T15:46:10Z
+- run: PARTIAL (ONLY=kernel cmdline) — sources not listed here were not
+  requested in this run; an absent file does not mean an empty capture.
+- files:
+  - cmdline.txt (2023 bytes)
+  - cpufreq.txt (594 bytes)
+  - dmesg-warn.txt (3787 bytes)
+  - dmesg.txt (2150238 bytes)
+  - dumpsys-battery.txt (813 bytes)
+  - dumpsys-cpuinfo.txt (8422 bytes)
+  - dumpsys-meminfo.txt (44620 bytes)
+  - fp-hal.txt (988 bytes)
+  - fp-list.txt (216 bytes)
+  - fp-services.txt (1515 bytes)
+  - fp-vendor.txt (557 bytes)
+  - interrupts.txt (30778 bytes)
+  - kernel.txt (640 bytes)
+  - loadavg.txt (184 bytes)
+  - logcat-crash.txt (152 bytes)
+  - logcat-main.txt (8854249 bytes)
+  - logcat-system.txt (8388608 bytes)
+  - meminfo-procs.txt (7066 bytes)
+  - meminfo.txt (1337 bytes)
+  - metadata.txt (6137 bytes)
+  - modules.txt (144 bytes)
+  - props-all.txt (45557 bytes)
+  - pstore-console-ramoops.txt (262232 bytes)
+  - pstore.txt (332 bytes)
+  - softirqs.txt (1212 bytes)
+  - thermal.txt (1427 bytes)

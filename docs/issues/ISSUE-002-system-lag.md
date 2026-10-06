@@ -20,7 +20,7 @@ jank. Not constant, but frequent enough to notice.
 
 ### 1. Memory pressure is high
 
-`meminfo.txt`:
+`meminfo.txt` (2026-10-04):
 
 ```
 MemTotal:        7591944 kB
@@ -33,6 +33,56 @@ SwapFree:        1286792 kB
 - Only **~300 MB free** of 7.5 GiB.
 - **Swap is ~72% used** (3.26 GiB swapped out of 4.55 GiB). An Android device
   that is swapping this hard will stutter whenever it touches cold pages.
+
+`dumpsys meminfo` agrees and names the cost: `status moderate`, `Lost RAM
+693 110K`, `ZRAM: 379 968K physical used for 1 216 644K in swap`.
+
+### 1b. Where the RAM went — *no leak; it is CMA* **[V]**
+
+`logs/2026-10-06/meminfo-procs.txt`, **354 processes** with `VmRSS` and PSS straight
+from `/proc` (root capture, `scripts/collect-logs.sh` source `meminfo-procs`):
+
+| pid | process | VmRSS | PSS |
+|-----|---------|-------|-----|
+| 1792 | `system_server` | 654 MB | **326 MB** |
+| 16553 | `com.whatsapp` | 645 MB | 333 MB |
+| 9322 | `gle.android.gms` | 380 MB | 212 MB |
+| 2665 | `systemui` | 370 MB | 154 MB |
+| 1250 | `camerahalserver` | 103 MB | 85 MB |
+| 1220 | `mediaserver64` | 28 MB | 7.4 MB |
+| 1916 | `c2@1.2-mediatek` | 17 MB | 7.8 MB |
+| 975 | `composer@2.3-se` | 15 MB | 6.1 MB |
+| 1216 | `mediaextractor` | 18 MB | 3.4 MB |
+| 1272 | `vpud` | 3.7 MB | 2.0 MB |
+
+**There is no runaway process.** The largest PSS is 333 MB (a chat app) and
+326 MB (`system_server`); the **video-codec** processes of §3b — `vpud`,
+`mediaserver64`, `c2@1.2-mediatek`, `composer@2.3-se`, `mediaextractor` — total
+**~27 MB PSS**. Even adding `camerahalserver` (85 MB, the camera pipeline, a
+different suspect) the whole media stack is ~112 MB, and its largest single line
+is the camera HAL, not the codec. So H1's "a vendor daemon is leaking" is
+**disproved**.
+
+Summing all 354 processes gives 2.93 GiB of PSS and 14.20 GiB of summed `VmRSS`
+(shared pages counted once per process, which is why RSS exceeds the 7.5 GiB of
+physical RAM and why PSS is the column to read). Nothing there is anomalous for
+Android 16 with this many cached apps.
+
+The RAM is not in a process at all. `/proc/meminfo` on the same boot:
+
+```
+CmaTotal:         704512 kB
+CmaFree:           10424 kB     ← 98.5% consumed
+Mlocked:          493788 kB
+Slab:             437108 kB     (SUnreclaim 286464 kB)
+```
+
+**CMA — the pool contiguous carve-outs must come from — is drained to 1.5%.**
+That single line explains what `dumpsys meminfo` reports as `Lost RAM` (693 MB),
+and it is a far better lag candidate than any app: when camera, video encode,
+display or the VCU ask for a contiguous block and CMA is empty, the allocation
+stalls or falls back to a non-contiguous path. `Mlocked` 494 MB on top means much
+of what is left is pinned and unreclaimable.
 
 ### 2. CPU reported at the minimum frequency — *disproved, see H2*
 
@@ -97,12 +147,21 @@ Three controls pin this down:
   (`51231.129`, `51231.220`) with **zero** failures. Audio playback is neither
   necessary nor sufficient.
 - **The failing buffers are not the picture.** `fb_sz[0]` is 1 474 560 bytes; every
-  failing `size` is 1 088–56 448. The iovas are **10 fixed addresses** on a
-  **0x800000 (8 MB) stride**, `0x1e7800000 … 0x1fc000000`, walked in the same
-  fixed order every pass — an ~80 MB VCU working-buffer pool, not the frame.
+  failing `size` is 1 088–56 448, all multiples of 64 B. The iovas are **10 fixed
+  addresses**, `0x1e7800000 … 0x1fc000000` (span 328 MB), walked in the same
+  fixed order every pass.
+- **Read at source level on 2026-10-06** (`MiCode/Xiaomi_Kernel_OpenSource`
+  `ruby-s-oss`, `drivers/media/platform/mtk-vcu/mtk_vcodec_mem.c:387`): a flush
+  succeeds only if the requested range lies wholly inside one buffer the queue
+  registered, and **none of these ten does**. The driver skips the cache
+  maintenance and `mtk_vcu_ioctl()` returns `-EINVAL` (`mtk_vcu.c:1887`). These are
+  firmware/work-buffer regions (`pseudo_m4u-vpu-{code,data,vlm}`, visible in
+  `pstore-console-ramoops.txt`), not the picture. *(Retracting the earlier
+  "fixed 8 MB stride / ~80 MB pool" reading in this bullet: the gaps between the
+  ten addresses are irregular — 120/48/12/16/16/16/8/36/56 MB.)*
 
-So this is a **wrong-buffer cache flush in the VP9 decode path**, not background
-noise and not a stale attachment from an idle codec.
+So this is **the VCU client asking the decode queue to flush ranges it never
+registered**, 33 times a second, for the whole VP9 decode. Not background noise.
 
 ### 4. Framework is killing processes
 
@@ -125,9 +184,13 @@ the cached/frozen process set is too large and binder buffers are exhausted.
 This is **not one bug** — it is three stacked effects:
 
 1. **RAM starvation / swap thrash.** With ~300 MB free and heavy zram/swap use,
-   any foreground work competes with page reclaim. *Open.*
+   any foreground work competes with page reclaim. **No single process is
+   responsible** (§1b) — but **CMA is 98.5% consumed**, so contiguous carve-outs
+   are the scarce resource, not process RSS. *Open; leak disproved, CMA open.*
 2. **A failing VCU cache flush during video playback.** Real, per-frame cost —
-   see §3b. *Open; trigger identified, buffer selection not yet.*
+   see §3b. *Trigger and mechanism identified: the client flushes ranges the
+   queue never registered; kernel skips maintenance and returns `-EINVAL`.*
+   Open: whether those pages are CPU-dirty (stale data reaching the VPU) or not.
 3. **Log flooding on the kernel path.** `goodixFP` (18 483 lines), `FTS_TS`
    (3 510), `wlan` (1 836), `CONN_BUS` (1 020) and `haptic_hv` (1 366) print on
    hot paths; `ahb_apb_timeout` adds 85 in the same window. Logging on the
@@ -136,28 +199,37 @@ This is **not one bug** — it is three stacked effects:
 ~~CPU frequency suspicion~~ — **disproved**, see H2. CPU scaling works; the
 900 MHz reading was an idle sample. Dropped from the stacked-effects list.
 
-Effect 2 deserves emphasis on cost. 1 219 `pr_err` writes on the serial console is
-real overhead, but the underlying `dma_buf` cache-maintenance call is failing 33
-times a second for the entire duration of every VP9 decode — that cost is paid on
-the video path whether or not anyone reads the log.
+Effect 2 deserves emphasis on cost. 1 219 log writes are real overhead, but each
+one is also a **failed `ioctl` on the video path**: 33 of them per second for the
+whole VP9 decode, whether or not anyone reads the log.
 
 ## Root cause / hypothesis
 
-- **H1 (memory):** too many cached/frozen apps for 7.5 GiB → swap thrash and
-  `binder space running out` kills. *Fix direction:* tune LMKD/frozen-process
-  limits, reduce `MAX_CACHED_PROCESSES`, or check for a memory leak in a vendor
-  daemon.
+- **H1 (memory):** ~~too many cached/frozen apps for 7.5 GiB, or a leaking vendor
+  daemon.~~ **Partly disproved [V]:** 354 processes captured; nothing leaks
+  (largest PSS 333 MB) and the codec stack is under 30 MB. What *is* wrong is
+  **CMA at 1.5% free** (§1b) plus zram at 380 MB physical / 1.2 GB swap, with
+  `Mlocked` 494 MB. *Fix direction:* CMA reservation accounting and LMKD tuning,
+  **not** hunting a leak.
 - **H2 (cpufreq):** ~~the governor may be missing/misconfigured.~~ **Disproved
   [V]:** governors `schedutil/performance/conservative/powersave` are present and
   cores observed scaling to 1.26/1.54 GHz and up to 2.0 GHz. The earlier
   "900 MHz" reading was an idle sample. Remaining work is *tuning* schedutil,
   not fixing a stuck clock.
-- **H3 (codec cache flush):** `Cache flush buffer fail` is the **video codec**
-  (`mtk_vcodec_mem.c`) failing a `dma_buf` cache flush on the VCU's auxiliary
-  buffers during **VP9** decode — 33/s for the whole decode, 1 219 events per
-  video session. *Fix:* correct the buffer/stride selection in the VP9 path, not
-  the log level. Demoting `pr_err` alone is log hygiene, not a fix. See §3b and
-  `docs/04` K1/K1b.
+- **H3 (codec cache flush):** **identified at source level [V].** During **VP9**
+  decode the VCU client issues `VCU_CACHE_FLUSH_BUFF` for 10 fixed addresses that
+  **no buffer in the `vdec` queue covers** (33/s, 1 219 events per session).
+  `vcu_buffer_cache_sync()` finds no match, skips the cache maintenance, prints,
+  and `mtk_vcu_ioctl()` returns **`-EINVAL`**. So the flush does not happen *and*
+  userspace learns it failed. The 10 addresses match the VPU firmware/work-buffer
+  regions (`pseudo_m4u-vpu-{code,data,vlm}`).
+  *Severity hinges on one fact the log cannot give:* whether the CPU had dirty
+  pages there. Dirty → the VPU reads stale data (**silent corruption**, the worse
+  outcome). Clean → the flush was never needed and this is log noise plus 33
+  failed ioctls/s. *Fix:* make the mismatch observable (log the queue's registered
+  `[iova, iova+size)` list on a miss) so the client bug becomes locatable;
+  demoting the message alone hides 1 219 lines without fixing anything. See §3b
+  and `docs/04` K1/K1b.
 - **H4 (logging):** rate-limit or silence the noisy `wlan`/`CONN_BUS`/`goodixFP`
   messages (29 971 dmesg lines in 91 s).
 
@@ -166,30 +238,30 @@ the video path whether or not anyone reads the log.
 1. **Measure, don't guess:** ~~capture `scaling_cur_freq` ...~~ **done** — CPU
    scaling works (H2 disproved).
 2. **Quantify codec noise:** ~~count per minute ...~~ **done** — 33/s during VP9
-   decode, 0 otherwise, bounded by `fops_vcodec_open`/`release`. The trigger is
-   known; what remains is *which* buffer selection is wrong (H3). See §3b.
-3. **Memory:** record per-process RSS (`dumpsys meminfo`) to find the hog.
-   **Blocked — collector bug found and fixed, needs a re-collection.**
-   `logs/2026-10-04/dumpsys-meminfo.txt` is empty. Two independent causes, both
-   in `scripts/collect-logs.sh`:
-   - `/system/bin` is not on the PATH of a Termux sshd session, so the bare
-     `dumpsys` call failed with "command not found", swallowed by `2>/dev/null`;
-   - even with a working `dumpsys`, `| head -n 120` truncated the report exactly
-     before the per-process RSS breakdown.
-
-   The same two bugs emptied `dumpsys-cpuinfo.txt` and `dumpsys-battery.txt`, and
-   `interrupts.txt` / `softirqs.txt` captured `Permission denied` because
-   `/proc/interrupts` and `/proc/softirqs` are root-only but were collected
-   unprivileged. Fixed: absolute `/system/bin/dumpsys` paths, `head` removed,
-   and the four root-only sources moved to `su_run`. The collector now also
-   appends `# WARNING: empty capture` when a source returns nothing, so a silent
-   failure cannot be mistaken for a clean result again.
-   **Not yet verified — `note12` has been unreachable since 2026-10-01.**
-4. **Source-level H3:** read `mtk_vcodec_mem.c` and decide whether the failed
-   flush is on unmapped buffers (spurious) or on mapped buffers with a bad length
-   (silent cache corruption — a correctness bug, higher severity). The log cannot
-   distinguish these.
-5. Only then choose fixes; do not tune blindly.
+   decode, 0 otherwise, bounded by `fops_vcodec_open`/`release`. See §3b.
+3. **Memory:** ~~record per-process RSS to find the hog.~~ **done 2026-10-06**
+   (`logs/2026-10-06/meminfo-procs.txt`, 354 processes): **no hog exists.** Largest
+   PSS is `com.whatsapp` at 333 MB, then `system_server` 326 MB; the whole codec
+   path is 27 MB PSS. The scarce resource is **CMA** (10 MB free of 688 MB)
+   and zram (1.2 GB swapped), not process RSS. Two collector bugs had emptied the
+   2026-10-04 evidence and are fixed: bare `dumpsys` is not on a Termux sshd
+   `PATH` (it died with "command not found", hidden by `2>/dev/null`), and
+   `dumpsys <service>` needs **root**, not the absolute path alone — unprivileged
+   it answers "Can't find service: <name>". `run`/`su_run` now also append
+   `# WARNING: empty capture`, so a silent failure cannot pass for a clean result.
+4. **Source-level H3:** ~~read `mtk_vcodec_mem.c` and decide unmapped vs.
+   bad-length.~~ **done 2026-10-06.** Answer: **neither.** The range matches *no*
+   registered buffer, so `vcu_buffer_cache_sync()` skips the maintenance and
+   `mtk_vcu_ioctl()` returns `-EINVAL`. Remaining question, and the only one that
+   decides severity: were those pages CPU-dirty? Needs a kprobe on
+   `vcu_buffer_cache_sync` dumping `vcu_queue->bufs` during a VP9 session (or the
+   unpublished MTK VCU client source). See §3b.
+5. **CMA accounting (new, from step 3):** find who holds the 678 MB of CMA —
+   `dumpsys meminfo` shows `DMA-BUF 180 MB / GPU 154 MB dmabuf`, so most of it is
+   long-lived carve-outs (display, camera, ION/dmabuf heaps), not one hog.
+   Read `/proc/iomem` + the DT `reserved-memory`/`linux,cma` nodes in the device
+   tree and check each consumer's release path.
+6. Only then choose fixes; do not tune blindly.
 
 ## How other devices solved it
 
@@ -204,5 +276,10 @@ patchset backport and their LMKD tuning are the closest references.
   ~33/s for the duration of the decode, so this metric is meaningful only while
   the clip is playing. **Not** a GPU fix.
 - `dumpsys gfxinfo <app>` janky-frame % drops.
-- Per-process RSS captured for the memory hypothesis (currently blocked on
-  re-collection, see step 3).
+- Per-process RSS captured — **done**, and it cleared the leak hypothesis (step 3).
+  Replacement metric for the memory work: **`CmaFree` during a camera/video
+  workload**, which is the resource actually running out.
+- kprobe on `vcu_buffer_cache_sync` during a VP9 session dumps `vcu_queue->bufs`
+  and the requested range, proving whether the failed ranges are CPU-dirty
+  (correctness bug) or not (noise). This is the single check that sets H3's
+  severity.

@@ -1,0 +1,5 @@
+# collected: 2026-10-06T14:09:22Z
+# host: note12
+# cmd (root): logcat -d -b crash -v threadtime
+
+# WARNING: empty capture — source produced no output

@@ -14,8 +14,10 @@
    **[V]** — see §2. Do **not** patch Mali for this.
 1b. **It is a real driver bug, not background noise.** All 1 219 failures happen
    in a 37 s burst at **33/s**, bounded to the millisecond by one active **VP9**
-   decode session, over 10 fixed 8 MB-strided VCU buffers — none of which is the
-   picture buffer. It is a wrong-buffer cache flush. **[V]** — see §2.
+   decode session, against **10 fixed VCU addresses that no buffer registered in
+   the `vdec` queue covers** — none of them the picture buffer. Read at source
+   level on 2026-10-06: `vcu_buffer_cache_sync()` skips the cache maintenance and
+   `mtk_vcu_ioctl()` hands **`-EINVAL`** back to userspace. **[V]** — see §2.
 2. The kernel log is **dominated by noise**, not by faults: `goodixFP` (18 483
    lines), touch `FTS_TS` (3 510), `wlan` (1 836), `CONN_BUS` (1 020),
    `haptic_hv` (1 366). Printing interrupts on the hot path is itself a latency
@@ -46,22 +48,25 @@ A driver that logs per interrupt is a real cost: console/serial writes take
 locks and wake the writer. Most of these are `pr_info`/`pr_debug` that a
 production kernel should not print by default.
 
-## 2. The `Cache flush buffer fail` storm **[V]** trigger · **[I]** root cause
+## 2. The `Cache flush buffer fail` storm **[V]**
 
 The trigger is **measured** (below): one VP9 decode session, 33/s, bounded to the
-millisecond. *What* is being flushed wrongly is still **[I]** — the log cannot
-distinguish "unmapped buffer, harmless" from "mapped buffer with a wrong length,
-silent cache corruption". That needs the source.
+millisecond. The mechanism is now **read from the source** (below): the requested
+range matches no buffer registered in the queue, so the flush is skipped and the
+ioctl fails.
 
-Exact source string, confirmed by reading the vendor tree
-`xiaomi-mediatek-devs/android_kernel_xiaomi_mt6877`
-(branch `experimental/mali/lineage-20`) and mirrored in
-`OnePlusOSS/android_kernel_oneplus_mt6877`:
+Exact source string, confirmed 2026-10-06 by reading
+`MiCode/Xiaomi_Kernel_OpenSource` branch `ruby-s-oss` at
+`drivers/media/platform/mtk-vcu/mtk_vcodec_mem.c:431` (and mirrored in
+`xiaomi-mediatek-devs/android_kernel_xiaomi_mt6877`, branch
+`experimental/mali/lineage-20`, and `OnePlusOSS/android_kernel_oneplus_mt6877`):
 
 ```
 drivers/media/platform/mtk-vcu/mtk_vcodec_mem.c
-    → dma_buf cache maintenance path
-    → pr_err("Cache flush buffer fail, iova = %llx, size = %d")
+    → vcu_buffer_cache_sync()   (containment test, :405)
+    → pr_info("Cache flush buffer fail, iova = %lx, size = %d", ...)   (:431)
+drivers/media/platform/mtk-vcu/mtk_vcu.c
+    → mtk_vcu_ioctl(), case VCU_CACHE_FLUSH_BUFF   → returns -EINVAL (:1887)
 ```
 
 Evidence in our log:
@@ -133,34 +138,72 @@ Three controls make the causal link hard to argue with:
 
 ### What the iovas actually are **[V]**
 
-Not "arbitrary addresses". The 10 unique iovas sit on a **fixed 0x800000 (8 MB)
-stride**:
+Not "arbitrary addresses" — **10 fixed addresses, none of them registered**. Read
+at source level on 2026-10-06 against
+`drivers/media/platform/mtk-vcu/mtk_vcodec_mem.c` (Xiaomi `ruby-s-oss` tree):
+
+```c
+/* vcu_buffer_cache_sync(), mtk_vcodec_mem.c:387 */
+for (buffer = 0; buffer < num_buffers; buffer++) {
+        vcu_buffer = &vcu_queue->bufs[buffer];
+        if ((dma_addr + size) <= (vcu_buffer->iova + vcu_buffer->size) &&
+            dma_addr >= vcu_buffer->iova) { ...sync...; return 0; }
+}
+pr_info("Cache %s buffer fail, iova = %lx, size = %d\n", ...);   /* :431 */
+return -1;
+```
+
+A flush only succeeds if the whole requested range falls inside one buffer of the
+queue. Every one of the 1 219 requests falls through that loop, so **the range is
+outside every buffer this queue registered** — it belongs to a different VCU
+region (the `pseudo_m4u-vpu-{code,data,vlm}` firmware pools seen in
+`pstore-console-ramoops.txt`), not to a wrong stride inside the picture buffer.
+
+And it is not silently ignored. The caller turns it into an error return:
+
+```c
+/* mtk_vcu_ioctl(), mtk_vcu.c:1870 — case VCU_CACHE_FLUSH_BUFF */
+ret = vcu_buffer_cache_sync(dev, vcu_queue, mem_buff_data.iova, ...);
+if (ret < 0)
+        return -EINVAL;
+```
+
+So each line in the log is one **ioctl that failed with `-EINVAL`** and one cache
+maintenance that did **not** happen. The severity therefore depends on whether
+the CPU had dirty pages in those ranges — which the log cannot say (see §6).
+
+Geometry of the 10 addresses (`0x1e7800000 … 0x1fc000000`, span **328 MB**):
 
 ```
 0x1e7800000  0x1ef000000  0x1f2000000  0x1f2c00000  0x1f3c00000
 0x1f4c00000  0x1f5c00000  0x1f6400000  0x1f8800000  0x1fc000000
 ```
 
-That is 10 buffers carved contiguously out of an ~80 MB reserved region — the
-VCU working-buffer pool. Occurrence counts are near-uniform (132–139 each, with
-`0x1f3c00000` at 20 because the session ended mid-rotation), and the walk repeats
-in the **same fixed order** every pass. A constant 165-per-5 s is a loop walking
-all 10 buffers and failing on every one, not a leak and not random.
+The gaps are **irregular** (120/48/12/16/16/16/8/36/56 MB), not a fixed stride —
+an earlier note in this file called it an "8 MB stride / ~80 MB pool"; that was
+wrong and is retracted. All 127 distinct sizes are multiples of 64 B, from 1 088
+to 56 448 B — descriptor/work-buffer sized, never frame sized. All ten addresses
+sit above 32 GB, consistent with the `iommu_padding` path
+(`mem_buff_data.iova |= 0x100000000UL`, `mtk_vcu.c:1880`).
 
-### Revised root cause **[I]**
+Occurrence counts are near-uniform (132–139 each, with `0x1f3c00000` at 20
+because the session ended mid-rotation), and the walk repeats in the **same
+fixed order** every pass. A constant 165-per-5 s is a loop walking all 10
+addresses and failing on every one, not a leak and not random.
 
-Wrong-buffer / wrong-stride dma-buf cache maintenance in the VCU VP9 path. The
-candidates, in the order worth testing:
+### Revised root cause **[V]**
 
-- a bug in `mtk_vcodec_mem` / the `m_buf` pool bookkeeping when the codec is VP9,
-  flushing the auxiliary 8 MB buffers instead of (or with a stride that does not
-  match) the real picture buffer;
-- the `cap_q_ctx buffers already requested` error at `51189.192626`, 12 ms before
-  the first failure, leaving the capture queue malformed — this is the most
-  attractive lead because it is a **precondition** that only this session hit.
+Not a wrong-stride flush of the picture buffer: **userspace (the MTK VCU client)
+asks the `vdec` queue to flush ten addresses the queue never registered** — the
+VP9 path's firmware/work-buffer regions. The kernel correctly refuses, prints,
+and returns `-EINVAL`.
 
-Silencing the `pr_err` is **not** a fix. It hides 1 219 lines; the underlying
-cache-maintenance call still fails 33 times a second on every VP9 frame.
+Still open as a lead: the `cap_q_ctx buffers already requested` error at
+`51189.192626`, 12 ms before the first failure, leaving the capture queue
+malformed — attractive because it is a **precondition** only this session hit.
+
+Silencing the `pr_err` is **not** a fix. It hides 1 219 lines; the ioctl still
+fails 33 times a second on every VP9 frame.
 
 > **Correction to earlier triage, round 1:** ISSUE-002 attributed this to the
 > Mali-G68 GPU/IOMMU. Wrong — it is the video codec. This document supersedes it.
@@ -182,7 +225,7 @@ cache-maintenance call still fails 33 times a second on every VP9 frame.
 
 | # | Improvement | Detail | Applies to ruby | Risk | How to verify |
 |---|-------------|--------|-----------------|------|---------------|
-| K1 | **Fix the VP9 cache flush** | Root cause: wrong-buffer/wrong-stride flush in the VCU VP9 path (§2). Start from the `cap_q_ctx buffers already requested` error at `51189.192626`, then audit the `m_buf` pool bookkeeping in `mtk_vcodec_mem.c` for VP9 | High | Med | play a VP9 clip and count `Cache flush buffer fail` → 0 (currently 33/s) |
+| K1 | **Fix the VP9 cache flush** | Root cause **[V]**: the VCU client flushes ten addresses the `vdec` queue never registered → `vcu_buffer_cache_sync()` misses, `mtk_vcu_ioctl()` returns `-EINVAL`, cache maintenance is skipped. Two ways out: (a) find the client-side bug (which region owns those addresses), or (b) make the mismatch observable instead of silent — log the queue's registered `[iova,iova+size)` list on a miss. Start from the `cap_q_ctx buffers already requested` error at `51189.192626` | High | Med | play a VP9 clip and count `Cache flush buffer fail` → 0 (currently 33/s) |
 | K1b | Log hygiene for the same message | *Only after* K1: demote to `pr_debug_ratelimited` so a regression stays visible without 1 219 lines. **Hides the bug, does not fix it** | Med | Low | line count collapses while the rate metric stays non-zero |
 | K2 | **Rate-limit per-IRQ logging** | Demote `goodixFP`, `FTS_TS`, `haptic_hv`, `wlan` INFO logs to `*_ratelimited`/debug | High | Low | dmesg line rate drops ≫10× |
 | K3 | **zram / swap tuning** | Current swap ~72% used, `MemFree` ~300 MB (see ISSUE-002). Tune `vm.swappiness`, `zram` size, `lz4`/`zstd` | High | Med | PSI memory pressure, app-switch latency |
@@ -201,7 +244,9 @@ cache-maintenance call still fails 33 times a second on every VP9 frame.
 - **`vitoramaral10/pmos-xiaomi-thunder`** (MT6833): GPU backport and connectivity
   bring-up on a vendor kernel — closest "downstream + improvements" model. **[V]**
 - **`OnePlusOSS/android_kernel_oneplus_mt6877`**: same MT6877 vendor codec
-  source; useful to diff the `mtk_vcodec_mem.c` fix. **[V]**
+  source; the reference tree used here is `MiCode/Xiaomi_Kernel_OpenSource`
+  `ruby-s-oss` (Android 12 base; the device runs Android 16 — the log's message
+  format is byte-identical, so the code path is the same). **[V]**
 
 ## 6. Open questions **[?]**
 
@@ -211,12 +256,18 @@ cache-maintenance call still fails 33 times a second on every VP9 frame.
 - Is `cap_q_ctx buffers already requested` the trigger, or merely a symptom of
   the same queue-setup bug? Needs a second capture that *does not* hit it and a
   VP9 play test that does.
-- Is the flush failing on buffers that are genuinely unmapped (so it is
+- ~~Is the flush failing on buffers that are genuinely unmapped (so it is
   harmless-but-spurious) or on mapped buffers with a bad length (so it silently
-  leaves stale cache contents, which *is* a correctness bug)? Source-level
-  reading of `mtk_vcodec_mem.c` required; the log cannot distinguish these.
-- Real cause of the memory pressure: leak vs. too many cached apps? Needs
-  per-process RSS sampling — **`dumpsys-meminfo.txt` from the 2026-10-04 capture
-  is empty** because `collect-logs.sh` called a bare `dumpsys` (not on a Termux
-  sshd `PATH`) and then truncated with `head`. Fixed in the collector; the
-  re-collection is blocked on `note12` being unreachable. See ISSUE-002 step 3.
+  leaves stale cache contents, which *is* a correctness bug)?~~ **Answered
+  [V]** 2026-10-06 at source level: neither — the range matches **no** registered
+  buffer (`vcu_buffer_cache_sync()` misses its containment test), so the driver
+  skips the flush and returns `-EINVAL` to userspace. The remaining question is
+  only whether those pages are CPU-dirty; the log cannot say. Closing it needs
+  either the MTK VCU client source (not published) or a kprobe on
+  `vcu_buffer_cache_sync` dumping `vcu_queue->bufs` during a VP9 session.
+- Real cause of the memory pressure: leak vs. too many cached apps? **Per-process
+  RSS captured 2026-10-06** (`logs/2026-10-06/meminfo-procs.txt`, 354 processes).
+  Answer: **no leak** — the largest holder is `com.whatsapp` at 333 MB PSS and the
+  whole media stack stays under 115 MB (27 MB of it the codec path). The pressure is not in any process: CMA is
+  **98.5 % consumed** (`CmaFree` 10 MB of 688 MB) and zram holds 380 MB physical
+  for 1.2 GB of swap. See ISSUE-002 §3c.

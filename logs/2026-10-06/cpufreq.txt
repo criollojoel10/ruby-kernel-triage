@@ -1,0 +1,20 @@
+# collected: 2026-10-06T14:01:36Z
+# host: note12
+# cmd: for c in /sys/devices/system/cpu/cpu*/cpufreq/; do echo "--- $c"; cat $c/scaling_governor 2>/dev/null; cat $c/scaling_cur_freq 2>/dev/null; done
+
+--- /sys/devices/system/cpu/cpu0/cpufreq/
+900000
+--- /sys/devices/system/cpu/cpu1/cpufreq/
+900000
+--- /sys/devices/system/cpu/cpu2/cpufreq/
+900000
+--- /sys/devices/system/cpu/cpu3/cpufreq/
+900000
+--- /sys/devices/system/cpu/cpu4/cpufreq/
+900000
+--- /sys/devices/system/cpu/cpu5/cpufreq/
+900000
+--- /sys/devices/system/cpu/cpu6/cpufreq/
+910000
+--- /sys/devices/system/cpu/cpu7/cpufreq/
+910000

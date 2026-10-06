@@ -1,0 +1,29 @@
+# collected: 2026-10-06T15:41:47Z
+# host: note12
+# cmd (root): dmesg | grep -iE 'error|fail|warn|denied|timeout|panic|oom' | tail -n 2000
+
+[ 8084.648256] [wlan][2570]cnmTimerStartTimer:(CNM WARN) Invalid NextExpiredSysTime: 7678676, currentSysTime: 7784644
+[ 8084.653853] [wlan][2570]scanAbortBeaconRecv:(AIS ERROR) [SWIPS] Dont abort, SWIPS already OFF
+[ 8084.668828] [wlan][2570]wlanGetRxRateByBssid:(SW4 ERROR) prStaRecOfAP is null
+[ 8084.675610] [wlan][2571]halDumpMsduReportStats:(HAL VOC) TX_Delay D:[1:5:10:20]=[0:0:0:0:0#0] C:[10:20:50:80]=[0:0:0:0:0#0] M:[5:10:20:50]=[0:0:0:0:0#0] A:[5:10:20:50]=[0:0:0:0:0#0] F:[10:20:50:80]=[0:0:0:0:0#0] Txfail:0
+[ 8085.369158] [wlan][2570]scnDoZeroChRecoveryCheck:(SCN WARN) ScanRecover: ScnZeroChCount(0), ResetCount(0)
+[ 8098.147556] [wlan][2571]halDumpMsduReportStats:(HAL VOC) TX_Delay D:[1:5:10:20]=[0:0:0:0:0#0] C:[10:20:50:80]=[0:0:0:0:0#0] M:[5:10:20:50]=[0:0:0:0:0#0] A:[5:10:20:50]=[0:0:0:0:0#0] F:[10:20:50:80]=[0:0:0:0:0#0] Txfail:0
+[ 8098.153680] [wlan][2570]bssGetIotApAction:(BSS INFO) GetIotApAction Param Error!
+[ 8098.155376] [wlan][2570]wlanGetRxRateByBssid:(SW4 ERROR) prStaRecOfAP is null
+[ 8105.837582] [wlan][2570]bssGetIotApAction:(BSS INFO) GetIotApAction Param Error!
+[ 8105.838671] [wlan][2570]wlanGetRxRateByBssid:(SW4 ERROR) prStaRecOfAP is null
+[ 8105.843227] [wlan][2571]halDumpMsduReportStats:(HAL VOC) TX_Delay D:[1:5:10:20]=[0:0:0:0:0#0] C:[10:20:50:80]=[0:0:0:0:0#0] M:[5:10:20:50]=[0:0:0:0:0#0] A:[5:10:20:50]=[0:0:0:0:0#0] F:[10:20:50:80]=[0:0:0:0:0#0] Txfail:0
+[ 8146.496624] type=1400 audit(1791301249.688:38363): avc:  denied  { search } for  comm="sshd-session" name="tests" dev="dm-41" ino=111 scontext=u:r:untrusted_app_27:s0:c199,c256,c512,c768 tcontext=u:object_r:shell_test_data_file:s0 tclass=dir permissive=0 app=com.termux.boot
+[ 8156.384568] type=1400 audit(1791301259.560:38532): avc:  denied  { search } for  comm="sshd-session" name="tests" dev="dm-41" ino=111 scontext=u:r:untrusted_app_27:s0:c199,c256,c512,c768 tcontext=u:object_r:shell_test_data_file:s0 tclass=dir permissive=0 app=com.termux.boot
+[ 8165.911278] [wlan][2571]halDumpMsduReportStats:(HAL VOC) TX_Delay D:[1:5:10:20]=[0:0:0:0:0#0] C:[10:20:50:80]=[0:0:0:0:0#0] M:[5:10:20:50]=[0:0:0:0:0#0] A:[5:10:20:50]=[0:0:0:0:0#0] F:[10:20:50:80]=[0:0:0:0:0#0] Txfail:0
+[ 8165.911388] [wlan][2570]bssGetIotApAction:(BSS INFO) GetIotApAction Param Error!
+[ 8165.914889] [wlan][2570]wlanGetRxRateByBssid:(SW4 ERROR) prStaRecOfAP is null
+[ 8173.603092] [wlan][2571]halDumpMsduReportStats:(HAL VOC) TX_Delay D:[1:5:10:20]=[0:0:0:0:0#0] C:[10:20:50:80]=[0:0:0:0:0#0] M:[5:10:20:50]=[0:0:0:0:0#0] A:[5:10:20:50]=[0:0:0:0:0#0] F:[10:20:50:80]=[0:0:0:0:0#0] Txfail:0
+[ 8173.603318] [wlan][2570]bssGetIotApAction:(BSS INFO) GetIotApAction Param Error!
+[ 8173.603348] [wlan][2570]wlanGetRxRateByBssid:(SW4 ERROR) prStaRecOfAP is null
+[ 8203.472944] type=1400 audit(1791301306.656:38735): avc:  denied  { search } for  comm="sshd-session" name="tests" dev="dm-41" ino=111 scontext=u:r:untrusted_app_27:s0:c199,c256,c512,c768 tcontext=u:object_r:shell_test_data_file:s0 tclass=dir permissive=0 app=com.termux.boot
+[ 8205.667343] [wlan][2570]cnmTimerStartTimer:(CNM WARN) Invalid NextExpiredSysTime: 7799644, currentSysTime: 7905664
+[ 8205.669953] [wlan][2570]scanAbortBeaconRecv:(AIS ERROR) [SWIPS] Dont abort, SWIPS already OFF
+[ 8205.682200] [wlan][2570]wlanGetRxRateByBssid:(SW4 ERROR) prStaRecOfAP is null
+[ 8205.693086] [wlan][2571]halDumpMsduReportStats:(HAL VOC) TX_Delay D:[1:5:10:20]=[0:0:0:0:0#0] C:[10:20:50:80]=[0:0:0:0:0#0] M:[5:10:20:50]=[0:0:0:0:0#0] A:[5:10:20:50]=[0:0:0:0:0#0] F:[10:20:50:80]=[0:0:0:0:0#0] Txfail:0
+[ 8206.299600] [wlan][2570]scnDoZeroChRecoveryCheck:(SCN WARN) ScanRecover: ScnZeroChCount(0), ResetCount(0)

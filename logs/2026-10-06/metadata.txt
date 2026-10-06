@@ -1,4 +1,4 @@
-# collected: 2026-10-04T05:54:24Z
+# collected: 2026-10-06T14:49:30Z
 # host: note12
 # cmd: getprop | grep -E 'ro.build|ro.product|ro.vendor.build|ro.boot' | sort
 

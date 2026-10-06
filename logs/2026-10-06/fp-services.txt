@@ -1,0 +1,25 @@
+# collected: 2026-10-06T14:01:40Z
+# host: note12
+# cmd (root): /system/bin/dumpsys fingerprint 2>/dev/null | head -n 200
+
+Dumping for sensorId: 0, provider: FingerprintProvider
+Fps state: 0
+{"service":"FingerprintProvider\/defaultHIDL","prints":[{"id":0,"count":0,"accept":0,"reject":0,"acquire":0,"lockout":0,"permanentLockout":0,"acceptCrypto":0,"rejectCrypto":0,"acquireCrypto":0}]}
+HAL deaths since last reboot: 0
+---AuthSessionCoordinator logs begin---
+#0     resetLockoutFor(userId=0 ,biometricStrength=15, requestId=-1)
+#1     resetLockoutFor(userId=0 ,biometricStrength=15, requestId=-1)
+#2     resetLockoutFor(userId=0 ,biometricStrength=15, requestId=-1)
+#3     resetLockoutFor(userId=0 ,biometricStrength=15, requestId=-1)
+#4     resetLockoutFor(userId=0 ,biometricStrength=15, requestId=-1)
+
+Permanent Lockouts
+UserId=0, {(BIOMETRIC_STRONG, permanentLockout=false, timedLockout=false), (BIOMETRIC_WEAK, permanentLockout=false, timedLockout=false), (BIOMETRIC_CONVENIENCE, permanentLockout=false, timedLockout=false)}
+
+---AuthSessionCoordinator logs end  ---
+Dump of BiometricScheduler BiometricScheduler
+Type: 3
+Current operation: {[419036] com.android.server.biometrics.sensors.fingerprint.hidl.FingerprintUpdateActiveUserClient, proto=1, owner=android, cookie=0, requestId=-1, userId=0}, State: 2
+Pending operations: 1
+Pending operation: {[0] com.android.server.biometrics.sensors.fingerprint.aidl.FingerprintInternalCleanupClient, proto=7, owner=android, cookie=0, requestId=-1, userId=0}, State: 0
+

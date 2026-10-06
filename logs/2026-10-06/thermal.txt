@@ -1,0 +1,73 @@
+# collected: 2026-10-06T14:01:31Z
+# host: note12
+# cmd: for z in /sys/class/thermal/thermal_zone*/; do echo "--- $z"; cat $z/type 2>/dev/null; cat $z/temp 2>/dev/null; done
+
+--- /sys/class/thermal/thermal_zone0/
+mtktsbattery
+34600
+--- /sys/class/thermal/thermal_zone1/
+mtktsAP
+44469
+--- /sys/class/thermal/thermal_zone10/
+tzimgs6
+-127000
+--- /sys/class/thermal/thermal_zone11/
+tzimgs7
+-127000
+--- /sys/class/thermal/thermal_zone12/
+tzimgs8
+-127000
+--- /sys/class/thermal/thermal_zone13/
+tzimgs9
+-127000
+--- /sys/class/thermal/thermal_zone14/
+tzimgs10
+-127000
+--- /sys/class/thermal/thermal_zone15/
+tzimgs11
+-127000
+--- /sys/class/thermal/thermal_zone16/
+tzimgs12
+-127000
+--- /sys/class/thermal/thermal_zone17/
+mtktspa
+58000
+--- /sys/class/thermal/thermal_zone18/
+mtktspmic
+43252
+--- /sys/class/thermal/thermal_zone19/
+mtktswmt
+38000
+--- /sys/class/thermal/thermal_zone2/
+mtktsbtsmdpa
+40777
+--- /sys/class/thermal/thermal_zone20/
+battery
+34600
+--- /sys/class/thermal/thermal_zone21/
+bms
+34600
+--- /sys/class/thermal/thermal_zone22/
+mtktscharger
+30000
+--- /sys/class/thermal/thermal_zone3/
+mtktscpu
+52624
+--- /sys/class/thermal/thermal_zone4/
+tzimgs0
+-127000
+--- /sys/class/thermal/thermal_zone5/
+tzimgs1
+-127000
+--- /sys/class/thermal/thermal_zone6/
+tzimgs2
+-127000
+--- /sys/class/thermal/thermal_zone7/
+tzimgs3
+-127000
+--- /sys/class/thermal/thermal_zone8/
+tzimgs4
+-127000
+--- /sys/class/thermal/thermal_zone9/
+tzimgs5
+-127000

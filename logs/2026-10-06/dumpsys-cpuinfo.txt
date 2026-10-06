@@ -1,0 +1,134 @@
+# collected: 2026-10-06T14:11:04Z
+# host: note12
+# cmd (root): /system/bin/dumpsys cpuinfo
+
+Load: 17.76 / 17.9 / 17.27
+CPU usage from 100822ms to 43699ms ago (2026-10-06 09:09:25.820 to 2026-10-06 09:10:22.943):
+  79% 1792/system_server: 36% user + 43% kernel / faults: 162513 minor 1 major
+  40% 539/hwservicemanager: 8.8% user + 31% kernel / faults: 31648 minor
+  38% 536/logd: 10% user + 27% kernel / faults: 25132 minor
+  28% 1/init: 11% user + 17% kernel / faults: 16210 minor
+  26% 26686/org.fdroid.fdroid: 22% user + 3.2% kernel / faults: 6196 minor 4284 major
+  17% 1436/irq/45-goodix_fp_irq: 0% user + 17% kernel
+  7.1% 43/migration/4: 0% user + 7.1% kernel
+  5.9% 19006/com.facebook.orca: 3.5% user + 2.3% kernel / faults: 8824 minor 11069 major
+  5.7% 1390/teesim: 1.1% user + 4.6% kernel / faults: 170 minor
+  5.7% 18729/com.facebook.katana: 2.9% user + 2.8% kernel / faults: 9944 minor 11856 major
+  4% 20/migration/0: 0% user + 4% kernel
+  3.8% 31/migration/2: 0% user + 3.8% kernel
+  3.7% 25/migration/1: 0% user + 3.7% kernel
+  3.6% 49/migration/5: 0% user + 3.6% kernel
+  3.2% 1407/lspd: 0.9% user + 2.2% kernel
+  2.8% 20165/org.telegram.messenger: 1.6% user + 1.2% kernel / faults: 30 minor
+  2.7% 975/android.hardware.graphics.composer@2.3-service: 0% user + 2.6% kernel
+  2% 1049/surfaceflinger: 0.8% user + 1.2% kernel
+  1.4% 23205/com.google.android.apps.maps: 0.4% user + 0.9% kernel / faults: 3715 minor 5396 major
+  1.3% 37/migration/3: 0% user + 1.3% kernel
+  1.3% 27308/com.instagram.android: 0.5% user + 0.8% kernel / faults: 2770 minor 4239 major
+  1.3% 21510/com.google.android.gms.unstable: 0.5% user + 0.7% kernel / faults: 3784 minor 5978 major
+  0.1% 28663/com.instagram.android:fbns: 0% user + 0% kernel / faults: 3544 minor 2708 major
+  1.1% 2571/hif_thread: 0% user + 1.1% kernel
+  1.1% 19583/kworker/0:0-events: 0% user + 1.1% kernel
+  0.1% 20308/com.microsoft.office.outlook: 0% user + 0% kernel / faults: 2621 minor 4020 major
+  0.2% 109/kswapd0: 0% user + 0.2% kernel
+  0.9% 24476/com.microsoft.office.officehubrow: 0.1% user + 0.7% kernel / faults: 1724 minor 2738 major
+  0.9% 25140/com.strava: 0.2% user + 0.6% kernel / faults: 1944 minor 3096 major
+  0.6% 2570/main_thread: 0% user + 0.6% kernel
+  0.6% 9322/com.google.android.gms: 0.4% user + 0.1% kernel / faults: 544 minor
+  0.5% 17264/kworker/u16:2-events_freezable_power_: 0% user + 0.5% kernel
+  0.5% 90/kcompactd0: 0% user + 0.5% kernel
+  0.5% 8774/kworker/u16:0-events_freezable_power_: 0% user + 0.5% kernel
+  0.5% 16342/com.tailscale.ipn: 0.1% user + 0.3% kernel / faults: 13 minor
+  0.4% 5359/kworker/u16:3-events_freezable_power_: 0% user + 0.4% kernel
+  0% 26596/com.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0: 0% user + 0% kernel / faults: 1293 minor 1756 major
+  0.4% 1345/android.hardware.biometrics.fingerprint@2.3-service.xiaomi: 0% user + 0.3% kernel / faults: 1 minor
+  0.3% 16553/com.whatsapp: 0.1% user + 0.2% kernel / faults: 499 minor 1220 major
+  0.3% 16/rcu_preempt: 0% user + 0.3% kernel
+  0.3% 352/kworker/u16:5-loop12: 0% user + 0.3% kernel
+  0.3% 354/charger_thread: 0% user + 0.3% kernel
+  0% 25571/com.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0: 0% user + 0% kernel / faults: 748 minor 1422 major
+  0.3% 50/ksoftirqd/5: 0% user + 0.3% kernel
+  0.2% 44/ksoftirqd/4: 0% user + 0.2% kernel
+  0.2% 26082/sinet.startup.inDriver: 0% user + 0.2% kernel / faults: 705 minor 1478 major
+  0.2% 1026/android.hardware.memtrack-service.mediatek-mali: 0% user + 0.1% kernel
+  0.2% 18612/kworker/3:0: 0% user + 0.2% kernel
+  0.2% 38/ksoftirqd/3: 0% user + 0.2% kernel
+  0.1% 962/netd: 0% user + 0.1% kernel / faults: 356 minor
+  0.1% 10486/com.android.phone: 0.1% user + 0% kernel / faults: 265 minor
+  0.1% 15/ksoftirqd/0: 0% user + 0.1% kernel
+  0.1% 16216/kworker/1:1-events: 0% user + 0.1% kernel
+  0.1% 874/kworker/7:2-events: 0% user + 0.1% kernel
+  0.1% 2913/com.android.networkstack.process: 0.1% user + 0% kernel / faults: 385 minor
+  0.1% 29741/kworker/2:0: 0% user + 0.1% kernel
+  0.1% 32/ksoftirqd/2: 0% user + 0.1% kernel
+  0.1% 20884/com.google.android.googlequicksearchbox:interactor: 0% user + 0.1% kernel / faults: 218 minor 1067 major
+  0.1% 26/ksoftirqd/1: 0% user + 0.1% kernel
+  0.1% 987/android.hardware.health-service.mediatek: 0% user + 0.1% kernel
+  0.1% 318/sf_pf_release_thread: 0% user + 0.1% kernel
+  0.1% 537/lmkd: 0% user + 0% kernel
+  0% 11910/android.process.acore: 0% user + 0% kernel / faults: 159 minor 90 major
+  0.1% 16402/com.xiaomi.wearable:device: 0% user + 0% kernel / faults: 583 minor
+  0% 963/statsd: 0% user + 0% kernel
+  0% 22050/com.android.vending:quick_launch: 0% user + 0% kernel / faults: 161 minor 593 major
+  0% 23203/com.google.android.syncadapters.calendar: 0% user + 0% kernel / faults: 225 minor 448 major
+  0% 1011/android.hardware.sensors-service.xiaomi-multihal: 0% user + 0% kernel
+  0% 17203/com.xiaomi.wearable:persistent: 0% user + 0% kernel / faults: 168 minor 519 major
+  0% 20016/kworker/u17:2-mali_jd: 0% user + 0% kernel
+  0% 22348/kworker/6:7-mm_percpu_wq: 0% user + 0% kernel
+  0% 24291/com.google.android.contacts: 0% user + 0% kernel / faults: 143 minor 204 major
+  0% 56/ksoftirqd/6: 0% user + 0% kernel
+  0% 62/ksoftirqd/7: 0% user + 0% kernel
+  0% 14571/sshd: 0% user + 0% kernel / faults: 178 minor
+  0% 27917/com.google.android.partnersetup: 0% user + 0% kernel / faults: 98 minor 246 major
+  0% 99/pd_dbg_info: 0% user + 0% kernel
+  0% 139/chre_kthread: 0% user + 0% kernel
+  0% 203/wdtk-1: 0% user + 0% kernel
+  0% 204/wdtk-2: 0% user + 0% kernel
+  0% 231/krtatm: 0% user + 0% kernel
+  0% 1257/thermal: 0% user + 0% kernel
+  0% 7559/kworker/4:1-events: 0% user + 0% kernel
+  0% 26817/kworker/5:2-mm_percpu_wq: 0% user + 0% kernel
+  0% 18/rcu_exp_gp_kthread_worker: 0% user + 0% kernel
+  0% 208/wdtk-6: 0% user + 0% kernel
+  0% 266/battery_thread: 0% user + 0% kernel
+  0% 308/mtk_drm_disp_idlemgr-0: 0% user + 0% kernel
+  0% 327/card0-crtc0: 0% user + 0% kernel
+  0% 434/ueventd: 0% user + 0% kernel
+  0% 534/prng_seeder: 0% user + 0% kernel
+  0% 542/psimon: 0% user + 0% kernel
+  0% 612/f2fs_ckpt-253:41: 0% user + 0% kernel
+  0% 976/iptables-restore: 0% user + 0% kernel
+  0% 980/android.hardware.audio.service: 0% user + 0% kernel
+  0% 1014/android.hardware.usb-service.mediatek: 0% user + 0% kernel / faults: 1 minor 1 major
+  0% 1015/android.hardware.wifi-service: 0% user + 0% kernel
+  0% 1042/audioserver: 0% user + 0% kernel
+  0% 1119/mi_thermald: 0% user + 0% kernel
+  0% 1240/storaged: 0% user + 0% kernel
+  0% 1245/wificond: 0% user + 0% kernel
+  0% 1267/thermalloadalgod: 0% user + 0% kernel
+  0% 1271/vendor.mediatek.hardware.pq@2.2-service: 0% user + 0% kernel
+  0% 1550/gsm0710muxd: 0% user + 0% kernel
+  0% 1646/mtkfusionrild: 0% user + 0% kernel
+  0% 2572/rx_thread: 0% user + 0% kernel
+  0% 2665/com.android.systemui: 0% user + 0% kernel / faults: 69 minor
+  0% 2943/com.android.bluetooth: 0% user + 0% kernel / faults: 2 minor 1 major
+  0% 3519/com.android.permissioncontroller: 0% user + 0% kernel / faults: 34 minor 62 major
+  0% 13724/com.android.settings: 0% user + 0% kernel / faults: 10 minor 4 major
+  0% 18546/com.android.imsserviceentitlement: 0% user + 0% kernel / faults: 35 minor 90 major
+  0% 18701/com.stevesoltys.seedvault: 0% user + 0% kernel / faults: 56 minor 156 major
+  0% 21339/com.android.camera: 0% user + 0% kernel / faults: 58 minor 64 major
+  0% 21898/com.android.devicediagnostics: 0% user + 0% kernel / faults: 40 minor 98 major
+  0% 22089/com.android.dynsystem:dynsystem: 0% user + 0% kernel / faults: 11 minor 8 major
+  0% 23119/com.google.android.projection.gearhead:car: 0% user + 0% kernel / faults: 63 minor 176 major
+  0% 23383/org.lineageos.updater: 0% user + 0% kernel / faults: 64 minor 125 major
+  0% 23969/com.google.android.apps.nbu.files: 0% user + 0% kernel / faults: 44 minor 102 major
+  0% 24507/com.xiaomi.wearable: 0% user + 0% kernel / faults: 2 minor
+  0% 27140/kworker/7:1-sock_diag_events: 0% user + 0% kernel
+ +0% 14503/sshd-session: 0% user + 0% kernel
+ +0% 15147/sshd-session: 0% user + 0% kernel
+ +0% 15224/sh: 0% user + 0% kernel
+ +0% 15396/sh: 0% user + 0% kernel
+ +0% 15397/sort: 0% user + 0% kernel
+ +0% 23270/kworker/0:1-events: 0% user + 0% kernel
+ +0% 30549/kworker/6:0: 0% user + 0% kernel
+57% TOTAL: 18% user + 36% kernel + 0% iowait + 2% irq + 0.8% softirq

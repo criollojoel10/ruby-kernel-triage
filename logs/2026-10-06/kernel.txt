@@ -1,0 +1,6 @@
+# collected: 2026-10-06T15:46:04Z
+# host: note12
+# cmd (root): uname -a; cat /proc/version
+
+Linux localhost 6.6.127-4k-ged71a8f07b9c-dirty #25 SMP PREEMPT Fri Oct  2 06:07:44 UTC 2026 aarch64 Toybox
+Linux version 6.6.127-4k-ged71a8f07b9c-dirty (nobody@android-build) (Android (13783749, +pgo, +bolt, +lto, +mlgo, based on r563880) clang version 21.0.0 (https://android.googlesource.com/toolchain/llvm-project 5e96669f06077099aa41290cdb4c5e6fa0f59349), LLD 21.0.0 (/mnt/disks/build-disk/src/googleplex-android/llvm-r563880-release/out/llvm-project/llvm 5e96669f06077099aa41290cdb4c5e6fa0f59349)) #25 SMP PREEMPT Fri Oct  2 06:07:44 UTC 2026

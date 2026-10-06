@@ -485,14 +485,14 @@
 [51153.863553] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51153.864425] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51153.865352] [goodixFP] gf_irq, 883, exit
-[51153.882062] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Req DA=8a:c6:**:**:**:78 SRC MAC/IP[30:16:**:**:**:c7]/[192.***.***.1], TAR MAC/IP[00:00:**:**:**:00]/[192.***.***.159], SeqNo: 2797
+[51153.882062] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Req DA=8a:c6:**:**:**:78 SRC MAC/IP[BSSID_REDACTED]/[192.***.***.1], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.159], SeqNo: 2797
 [51153.882669] [goodixFP] gf_irq, 866, enter
 [51153.884996] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51153.885865] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51153.886793] [goodixFP] gf_irq, 883, exit
-[51153.887524] [wlan][2784]statsParseARPInfo:(TX INFO) <TX> ARP Rsp DA=30:16:**:**:**:c7 SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[30:16:**:**:**:c7]/[192.***.***.1], SeqNo: 132
+[51153.887524] [wlan][2784]statsParseARPInfo:(TX INFO) <TX> ARP Rsp DA=BSSID_REDACTED SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.1], SeqNo: 132
 [51153.889855] [wlan][2782]nic_txd_v2_compose:(TX INFO) TX[ARP] WIDX[7] PID[11]
-[51153.891933] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ARP] Tag[0x1f770d00] WIDX:PID[7:11] SN[215] Status[0], MAC: 30:16:**:**:**:c7 SeqNo: 132 Xmit~Hif:1.075 Hif~Done:1.020
+[51153.891933] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ARP] Tag[0x1f770d00] WIDX:PID[7:11] SN[215] Status[0], MAC: BSSID_REDACTED SeqNo: 132 Xmit~Hif:1.075 Hif~Done:1.020
 [51153.902283] [goodixFP] gf_irq, 866, enter
 [51153.902933] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51153.903813] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -1194,7 +1194,7 @@
 [51155.502258] [wlan][2783]wlanTxCmdDoneCb:(TX INFO) Add command: 0000000034218cce, 00000000b8b9ebd2, cmd=0x81, seq=221
 [51155.504352] [FTS_TS]fts_irq_read_report:x:4997,y:17990
 [51155.505232] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51155.506294] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-70, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=87318, RxOK=458118, FcsErr=0
+[51155.506294] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-70, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=87318, RxOK=458118, FcsErr=0
 [51155.507490] [FTS_TS]fts_irq_read_report:x:4997,y:17990
 [51155.509200] [FTS_TS]fts_input_report_b:[B]P0 UP!
 [51155.509877] [FTS_TS]fts_input_report_b:[B]Points All Up!
@@ -2602,7 +2602,7 @@
 [51158.526002] [goodixFP] gf_irq, 866, enter
 [51158.526017] [wlan][2782]SCANLOG:(SCN INFO) [SCN:200:D2F] 1: 3016157c5
 [51158.526628] [goodixFP] [gf_netlink_send] : enter, send command 1
-[51158.527550] [wlan][2782]SCANLOG:(SCN INFO) [SCN:200:D2F] ScanReqV2: ScanType=1,BSS=0,SSIDType=8,Num=1,Ext=0,ChannelType=4,Num=1,Ext=0,Seq=230,Ver=1,Dw=90,Min=42,Func=(0x3,0x0),D=0,Mac=00:00:**:**:**:00,BSSID=00:00:**:**:**:00,OpT=0,DfsT=0,ChCnt=0 ,Ssid: SKYLIFE_ALEJANDRA_5G,Ch: 149
+[51158.527550] [wlan][2782]SCANLOG:(SCN INFO) [SCN:200:D2F] ScanReqV2: ScanType=1,BSS=0,SSIDType=8,Num=1,Ext=0,ChannelType=4,Num=1,Ext=0,Seq=230,Ver=1,Dw=90,Min=42,Func=(0x3,0x0),D=0,Mac=BSSID_REDACTED,BSSID=BSSID_REDACTED,OpT=0,DfsT=0,ChCnt=0 ,Ssid: SSID_REDACTED,Ch: 149
 [51158.527586] [wlan][2782]asicConnac2xFillCmdTxdInfo:(TX INFO) TX CMD: ID[0x03] SEQ[231] SET[1] LEN[1252]
 [51158.527697] [wlan][2782]asicConnac2xFillCmdTxdInfo:(TX INFO) TX CMD: ID[0x81] SEQ[232] SET[0] LEN[64]
 [51158.528505] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -2613,7 +2613,7 @@
 [51158.540780] [wlan][2783]halSwWfdmaWriteCmd:(HAL INFO) Write CMD DRV[3] FW[2] CID[0x81]
 [51158.541927] [wlan][2782]qmHandleRxPackets:(RX WARN) Mark NULL the Packet for non-interesting type
 [51158.543591] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51158.544768] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-72, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=87323, RxOK=458122, FcsErr=0
+[51158.544768] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-72, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=87323, RxOK=458122, FcsErr=0
 [51158.545666] [goodixFP] gf_irq, 866, enter
 [51158.547561] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51158.548445] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -2765,7 +2765,7 @@
 [51158.795731] [wlan][2782]kalSendUevent:(INIT INFO) Send UEvent = Scan=Status:NORMAL,DBDC:ENABLE,Time:268,Channel:149 ,Reason:OK
 [51158.795759] [FTS_TS]fts_irq_read_report:x:9633,y:20810
 [51158.797772] [haptic_hv]aw86927_haptic_effect_strength: aw86927->level =0x40
-[51158.798921] [wlan][2782]SCANLOG:(SCN INFO2) [SCN:600:D2K] Total:1/24  SKYLIFE_ALEJANDRA_5G;
+[51158.798921] [wlan][2782]SCANLOG:(SCN INFO2) [SCN:600:D2K] Total:1/24  SSID_LIST_REDACTED;
 [51158.799816] [FTS_TS]fts_irq_read_report:x:9633,y:20810
 [51158.800533] [wlan][2782]SCANLOG:(SCN INFO) [SCN:600:D2K] 2: 3016157c55216157c5
 [51158.801510] [goodixFP] gf_irq, 866, enter
@@ -2777,24 +2777,24 @@
 [51158.805614] [wlan][2782]kalReportWifiLog:(AIS VOC) [51158.805612][ROAM] SCAN_DONE btcoex=0 ap_count=1 freq[1]=5745 [size(67)]
 [51158.805622] [wlan][2782]aisFsmSteps:(AIS STATE) [AIS0][0] TRANSITION: [LOOKING_FOR] -> [SEARCH]
 [51158.805631] [wlan][2782]apsSearchBssDescByScore:(APS INFO) ConnectionPolicy = 0, reason = 0
-[51158.805659] [wlan][2782]apsUpdateEssApList:(APS INFO) Find SKYLIFE_ALEJANDRA_5G in 17 BSSes, result 1, Using LEGACY estimated tput
+[51158.805659] [wlan][2782]apsUpdateEssApList:(APS INFO) Find SSID_REDACTED in 17 BSSes, result 1, Using LEGACY estimated tput
 [51158.806004] [haptic_hv]aw86927_vibrator_work_routine: effect_id = 0 state=0 activate_mode = 0 duration = 0
 [51158.806405] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51158.806985] [haptic_hv]aw86927_haptic_wait_enter_standby: wait for standby
-[51158.807417] [wlan][2782]apsCalculateApScore:(APS INFO) BSS[30:16:**:**:**:c5] Score:5520 RSSIFactor[2520] CUFactor[3000] Band[5G] GBandCoex[0] RSSI[-76] CU[0] DefaultCU[40/15/3]
+[51158.807417] [wlan][2782]apsCalculateApScore:(APS INFO) BSS[BSSID_REDACTED] Score:5520 RSSIFactor[2520] CUFactor[3000] Band[5G] GBandCoex[0] RSSI[-76] CU[0] DefaultCU[40/15/3]
 [51158.807938] [FTS_TS]fts_irq_read_report:x:9633,y:20810
 [51158.807983] [goodixFP] gf_irq, 883, exit
 [51158.809697] [haptic_hv]aw86927_haptic_wait_enter_standby: wait for standby
 [51158.811845] [FTS_TS]fts_irq_read_report:x:9633,y:20810
-[51158.813372] [wlan][2782]apsIntraApSelection:(APS INFO) CURR[30:16:**:**:**:c5] score[5520] tput[122336]
+[51158.813372] [wlan][2782]apsIntraApSelection:(APS INFO) CURR[BSSID_REDACTED] score[5520] tput[122336]
 [51158.815208] [haptic_hv]aw86927_haptic_wait_enter_standby: wait for standby
-[51158.815844] [wlan][2782]kalReportWifiLog:(AIS VOC) [51158.815832][ROAM] SCORE_CUR_AP bssid=AA:BB:CC:DD:EE:01 freq=5745 rssi=-76 cu=-1 score=55.20[size(97)]
+[51158.815844] [wlan][2782]kalReportWifiLog:(AIS VOC) [51158.815832][ROAM] SCORE_CUR_AP bssid=MAC_REDACTED freq=5745 rssi=-76 cu=-1 score=55.20[size(97)]
 [51158.815929] [FTS_TS]fts_irq_read_report:x:9633,y:20810
 [51158.819663] [haptic_hv]aw86927_haptic_wait_enter_standby: entered standby!
-[51158.819852] [wlan][2782]apsCalculateApScore:(APS INFO) BSS[30:16:**:**:**:c5] Score:5520 RSSIFactor[2520] CUFactor[3000] Band[5G] GBandCoex[0] RSSI[-76] CU[0] DefaultCU[40/15/3]
+[51158.819852] [wlan][2782]apsCalculateApScore:(APS INFO) BSS[BSSID_REDACTED] Score:5520 RSSIFactor[2520] CUFactor[3000] Band[5G] GBandCoex[0] RSSI[-76] CU[0] DefaultCU[40/15/3]
 [51158.820022] [FTS_TS]fts_irq_read_report:x:9633,y:20810
 [51158.821177] [goodixFP] gf_irq, 866, enter
-[51158.821675] [wlan][2782]apsIntraSelectLinkPlan:(APS INFO) CAND[0][30:16:**:**:**:c5] allow_plan = 0x4
+[51158.821675] [wlan][2782]apsIntraSelectLinkPlan:(APS INFO) CAND[0][BSSID_REDACTED] allow_plan = 0x4
 [51158.822828] [wlan][2378]mddpIsSupportMcifWifi:(INIT VOC) mddp enable: 1.
 [51158.822835] [wlan][2378]mddpIsSupportMcifWifi:(INIT VOC) mddp enable: 1.
 [51158.822838] [wlan][2378]mddpIsSupportMcifWifi:(INIT VOC) mddp enable: 1.
@@ -2802,7 +2802,7 @@
 [51158.823764] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51158.823766] [goodixFP] gf_irq, 883, exit
 [51158.824028] [FTS_TS]fts_irq_read_report:x:9633,y:20810
-[51158.824531] [wlan][2782]apsIntraUpdateCandi:(APS WARN) 30:16:**:**:**:c5 connected
+[51158.824531] [wlan][2782]apsIntraUpdateCandi:(APS WARN) BSSID_REDACTED connected
 [51158.827977] [FTS_TS]fts_irq_read_report:x:9633,y:20810
 [51158.828112] [wlan][2782]apsInterApSelection:(APS INFO) No ap collection found, try blocklist
 [51158.832012] [FTS_TS]fts_irq_read_report:x:9633,y:20810
@@ -2810,7 +2810,7 @@
 [51158.832439] update cpufreq limit idx min 13---max 0,freq min 910000 ---max 2600000
 [51158.832593] [wlan][2782]apsFillBssDescSet:(APS INFO) Total 0 link(s)
 [51158.836238] [FTS_TS]fts_irq_read_report:x:9633,y:20810
-[51158.837586] [wlan][2782]apsSearchBssDescByScore:(APS INFO) Selected None when find SKYLIFE_ALEJANDRA_5G, 00:00:**:**:**:00 in 1(1) BSSes.
+[51158.837586] [wlan][2782]apsSearchBssDescByScore:(APS INFO) Selected None when find SSID_REDACTED, BSSID_REDACTED in 1(1) BSSes.
 [51158.840251] [FTS_TS]fts_irq_read_report:x:9633,y:20810
 [51158.840866] [goodixFP] gf_irq, 866, enter
 [51158.840881] [goodixFP] [gf_netlink_send] : enter, send command 1
@@ -3784,7 +3784,7 @@
 [51161.563200] [wlan][2783]halDumpMsduReportStats:(HAL VOC) TX_Delay D:[1:5:10:20]=[0:0:0:0:0#0] C:[10:20:50:80]=[0:0:0:0:0#0] M:[5:10:20:50]=[0:0:0:0:0#0] A:[5:10:20:50]=[0:0:0:0:0#0] F:[10:20:50:80]=[0:0:0:0:0#0] Txfail:0
 [51161.565754] [wlan][2783]halDumpHifStats:(HAL VOC) I[0 / 625764 45580 0 7729 0 1 0x0 0x0 0] T[24766 24766 24337 / 279770 279770 279770 278536] R[924659 / 97201] T_Q:T_R[0:0 0:0 0:0 0:0 0:0 0:0 0:429 0:0]  R_R:R_N[0:0 0:0 0:0 0:0 0:0] Msdu:F[2047/2048]P[0]D[0] Tok[0/2048] Rfb[2102/0/0/0/0/2102] txreg[169388] rxreg[620187]
 [51161.569535] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51161.570668] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-70, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=87323, RxOK=458122, FcsErr=0
+[51161.570668] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-70, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=87323, RxOK=458122, FcsErr=0
 [51161.576291] [goodixFP] gf_irq, 866, enter
 [51161.576929] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51161.577818] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -4832,7 +4832,7 @@
 [51164.589939] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51164.592026] [goodixFP] gf_irq, 883, exit
 [51164.594736] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51164.596813] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-68, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=87325, RxOK=458125, FcsErr=0
+[51164.596813] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-68, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=87325, RxOK=458125, FcsErr=0
 [51164.606765] [goodixFP] gf_irq, 866, enter
 [51164.607502] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51164.608374] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -6184,7 +6184,7 @@
 [51167.600558] [goodixFP] gf_irq, 883, exit
 [51167.607410] [wlan][2783]wlanTxCmdDoneCb:(TX INFO) Add command: 00000000c3be88c3, 00000000b8b9ebd2, cmd=0x81, seq=251
 [51167.609362] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51167.610430] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-70, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=87328, RxOK=458127, FcsErr=0
+[51167.610430] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-70, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=87328, RxOK=458127, FcsErr=0
 [51167.617660] [goodixFP] gf_irq, 866, enter
 [51167.618297] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51167.619461] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -6764,7 +6764,7 @@
 [51168.895504] [wlan]DUMP8 ADDRESS: 0x00000000354aeea1, Length: 0
 [51168.895510] [wlan][2782]SCANLOG:(SCN INFO) [SCN:200:D2F] 1: 3016157c5
 [51168.896773] [goodixFP] gf_irq, 866, enter
-[51168.897396] [wlan][2782]SCANLOG:(SCN INFO) [SCN:200:D2F] ScanReqV2: ScanType=1,BSS=0,SSIDType=8,Num=1,Ext=0,ChannelType=4,Num=1,Ext=0,Seq=231,Ver=1,Dw=90,Min=42,Func=(0x3,0x0),D=0,Mac=00:00:**:**:**:00,BSSID=00:00:**:**:**:00,OpT=0,DfsT=0,ChCnt=0 ,Ssid: SKYLIFE_ALEJANDRA_5G,Ch: 149
+[51168.897396] [wlan][2782]SCANLOG:(SCN INFO) [SCN:200:D2F] ScanReqV2: ScanType=1,BSS=0,SSIDType=8,Num=1,Ext=0,ChannelType=4,Num=1,Ext=0,Seq=231,Ver=1,Dw=90,Min=42,Func=(0x3,0x0),D=0,Mac=BSSID_REDACTED,BSSID=BSSID_REDACTED,OpT=0,DfsT=0,ChCnt=0 ,Ssid: SSID_REDACTED,Ch: 149
 [51168.898363] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51168.898645] [haptic_hv]aw86927_vibrator_work_routine: effect_id = 0 state=1 activate_mode = 0 duration = 0
 [51168.899350] [wlan][2782]asicConnac2xFillCmdTxdInfo:(TX INFO) TX CMD: ID[0x03] SEQ[254] SET[1] LEN[1252]
@@ -6898,7 +6898,7 @@
 [51169.149698] [wlan][2782]twtPlannerCheckResume:(TWT_PLANNER INFO) TWT flow not find
 [51169.150750] [wlan][2782]kalSendUevent:(INIT INFO) Send UEvent = Scan=Status:NORMAL,DBDC:ENABLE,Time:248,Channel:149 ,Reason:OK
 [51169.152605] [goodixFP] gf_irq, 866, enter
-[51169.152821] [wlan][2782]SCANLOG:(SCN INFO2) [SCN:600:D2K] Total:1/24  SKYLIFE_ALEJANDRA_5G;
+[51169.152821] [wlan][2782]SCANLOG:(SCN INFO2) [SCN:600:D2K] Total:1/24  SSID_LIST_REDACTED;
 [51169.153219] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51169.153285] [wlan][2782]SCANLOG:(SCN INFO) [SCN:600:D2K] 2: 3016157c55216157c5
 [51169.154394] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -6909,19 +6909,19 @@
 [51169.162229] [wlan][2782]kalReportWifiLog:(AIS VOC) [51169.162228][ROAM] SCAN_DONE btcoex=0 ap_count=1 freq[1]=5745 [size(67)]
 [51169.163785] [wlan][2782]aisFsmSteps:(AIS STATE) [AIS0][0] TRANSITION: [LOOKING_FOR] -> [SEARCH]
 [51169.164979] [wlan][2782]apsSearchBssDescByScore:(APS INFO) ConnectionPolicy = 0, reason = 11
-[51169.166147] [wlan][2782]apsUpdateEssApList:(APS INFO) Find SKYLIFE_ALEJANDRA_5G in 17 BSSes, result 1, Using LEGACY estimated tput
-[51169.167726] [wlan][2782]apsCalculateApScore:(APS INFO) BSS[30:16:**:**:**:c5] Score:6080 RSSIFactor[3080] CUFactor[3000] Band[5G] GBandCoex[0] RSSI[-74] CU[0] DefaultCU[40/15/3]
-[51169.169803] [wlan][2782]apsIntraApSelection:(APS INFO) CURR[30:16:**:**:**:c5] score[6080] tput[157280]
-[51169.171088] [wlan][2782]kalReportWifiLog:(AIS VOC) [51169.171086][ROAM] SCORE_CUR_AP bssid=AA:BB:CC:DD:EE:01 freq=5745 rssi=-74 cu=-1 score=60.80[size(97)]
+[51169.166147] [wlan][2782]apsUpdateEssApList:(APS INFO) Find SSID_REDACTED in 17 BSSes, result 1, Using LEGACY estimated tput
+[51169.167726] [wlan][2782]apsCalculateApScore:(APS INFO) BSS[BSSID_REDACTED] Score:6080 RSSIFactor[3080] CUFactor[3000] Band[5G] GBandCoex[0] RSSI[-74] CU[0] DefaultCU[40/15/3]
+[51169.169803] [wlan][2782]apsIntraApSelection:(APS INFO) CURR[BSSID_REDACTED] score[6080] tput[157280]
+[51169.171088] [wlan][2782]kalReportWifiLog:(AIS VOC) [51169.171086][ROAM] SCORE_CUR_AP bssid=MAC_REDACTED freq=5745 rssi=-74 cu=-1 score=60.80[size(97)]
 [51169.172285] [goodixFP] gf_irq, 866, enter
 [51169.173538] [goodixFP] [gf_netlink_send] : enter, send command 1
-[51169.174039] [wlan][2782]apsCalculateApScore:(APS INFO) BSS[30:16:**:**:**:c5] Score:6080 RSSIFactor[3080] CUFactor[3000] Band[5G] GBandCoex[0] RSSI[-74] CU[0] DefaultCU[40/15/3]
+[51169.174039] [wlan][2782]apsCalculateApScore:(APS INFO) BSS[BSSID_REDACTED] Score:6080 RSSIFactor[3080] CUFactor[3000] Band[5G] GBandCoex[0] RSSI[-74] CU[0] DefaultCU[40/15/3]
 [51169.174421] [goodixFP] [gf_netlink_send] : send done, data length is 32
-[51169.176505] [wlan][2782]apsIntraSelectLinkPlan:(APS INFO) CAND[0][30:16:**:**:**:c5] allow_plan = 0x4
-[51169.176513] [wlan][2782]apsIntraUpdateCandi:(APS WARN) 30:16:**:**:**:c5 connected
+[51169.176505] [wlan][2782]apsIntraSelectLinkPlan:(APS INFO) CAND[0][BSSID_REDACTED] allow_plan = 0x4
+[51169.176513] [wlan][2782]apsIntraUpdateCandi:(APS WARN) BSSID_REDACTED connected
 [51169.176519] [wlan][2782]apsInterApSelection:(APS INFO) No ap collection found, try blocklist
 [51169.176522] [wlan][2782]apsFillBssDescSet:(APS INFO) Total 0 link(s)
-[51169.176525] [wlan][2782]apsSearchBssDescByScore:(APS INFO) Selected None when find SKYLIFE_ALEJANDRA_5G, 00:00:**:**:**:00 in 1(1) BSSes.
+[51169.176525] [wlan][2782]apsSearchBssDescByScore:(APS INFO) Selected None when find SSID_REDACTED, BSSID_REDACTED in 1(1) BSSes.
 [51169.176535] [wlan][2782]kalReportWifiLog:(AIS VOC) [51169.176533][ROAM] RESULT NO_ROAM [reason=0 no candidate][size(62)]
 [51169.176541] [wlan][2782]apsResetEssApList:(APS INFO) BssIndex:0 reset prCurEssLink done
 [51169.177457] [goodixFP] gf_irq, 883, exit
@@ -7547,7 +7547,7 @@
 [51170.637668] <FW>PWR RATIO-1: 2 30251 22321 7159 21 750 5000000 2 5 11 0 2
 [51170.637708] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
 [51170.638590] [goodixFP] gf_irq, 883, exit
-[51170.641294] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-66, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=87378, RxOK=458180, FcsErr=0
+[51170.641294] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-66, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=87378, RxOK=458180, FcsErr=0
 [51170.648380] [goodixFP] gf_irq, 866, enter
 [51170.649020] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51170.649908] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -8580,11 +8580,11 @@
 [51173.245780] [goodixFP] gf_irq, 866, enter
 [51173.246420] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51173.247422] [goodixFP] [gf_netlink_send] : send done, data length is 32
-[51173.247853] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Req DA=8a:c6:**:**:**:78 SRC MAC/IP[00:08:**:**:**:fb]/[192.***.***.129], TAR MAC/IP[00:00:**:**:**:00]/[192.***.***.159], SeqNo: 2818
+[51173.247853] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Req DA=8a:c6:**:**:**:78 SRC MAC/IP[BSSID_REDACTED]/[192.***.***.129], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.159], SeqNo: 2818
 [51173.248351] [goodixFP] gf_irq, 883, exit
-[51173.250764] [wlan][0]statsParseARPInfo:(TX INFO) <TX> ARP Rsp DA=00:08:**:**:**:fb SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[00:08:**:**:**:fb]/[192.***.***.129], SeqNo: 133
+[51173.250764] [wlan][0]statsParseARPInfo:(TX INFO) <TX> ARP Rsp DA=BSSID_REDACTED SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.129], SeqNo: 133
 [51173.253546] [wlan][2782]nic_txd_v2_compose:(TX INFO) TX[ARP] WIDX[7] PID[12]
-[51173.255546] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ARP] Tag[0x046aa600] WIDX:PID[7:12] SN[250] Status[0], MAC: 00:08:**:**:**:fb SeqNo: 133 Xmit~Hif:1.051 Hif~Done:0.972
+[51173.255546] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ARP] Tag[0x046aa600] WIDX:PID[7:12] SN[250] Status[0], MAC: BSSID_REDACTED SeqNo: 133 Xmit~Hif:1.051 Hif~Done:0.972
 [51173.265463] [goodixFP] gf_irq, 866, enter
 [51173.266098] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51173.267251] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -8632,11 +8632,11 @@
 [51173.345609] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51173.346339] [FTS_TS]fts_input_report_b:[B]P0 UP!
 [51173.347275] [goodixFP] gf_irq, 883, exit
-[51173.347303] [wlan][350]statsParseARPInfo:(TX INFO) <TX> ARP Req DA=00:08:**:**:**:fb SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[00:00:**:**:**:00]/[192.***.***.129], SeqNo: 134
-[51173.350268] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Req DA=8a:c6:**:**:**:78 SRC MAC/IP[0c:0f:**:**:**:2d]/[192.***.***.70], TAR MAC/IP[00:00:**:**:**:00]/[192.***.***.159], SeqNo: 2819
+[51173.347303] [wlan][350]statsParseARPInfo:(TX INFO) <TX> ARP Req DA=BSSID_REDACTED SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.129], SeqNo: 134
+[51173.350268] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Req DA=8a:c6:**:**:**:78 SRC MAC/IP[BSSID_REDACTED]/[192.***.***.70], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.159], SeqNo: 2819
 [51173.350873] [FTS_TS]fts_input_report_b:[B]Points All Up!
-[51173.353938] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Rsp DA=8a:c6:**:**:**:78 SRC MAC/IP[00:08:**:**:**:fb]/[192.***.***.129], TAR MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], SeqNo: 2820
-[51173.354341] [wlan][20089]statsParseARPInfo:(TX INFO) <TX> ARP Rsp DA=0c:0f:**:**:**:2d SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[0c:0f:**:**:**:2d]/[192.***.***.70], SeqNo: 135
+[51173.353938] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Rsp DA=8a:c6:**:**:**:78 SRC MAC/IP[BSSID_REDACTED]/[192.***.***.129], TAR MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], SeqNo: 2820
+[51173.354341] [wlan][20089]statsParseARPInfo:(TX INFO) <TX> ARP Rsp DA=BSSID_REDACTED SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.70], SeqNo: 135
 [51173.363842] [goodixFP] gf_irq, 866, enter
 [51173.364472] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51173.365351] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -8775,7 +8775,7 @@
 [51173.663820] [FTS_TS]fts_irq_read_report:x:8571,y:18306
 [51173.664051] [goodixFP] gf_irq, 883, exit
 [51173.664729] [haptic_hv]aw86927_haptic_set_wav_seq enter!
-[51173.665037] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-67, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=87385, RxOK=458201, FcsErr=0
+[51173.665037] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-67, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=87385, RxOK=458201, FcsErr=0
 [51173.667925] [FTS_TS]fts_irq_read_report:x:8571,y:18306
 [51173.668269] [haptic_hv]aw86927_haptic_set_wav_seq enter!
 [51173.672036] [FTS_TS]fts_irq_read_report:x:8571,y:18306
@@ -9721,7 +9721,7 @@
 [51176.691106] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51176.691287] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
 [51176.692038] [goodixFP] gf_irq, 883, exit
-[51176.693152] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-66, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=87402, RxOK=458221, FcsErr=0
+[51176.693152] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-66, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=87402, RxOK=458221, FcsErr=0
 [51176.709240] [goodixFP] gf_irq, 866, enter
 [51176.709353] mt635x-auxadc mt635x-auxadc: name:CHIP_TEMP, channel=4, adc_out=0x609, adc_result=678
 [51176.709874] [goodixFP] [gf_netlink_send] : enter, send command 1
@@ -10617,7 +10617,7 @@
 [51179.725612] [wlan][2783]wlanTxCmdDoneCb:(TX INFO) Add command: 00000000c3a4a1d9, 00000000b8b9ebd2, cmd=0x81, seq=37
 [51179.727040] [wlan][2783]halSwWfdmaWriteCmd:(HAL INFO) Write CMD DRV[3] FW[2] CID[0x81]
 [51179.730995] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51179.732090] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-71, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=87408, RxOK=458230, FcsErr=0
+[51179.732090] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-71, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=87408, RxOK=458230, FcsErr=0
 [51179.739394] [goodixFP] gf_irq, 866, enter
 [51179.740021] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51179.740885] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -11235,14 +11235,14 @@
 [51181.373891] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51181.374855] [goodixFP] gf_irq, 883, exit
 [51181.392074] [goodixFP] gf_irq, 866, enter
-[51181.392326] [wlan][10578]statsParseICMPInfo:(TX VOC) <TX> ICMP: IPID[0x07b6] Type 8, Id 0x0011, Seq BE 0x0001, MAC:30:16:**:**:**:c7 SeqNo: 136
+[51181.392326] [wlan][10578]statsParseICMPInfo:(TX VOC) <TX> ICMP: IPID[0x07b6] Type 8, Id 0x0011, Seq BE 0x0001, MAC:BSSID_REDACTED SeqNo: 136
 [51181.392697] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51181.394155] [mtk_nanohub]mtk_nanohub_flush [1]
 [51181.394523] [wlan][2782]nic_txd_v2_compose:(TX INFO) TX[ICMP] WIDX[7] PID[13]
 [51181.395274] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51181.396668] [mtk_nanohub]mtk_nanohub_report_to_manager [1] flush complete
 [51181.396887] [goodixFP] gf_irq, 883, exit
-[51181.400997] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ICMP] Tag[0xf0e30400] WIDX:PID[7:13] SN[320] Status[0], MAC: 30:16:**:**:**:c7 SeqNo: 136 Xmit~Hif:1.583 Hif~Done:4.891
+[51181.400997] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ICMP] Tag[0xf0e30400] WIDX:PID[7:13] SN[320] Status[0], MAC: BSSID_REDACTED SeqNo: 136 Xmit~Hif:1.583 Hif~Done:4.891
 [51181.411735] [goodixFP] gf_irq, 866, enter
 [51181.412356] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51181.413220] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -11259,7 +11259,7 @@
 [51181.471381] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51181.472236] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51181.473152] [goodixFP] gf_irq, 883, exit
-[51181.475575] [wlan][2782]statsParseICMPInfo:(RX VOC) <RX> ICMP: IPID[0x07b6] Type 0, Id 0x0011, Seq BE 0x0001, MAC:30:16:**:**:**:c7 SSN:2851
+[51181.475575] [wlan][2782]statsParseICMPInfo:(RX VOC) <RX> ICMP: IPID[0x07b6] Type 0, Id 0x0011, Seq BE 0x0001, MAC:BSSID_REDACTED SSN:2851
 [51181.475753] [0(0)]con0: 0x8000, con1: 0x3ff0ecf
 [51181.490429] [goodixFP] gf_irq, 866, enter
 [51181.491050] [goodixFP] [gf_netlink_send] : enter, send command 1
@@ -11397,8 +11397,8 @@
 [51182.061586] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51182.062455] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51182.063405] [goodixFP] gf_irq, 883, exit
-[51182.070394] [wlan][1249]SCANLOG:(SCN INFO) [SCN:100:K2D] Scan flags=0x100 [mac]addr=00:00:**:**:**:00 mask=00:00:**:**:**:00 n_ssids=1: n_channels=38: 1 2 3 4 5 6 7 8 9 10 11 12 13 36 40 44 48 52 56 60 64 100 104 108 112 116 120 124 128 132 136 140 144 149 153 157 161 165
-[51182.074075] [wlan][1249]mtk_cfg80211_scan:(REQ INFO) n_ssid=(1->0) n_channel(38==>38) wildcard=0x1 flag=0x100 random_mac=00:00:**:**:**:00
+[51182.070394] [wlan][1249]SCANLOG:(SCN INFO) [SCN:100:K2D] Scan flags=0x100 [mac]addr=BSSID_REDACTED mask=BSSID_REDACTED n_ssids=1: n_channels=38: 1 2 3 4 5 6 7 8 9 10 11 12 13 36 40 44 48 52 56 60 64 100 104 108 112 116 120 124 128 132 136 140 144 149 153 157 161 165
+[51182.074075] [wlan][1249]mtk_cfg80211_scan:(REQ INFO) n_ssid=(1->0) n_channel(38==>38) wildcard=0x1 flag=0x100 random_mac=BSSID_REDACTED
 [51182.076185] [wlan][2782]aisFsmSteps:(AIS STATE) [AIS0][0] TRANSITION: [NORMAL_TR] -> [ONLINE_SCAN]
 [51182.077437] [wlan][2782]aisNeedTargetScan:(AIS INFO) Discovering[0] Postpone[0] PartialScan[1]
 [51182.078624] [wlan][2782]scanSetRequestChannel:(SCN INFO2) channel num(38=>38) 00000000 00000000 00000022 22211111 11111110 00000001 11111110 00003FFE
@@ -11414,7 +11414,7 @@
 [51182.090664] [wlan][2782]scanHandleOceIE:(SCN INFO) After OCE IE, length = 0
 [51182.091705] [wlan]DUMP8 ADDRESS: 0x00000000354aeea1, Length: 0
 [51182.092552] [wlan][2782]SCANLOG:(SCN INFO) [SCN:200:D2F] 1: 3016157c5
-[51182.093490] [wlan][2782]SCANLOG:(SCN INFO) [SCN:200:D2F] ScanReqV2: ScanType=1,BSS=0,SSIDType=1,Num=0,Ext=0,ChannelType=4,Num=32,Ext=6,Seq=232,Ver=1,Dw=40,Min=20,Func=(0x2,0x0),D=0,Mac=00:00:**:**:**:00,BSSID=00:00:**:**:**:00,OpT=0,DfsT=0,ChCnt=0 ,Ch: 1 2 3 4 5 6 7 8 9 10 11 12 13 36 40 44 48 52 56 60 64 100 104 108 112 116 120 124 128 132 136 140,Ext Ch: 144 149 153 157 161 165
+[51182.093490] [wlan][2782]SCANLOG:(SCN INFO) [SCN:200:D2F] ScanReqV2: ScanType=1,BSS=0,SSIDType=1,Num=0,Ext=0,ChannelType=4,Num=32,Ext=6,Seq=232,Ver=1,Dw=40,Min=20,Func=(0x2,0x0),D=0,Mac=BSSID_REDACTED,BSSID=BSSID_REDACTED,OpT=0,DfsT=0,ChCnt=0 ,Ch: 1 2 3 4 5 6 7 8 9 10 11 12 13 36 40 44 48 52 56 60 64 100 104 108 112 116 120 124 128 132 136 140,Ext Ch: 144 149 153 157 161 165
 [51182.100282] [goodixFP] gf_irq, 866, enter
 [51182.100896] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51182.101765] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -11427,7 +11427,7 @@
 [51182.140266] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51182.141134] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51182.142056] [goodixFP] gf_irq, 883, exit
-[51182.156849] [wlan][2782]TdlsAutoSetup:(TDLS VOC) [0] Build up 30:16:**:**:**:c7, 24882
+[51182.156849] [wlan][2782]TdlsAutoSetup:(TDLS VOC) [0] Build up BSSID_REDACTED, 24882
 [51182.158513] [wlan][2782]TdlsexLinkMgt:(TDLS VOC) u4SetBufferLen=620
 [51182.159309] [goodixFP] gf_irq, 866, enter
 [51182.159450] [wlan][2782]TdlsexLinkMgt:(TDLS VOC) prCmd->ucActionCode=10, prCmd->ucDialogToken=1
@@ -11439,8 +11439,8 @@
 [51182.164271] [goodixFP] gf_irq, 883, exit
 [51182.165222] [wlan][2782]qmHandleRxPackets:(RX WARN) Mark NULL the Packet for non-interesting type
 [51182.168009] [wlan][2878]mtk_cfg80211_tdls_mgmt:(REQ INFO) rStatus: 0
-[51182.169725] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[TDLS] Tag[0x1f212a00] WIDX:PID[7:14] SN[361] Status[0], MAC: 30:16:**:**:**:c7 SeqNo: 137 Xmit~Hif:2.193 Hif~Done:4.045
-[51182.173613] [wlan][2782]TdlsHandleTxDoneStatus:(TDLS VOC)  rTxDoneStatus=0, addr :30:16:**:**:**:c7, IsNeedWaitTeardownTxDone=0, IsNeedDisableLink=0
+[51182.169725] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[TDLS] Tag[0x1f212a00] WIDX:PID[7:14] SN[361] Status[0], MAC: BSSID_REDACTED SeqNo: 137 Xmit~Hif:2.193 Hif~Done:4.045
+[51182.173613] [wlan][2782]TdlsHandleTxDoneStatus:(TDLS VOC)  rTxDoneStatus=0, addr :BSSID_REDACTED, IsNeedWaitTeardownTxDone=0, IsNeedDisableLink=0
 [51182.178992] [goodixFP] gf_irq, 866, enter
 [51182.179637] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51182.180570] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -11638,7 +11638,7 @@
 [51182.740847] [wlan][2783]wlanTxCmdDoneCb:(TX INFO) Add command: 0000000030628bcc, 00000000b8b9ebd2, cmd=0x81, seq=48
 [51182.743827] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
 [51182.744361] [FTS_TS]fts_irq_read_report:x:8883,y:16342
-[51182.745126] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-71, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=87612, RxOK=458440, FcsErr=0
+[51182.745126] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-71, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=87612, RxOK=458440, FcsErr=0
 [51182.748342] [FTS_TS]fts_irq_read_report:x:8888,y:16324
 [51182.749499] [goodixFP] gf_irq, 866, enter
 [51182.750141] [goodixFP] [gf_netlink_send] : enter, send command 1
@@ -12472,7 +12472,7 @@
 [51185.062747] [wlan][2782]aisFsmRunEventScanDone:(AIS INFO) ScanDone 232, status(0) native req(232)
 [51185.064064] [wlan][2782]twtPlannerCheckResume:(TWT_PLANNER INFO) TWT flow not find
 [51185.065192] [wlan][2782]kalSendUevent:(INIT INFO) Send UEvent = Scan=Status:NORMAL,DBDC:ENABLE,Time:2968,Channel:1 2 3 4 5 6 7 8 9 10 11 12 13 36 40 44 48 52 56 60 64 100 104 108 112 116 120 124 128 132 136 140 144 149 153 157 161 165 ,Reason:OK
-[51185.068226] [wlan][2782]SCANLOG:(SCN INFO2) [SCN:600:D2K] Total:12/14  SKYLIFE_ALEJANDRA_5G; SKYLIFE_ALEJANDRA; ELIHANA; SKYLIFE_POMAGUALLI; ELIHANA_EXT; FibraTeleCoM_DAYANNA_2.4G; JESSICA; CLARO_DANIELA; CLARO_DAVID; TP-Link_joel; CUARTO INT; ELIANITA 3;
+[51185.068226] [wlan][2782]SCANLOG:(SCN INFO2) [SCN:600:D2K] Total:12/14  SSID_LIST_REDACTED;
 [51185.068294] [wlan][2782]SCANLOG:(SCN INFO) [SCN:600:D2K] 14: 3016157c53016157c65216157c62887123223016158863c8417c00843c17af3c0c91e746aad4198484a2f1b5884a2f1b58b704f19388e01c28922e01c1e87b
 [51185.071194] [goodixFP] gf_irq, 866, enter
 [51185.072405] [wlan][2782]SCANLOG:(SCN INFO) [SCN:600:D2K] Call cfg80211_scan_done (aborted=0)
@@ -12718,7 +12718,7 @@
 [51185.761287] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
 [51185.761408] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51185.761775] [FTS_TS]fts_irq_read_report:x:9507,y:14870
-[51185.762779] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-66, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=87929, RxOK=460819, FcsErr=0
+[51185.762779] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-66, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=87929, RxOK=460819, FcsErr=0
 [51185.763330] [goodixFP] gf_irq, 883, exit
 [51185.765831] [FTS_TS]fts_irq_read_report:x:9531,y:14832
 [51185.769850] [FTS_TS]fts_irq_read_report:x:9552,y:14796
@@ -12836,16 +12836,16 @@
 [51186.136954] [FTS_TS]fts_irq_read_report:x:8966,y:15882
 [51186.141086] [FTS_TS]fts_irq_read_report:x:9057,y:15728
 [51186.144972] [FTS_TS]fts_irq_read_report:x:9153,y:15570
-[51186.146891] [wlan][0]statsParseARPInfo:(TX INFO) <TX> ARP Req DA=b8:27:**:**:**:ee SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[00:00:**:**:**:00]/[192.***.***.114], SeqNo: 138
+[51186.146891] [wlan][0]statsParseARPInfo:(TX INFO) <TX> ARP Req DA=BSSID_REDACTED SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.114], SeqNo: 138
 [51186.149071] [FTS_TS]fts_irq_read_report:x:9255,y:15410
 [51186.149227] [wlan][2782]nic_txd_v2_compose:(TX INFO) TX[ARP] WIDX[7] PID[15]
-[51186.152720] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ARP] Tag[0x15274b00] WIDX:PID[7:15] SN[620] Status[0], MAC: b8:27:**:**:**:ee SeqNo: 138 Xmit~Hif:1.720 Hif~Done:1.768
+[51186.152720] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ARP] Tag[0x15274b00] WIDX:PID[7:15] SN[620] Status[0], MAC: BSSID_REDACTED SeqNo: 138 Xmit~Hif:1.720 Hif~Done:1.768
 [51186.153304] [FTS_TS]fts_irq_read_report:x:9353,y:15242
 [51186.153402] [goodixFP] gf_irq, 866, enter
 [51186.153411] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51186.153441] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51186.153446] [goodixFP] gf_irq, 883, exit
-[51186.157713] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Rsp DA=8a:c6:**:**:**:78 SRC MAC/IP[b8:27:**:**:**:ee]/[192.***.***.114], TAR MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], SeqNo: 1230
+[51186.157713] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Rsp DA=8a:c6:**:**:**:78 SRC MAC/IP[BSSID_REDACTED]/[192.***.***.114], TAR MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], SeqNo: 1230
 [51186.158710] [FTS_TS]fts_irq_read_report:x:9456,y:15062
 [51186.162420] [FTS_TS]fts_irq_read_report:x:9550,y:14896
 [51186.165285] [FTS_TS]fts_irq_read_report:x:9643,y:14732
@@ -12949,9 +12949,9 @@
 [51186.431371] [goodixFP] gf_irq, 883, exit
 [51186.431552] [FTS_TS]fts_irq_read_report:x:8890,y:15370
 [51186.435512] [FTS_TS]fts_irq_read_report:x:8948,y:15310
-[51186.436878] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Req DA=8a:c6:**:**:**:78 SRC MAC/IP[b8:27:**:**:**:ee]/[192.***.***.114], TAR MAC/IP[00:00:**:**:**:00]/[192.***.***.159], SeqNo: 1234
+[51186.436878] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Req DA=8a:c6:**:**:**:78 SRC MAC/IP[BSSID_REDACTED]/[192.***.***.114], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.159], SeqNo: 1234
 [51186.439772] [FTS_TS]fts_irq_read_report:x:8993,y:15248
-[51186.440757] [wlan][44]statsParseARPInfo:(TX INFO) <TX> ARP Rsp DA=b8:27:**:**:**:ee SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[b8:27:**:**:**:ee]/[192.***.***.114], SeqNo: 139
+[51186.440757] [wlan][44]statsParseARPInfo:(TX INFO) <TX> ARP Rsp DA=BSSID_REDACTED SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.114], SeqNo: 139
 [51186.443685] [FTS_TS]fts_irq_read_report:x:9025,y:15206
 [51186.447832] [FTS_TS]fts_irq_read_report:x:9060,y:15158
 [51186.448618] [goodixFP] gf_irq, 866, enter
@@ -13450,10 +13450,10 @@
 [51187.944790] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51187.945688] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51187.946627] [goodixFP] gf_irq, 883, exit
-[51187.950491] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Req DA=8a:c6:**:**:**:78 SRC MAC/IP[30:16:**:**:**:c7]/[192.***.***.1], TAR MAC/IP[00:00:**:**:**:00]/[192.***.***.159], SeqNo: 1778
-[51187.954766] [wlan][44]statsParseARPInfo:(TX INFO) <TX> ARP Rsp DA=30:16:**:**:**:c7 SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[30:16:**:**:**:c7]/[192.***.***.1], SeqNo: 140
+[51187.950491] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Req DA=8a:c6:**:**:**:78 SRC MAC/IP[BSSID_REDACTED]/[192.***.***.1], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.159], SeqNo: 1778
+[51187.954766] [wlan][44]statsParseARPInfo:(TX INFO) <TX> ARP Rsp DA=BSSID_REDACTED SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.1], SeqNo: 140
 [51187.957402] [wlan][2782]nic_txd_v2_compose:(TX INFO) TX[ARP] WIDX[7] PID[16]
-[51187.960173] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ARP] Tag[0xe3bdd800] WIDX:PID[7:16] SN[721] Status[0], MAC: 30:16:**:**:**:c7 SeqNo: 140 Xmit~Hif:1.696 Hif~Done:1.205
+[51187.960173] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ARP] Tag[0xe3bdd800] WIDX:PID[7:16] SN[721] Status[0], MAC: BSSID_REDACTED SeqNo: 140 Xmit~Hif:1.696 Hif~Done:1.205
 [51187.963677] [goodixFP] gf_irq, 866, enter
 [51187.964319] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51187.965213] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -13707,7 +13707,7 @@
 [51188.773546] [goodixFP] gf_irq, 883, exit
 [51188.782910] [wlan][2783]wlanTxCmdDoneCb:(TX INFO) Add command: 000000007c1e22f3, 00000000b8b9ebd2, cmd=0x81, seq=69
 [51188.785919] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51188.787082] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-68, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=88096, RxOK=461453, FcsErr=0
+[51188.787082] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-68, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=88096, RxOK=461453, FcsErr=0
 [51188.790043] [goodixFP] gf_irq, 866, enter
 [51188.790677] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51188.791605] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -14803,7 +14803,7 @@
 [51191.807049] [wlan][2783]wlanTxCmdDoneCb:(TX INFO) Add command: 00000000eedb40e0, 00000000b8b9ebd2, cmd=0x81, seq=79
 [51191.808572] [wlan][2783]halSwWfdmaWriteCmd:(HAL INFO) Write CMD DRV[1] FW[0] CID[0x81]
 [51191.812712] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51191.814205] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-71, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=88290, RxOK=463105, FcsErr=0
+[51191.814205] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-71, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=88290, RxOK=463105, FcsErr=0
 [51191.816771] Cache flush buffer fail, iova = 1ef000000, size = 1088
 [51191.820311] [goodixFP] gf_irq, 866, enter
 [51191.820946] [goodixFP] [gf_netlink_send] : enter, send command 1
@@ -14910,7 +14910,7 @@
 [51192.215411] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51192.216349] [goodixFP] gf_irq, 883, exit
 [51192.226856] [wlan][2782]TdlsStateTimer:(TDLS VOC) TDLS: setup timeout
-[51192.227773] [wlan][2782]TdlsAutoTeardown:(TDLS VOC) [0] Teardown 30:16:**:**:**:c7 due to Setup Failed, 0
+[51192.227773] [wlan][2782]TdlsAutoTeardown:(TDLS VOC) [0] Teardown BSSID_REDACTED due to Setup Failed, 0
 [51192.233635] [goodixFP] gf_irq, 866, enter
 [51192.234271] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51192.235227] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -15619,12 +15619,12 @@
 [51194.320811] Cache flush buffer fail, iova = 1e7800000, size = 2048
 [51194.320953] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51194.322738] [goodixFP] gf_irq, 883, exit
-[51194.338867] [wlan][10611]statsParseARPInfo:(TX INFO) <TX> ARP Req DA=00:08:**:**:**:fb SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[00:00:**:**:**:00]/[192.***.***.129], SeqNo: 141
+[51194.338867] [wlan][10611]statsParseARPInfo:(TX INFO) <TX> ARP Req DA=BSSID_REDACTED SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.129], SeqNo: 141
 [51194.339202] [goodixFP] gf_irq, 866, enter
 [51194.341196] [wlan][2782]nic_txd_v2_compose:(TX INFO) TX[ARP] WIDX[7] PID[17]
 [51194.341753] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51194.341792] [goodixFP] [gf_netlink_send] : send done, data length is 32
-[51194.344389] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ARP] Tag[0xdde38300] WIDX:PID[7:17] SN[915] Status[0], MAC: 00:08:**:**:**:fb SeqNo: 141 Xmit~Hif:2.055 Hif~Done:1.100
+[51194.344389] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ARP] Tag[0xdde38300] WIDX:PID[7:17] SN[915] Status[0], MAC: BSSID_REDACTED SeqNo: 141 Xmit~Hif:2.055 Hif~Done:1.100
 [51194.344559] [goodixFP] gf_irq, 883, exit
 [51194.354371] Cache flush buffer fail, iova = 1f2c00000, size = 2496
 [51194.358783] [goodixFP] gf_irq, 866, enter
@@ -15690,7 +15690,7 @@
 [51194.498367] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51194.499405] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51194.500341] [goodixFP] gf_irq, 883, exit
-[51194.501220] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Rsp DA=8a:c6:**:**:**:78 SRC MAC/IP[00:08:**:**:**:fb]/[192.***.***.129], TAR MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], SeqNo: 178
+[51194.501220] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Rsp DA=8a:c6:**:**:**:78 SRC MAC/IP[BSSID_REDACTED]/[192.***.***.129], TAR MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], SeqNo: 178
 [51194.513950] Cache flush buffer fail, iova = 1f6400000, size = 12800
 [51194.516183] [goodixFP] gf_irq, 866, enter
 [51194.516813] [goodixFP] [gf_netlink_send] : enter, send command 1
@@ -15775,7 +15775,7 @@
 [51194.831013] [goodixFP] gf_irq, 866, enter
 [51194.831199] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
 [51194.831637] [goodixFP] [gf_netlink_send] : enter, send command 1
-[51194.833287] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-70, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=88362, RxOK=463951, FcsErr=0
+[51194.833287] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-70, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=88362, RxOK=463951, FcsErr=0
 [51194.833515] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51194.836653] [goodixFP] gf_irq, 883, exit
 [51194.845561] Cache flush buffer fail, iova = 1ef000000, size = 12864
@@ -15863,7 +15863,7 @@
 [51195.147254] init: Control message: Could not find 'android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default' for ctl.interface_start from pid: 536 (/system/system_ext/bin/hwservicemanager)
 [51195.148095] init: Control message: Could not find 'android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default' for ctl.interface_start from pid: 536 (/system/system_ext/bin/hwservicemanager)
 [51195.150251] Cache flush buffer fail, iova = 1f5c00000, size = 11072
-[51195.150589] [wlan][2782]TdlsAutoSetup:(TDLS VOC) [0] Build up 30:16:**:**:**:c7, 14941
+[51195.150589] [wlan][2782]TdlsAutoSetup:(TDLS VOC) [0] Build up BSSID_REDACTED, 14941
 [51195.151231] [wlan][2782]TdlsexLinkMgt:(TDLS VOC) u4SetBufferLen=620
 [51195.151516] init: Control message: Could not find 'android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default' for ctl.interface_start from pid: 536 (/system/system_ext/bin/hwservicemanager)
 [51195.152660] init: Control message: Could not find 'android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default' for ctl.interface_start from pid: 536 (/system/system_ext/bin/hwservicemanager)
@@ -15897,9 +15897,9 @@
 [51195.225214] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51195.226103] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51195.227178] [goodixFP] gf_irq, 883, exit
-[51195.241895] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[TDLS] Tag[0xc67f2a00] WIDX:PID[7:18] SN[927] Status[0], MAC: 30:16:**:**:**:c7 SeqNo: 142 Xmit~Hif:13.551 Hif~Done:64.456
+[51195.241895] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[TDLS] Tag[0xc67f2a00] WIDX:PID[7:18] SN[927] Status[0], MAC: BSSID_REDACTED SeqNo: 142 Xmit~Hif:13.551 Hif~Done:64.456
 [51195.243120] Cache flush buffer fail, iova = 1e7800000, size = 2176
-[51195.244207] [wlan][2782]TdlsHandleTxDoneStatus:(TDLS VOC)  rTxDoneStatus=0, addr :30:16:**:**:**:c7, IsNeedWaitTeardownTxDone=0, IsNeedDisableLink=0
+[51195.244207] [wlan][2782]TdlsHandleTxDoneStatus:(TDLS VOC)  rTxDoneStatus=0, addr :BSSID_REDACTED, IsNeedWaitTeardownTxDone=0, IsNeedDisableLink=0
 [51195.246905] [goodixFP] gf_irq, 866, enter
 [51195.247523] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51195.248471] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -16651,10 +16651,10 @@
 [51197.843312] Cache flush buffer fail, iova = 1f5c00000, size = 11712
 [51197.843348] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51197.843554] [wlan][2783]wlanTxCmdDoneCb:(TX INFO) Add command: 000000008ac141dd, 00000000b8b9ebd2, cmd=0x81, seq=99
-[51197.844899] [wlan][2782]nicUpdateLinkQuality:(NIC INFO) Updating 30:16:**:**:**:c5RCPI [83]->[94] due to a long period of no updates.
+[51197.844899] [wlan][2782]nicUpdateLinkQuality:(NIC INFO) Updating BSSID_REDACTEDRCPI [83]->[94] due to a long period of no updates.
 [51197.845144] [goodixFP] gf_irq, 883, exit
 [51197.849111] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51197.850691] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-63, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=88695, RxOK=467509, FcsErr=0
+[51197.850691] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-63, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=88695, RxOK=467509, FcsErr=0
 [51197.861434] [goodixFP] gf_irq, 866, enter
 [51197.862071] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51197.863022] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -17523,9 +17523,9 @@
 [51200.875767] Cache flush buffer fail, iova = 1fc000000, size = 3008
 [51200.877900] [wlan][2783]wlanTxCmdDoneCb:(TX INFO) Add command: 00000000f617d423, 00000000b8b9ebd2, cmd=0x81, seq=109
 [51200.879411] [wlan][2783]halSwWfdmaWriteCmd:(HAL INFO) Write CMD DRV[3] FW[2] CID[0x81]
-[51200.883515] [wlan][2782]nicUpdateLinkQuality:(NIC INFO) Updating 30:16:**:**:**:c5RCPI [94]->[88] due to a long period of no updates.
+[51200.883515] [wlan][2782]nicUpdateLinkQuality:(NIC INFO) Updating BSSID_REDACTEDRCPI [94]->[88] due to a long period of no updates.
 [51200.883633] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51200.886289] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-66, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=88808, RxOK=467904, FcsErr=0
+[51200.886289] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-66, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=88808, RxOK=467904, FcsErr=0
 [51200.891743] [goodixFP] gf_irq, 866, enter
 [51200.892404] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51200.893288] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -18375,10 +18375,10 @@
 [51203.903152] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51203.905438] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51203.906372] [goodixFP] gf_irq, 883, exit
-[51203.907406] [wlan][2782]nicUpdateLinkQuality:(NIC INFO) Updating 30:16:**:**:**:c5RCPI [88]->[88] due to a long period of no updates.
+[51203.907406] [wlan][2782]nicUpdateLinkQuality:(NIC INFO) Updating BSSID_REDACTEDRCPI [88]->[88] due to a long period of no updates.
 [51203.907456] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
 [51203.910354] Cache flush buffer fail, iova = 1f2000000, size = 2752
-[51203.911694] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-66, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=88837, RxOK=468207, FcsErr=0
+[51203.911694] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-66, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=88837, RxOK=468207, FcsErr=0
 [51203.922178] [goodixFP] gf_irq, 866, enter
 [51203.922955] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51203.923859] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -18748,7 +18748,7 @@
 [51205.203245] Cache flush buffer fail, iova = 1ef000000, size = 2752
 [51205.203903] [goodixFP] gf_irq, 883, exit
 [51205.218843] [wlan][2782]TdlsStateTimer:(TDLS VOC) TDLS: setup timeout
-[51205.219758] [wlan][2782]TdlsAutoTeardown:(TDLS VOC) [0] Teardown 30:16:**:**:**:c7 due to Setup Failed, 0
+[51205.219758] [wlan][2782]TdlsAutoTeardown:(TDLS VOC) [0] Teardown BSSID_REDACTED due to Setup Failed, 0
 [51205.221077] [goodixFP] gf_irq, 866, enter
 [51205.221700] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51205.222588] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -19239,7 +19239,7 @@
 [51206.920639] [wlan][2783]wlanTxCmdDoneCb:(TX INFO) Add command: 000000009d922bbd, 00000000b8b9ebd2, cmd=0x81, seq=129
 [51206.922053] [wlan][2783]halSwWfdmaWriteCmd:(HAL INFO) Write CMD DRV[3] FW[2] CID[0x81]
 [51206.924450] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51206.925496] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-67, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=88909, RxOK=468530, FcsErr=0
+[51206.925496] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-67, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=88909, RxOK=468530, FcsErr=0
 [51206.933119] [goodixFP] gf_irq, 866, enter
 [51206.933760] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51206.934663] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -20074,7 +20074,7 @@
 [51209.947104] Cache flush buffer fail, iova = 1f2c00000, size = 1536
 [51209.949476] [wlan][2783]halSwWfdmaWriteCmd:(HAL INFO) Write CMD DRV[0] FW[3] CID[0x81]
 [51209.953504] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51209.954547] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-66, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=88920, RxOK=468540, FcsErr=0
+[51209.954547] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-66, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=88920, RxOK=468540, FcsErr=0
 [51209.963840] [goodixFP] gf_irq, 866, enter
 [51209.964479] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51209.965368] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -20912,7 +20912,7 @@
 [51212.977434] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51212.978368] [goodixFP] gf_irq, 883, exit
 [51212.979329] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51212.980674] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-65, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=88950, RxOK=468926, FcsErr=0
+[51212.980674] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-65, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=88950, RxOK=468926, FcsErr=0
 [51212.994604] [goodixFP] gf_irq, 866, enter
 [51212.995399] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51212.996286] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -21551,14 +21551,14 @@
 [51215.317596] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51215.318482] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51215.319490] [goodixFP] gf_irq, 883, exit
-[51215.330876] [wlan][1]statsParseARPInfo:(TX INFO) <TX> ARP Req DA=00:08:**:**:**:fb SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[00:00:**:**:**:00]/[192.***.***.129], SeqNo: 143
+[51215.330876] [wlan][1]statsParseARPInfo:(TX INFO) <TX> ARP Req DA=BSSID_REDACTED SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.129], SeqNo: 143
 [51215.333188] [wlan][2782]nic_txd_v2_compose:(TX INFO) TX[ARP] WIDX[7] PID[19]
 [51215.336680] [goodixFP] gf_irq, 866, enter
 [51215.337304] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51215.338194] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51215.339176] [goodixFP] gf_irq, 883, exit
-[51215.345743] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ARP] Tag[0x07e4fa00] WIDX:PID[7:19] SN[1377] Status[0], MAC: 00:08:**:**:**:fb SeqNo: 143 Xmit~Hif:8.025 Hif~Done:4.277
-[51215.348061] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Rsp DA=8a:c6:**:**:**:78 SRC MAC/IP[00:08:**:**:**:fb]/[192.***.***.129], TAR MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], SeqNo: 958
+[51215.345743] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ARP] Tag[0x07e4fa00] WIDX:PID[7:19] SN[1377] Status[0], MAC: BSSID_REDACTED SeqNo: 143 Xmit~Hif:8.025 Hif~Done:4.277
+[51215.348061] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Rsp DA=8a:c6:**:**:**:78 SRC MAC/IP[BSSID_REDACTED]/[192.***.***.129], TAR MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], SeqNo: 958
 [51215.351466] Cache flush buffer fail, iova = 1f8800000, size = 2880
 [51215.356341] [goodixFP] gf_irq, 866, enter
 [51215.356973] [goodixFP] [gf_netlink_send] : enter, send command 1
@@ -21755,7 +21755,7 @@
 [51215.996915] [wlan][2783]wlanTxCmdDoneCb:(TX INFO) Add command: 00000000a92da390, 00000000b8b9ebd2, cmd=0x81, seq=158
 [51215.998344] [wlan][2783]halSwWfdmaWriteCmd:(HAL INFO) Write CMD DRV[0] FW[3] CID[0x81]
 [51216.002424] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51216.003545] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-66, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=88955, RxOK=468931, FcsErr=0
+[51216.003545] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-66, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=88955, RxOK=468931, FcsErr=0
 [51216.005663] [goodixFP] gf_irq, 866, enter
 [51216.006321] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51216.007277] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -22591,7 +22591,7 @@
 [51219.019114] [goodixFP] gf_irq, 883, exit
 [51219.019301] [wlan][2783]wlanTxCmdDoneCb:(TX INFO) Add command: 0000000066d4c4c7, 00000000b8b9ebd2, cmd=0x81, seq=167
 [51219.024028] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51219.025301] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-66, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=89011, RxOK=469479, FcsErr=0
+[51219.025301] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-66, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=89011, RxOK=469479, FcsErr=0
 [51219.036274] [goodixFP] gf_irq, 866, enter
 [51219.036908] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51219.036972] Cache flush buffer fail, iova = 1fc000000, size = 1216
@@ -23257,10 +23257,10 @@
 [51221.458084] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51221.459066] [goodixFP] gf_irq, 883, exit
 [51221.465302] [wlan][2782]qmHandleRxPackets:(RX WARN) Mark NULL the Packet for non-interesting type
-[51221.467092] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Req DA=8a:c6:**:**:**:78 SRC MAC/IP[00:08:**:**:**:fb]/[192.***.***.129], TAR MAC/IP[00:00:**:**:**:00]/[192.***.***.159], SeqNo: 1504
-[51221.469914] [wlan][0]statsParseARPInfo:(TX INFO) <TX> ARP Rsp DA=00:08:**:**:**:fb SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[00:08:**:**:**:fb]/[192.***.***.129], SeqNo: 144
+[51221.467092] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Req DA=8a:c6:**:**:**:78 SRC MAC/IP[BSSID_REDACTED]/[192.***.***.129], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.159], SeqNo: 1504
+[51221.469914] [wlan][0]statsParseARPInfo:(TX INFO) <TX> ARP Rsp DA=BSSID_REDACTED SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.129], SeqNo: 144
 [51221.472263] [wlan][2782]nic_txd_v2_compose:(TX INFO) TX[ARP] WIDX[7] PID[20]
-[51221.474523] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ARP] Tag[0x8c81fd00] WIDX:PID[7:20] SN[1426] Status[0], MAC: 00:08:**:**:**:fb SeqNo: 144 Xmit~Hif:1.240 Hif~Done:1.028
+[51221.474523] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ARP] Tag[0x8c81fd00] WIDX:PID[7:20] SN[1426] Status[0], MAC: BSSID_REDACTED SeqNo: 144 Xmit~Hif:1.240 Hif~Done:1.028
 [51221.476239] [goodixFP] gf_irq, 866, enter
 [51221.477359] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51221.478248] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -23442,11 +23442,11 @@
 [51222.088992] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51222.089828] [wlan][2782]nicRxProcessEventPacket:(RX INFO) Not static config event: id=0x21, seq=175
 [51222.090397] [goodixFP] [gf_netlink_send] : send done, data length is 32
-[51222.091660] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Req DA=8a:c6:**:**:**:78 SRC MAC/IP[30:16:**:**:**:c7]/[192.***.***.1], TAR MAC/IP[00:00:**:**:**:00]/[192.***.***.159], SeqNo: 1935
+[51222.091660] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Req DA=8a:c6:**:**:**:78 SRC MAC/IP[BSSID_REDACTED]/[192.***.***.1], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.159], SeqNo: 1935
 [51222.091935] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
 [51222.094877] [goodixFP] gf_irq, 883, exit
-[51222.102336] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-63, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=89041, RxOK=469915, FcsErr=0
-[51222.102391] [wlan][0]statsParseARPInfo:(TX INFO) <TX> ARP Rsp DA=30:16:**:**:**:c7 SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[30:16:**:**:**:c7]/[192.***.***.1], SeqNo: 145
+[51222.102336] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-63, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=89041, RxOK=469915, FcsErr=0
+[51222.102391] [wlan][0]statsParseARPInfo:(TX INFO) <TX> ARP Rsp DA=BSSID_REDACTED SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.1], SeqNo: 145
 [51222.105902] [goodixFP] gf_irq, 866, enter
 [51222.107425] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51222.108315] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -24483,7 +24483,7 @@
 [51225.169510] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
 [51225.169702] init: Control message: Could not find 'android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default' for ctl.interface_start from pid: 536 (/system/system_ext/bin/hwservicemanager)
 [51225.172012] [FTS_TS]fts_irq_read_report:x:7403,y:20446
-[51225.174077] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-63, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=89065, RxOK=469930, FcsErr=0
+[51225.174077] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-63, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=89065, RxOK=469930, FcsErr=0
 [51225.174695] init: Control message: Could not find 'android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint/default' for ctl.interface_start from pid: 536 (/system/system_ext/bin/hwservicemanager)
 [51225.175400] [goodixFP] gf_irq, 866, enter
 [51225.175409] [goodixFP] [gf_netlink_send] : enter, send command 1
@@ -25170,7 +25170,7 @@
 [51227.188219] [wlan][2783]wlanTxCmdDoneCb:(TX INFO) Add command: 00000000b6865274, 00000000be7e8ce4, cmd=0x82, seq=193
 [51227.188600] [goodixFP] gf_irq, 883, exit
 [51227.191582] [wlan][2783]halSwWfdmaWriteCmd:(HAL INFO) Write CMD DRV[3] FW[2] CID[0x82]
-[51227.192700] [wlan][2782]TdlsAutoSetup:(TDLS VOC) [0] Build up 30:16:**:**:**:c7, 31071
+[51227.192700] [wlan][2782]TdlsAutoSetup:(TDLS VOC) [0] Build up BSSID_REDACTED, 31071
 [51227.192781] [wlan][2783]halDumpHifStats:(HAL VOC) I[0 / 634014 45986 0 7795 0 0 0x0 0x0 0] T[24975 24975 24593 / 281664 281664 281657 280423] R[939793 / 97538] T_Q:T_R[0:0 0:7 0:0 0:0 0:0 0:0 0:382 0:0]  R_R:R_N[0:0 0:0 0:0 0:0 0:0] Msdu:F[2047/2048]P[0]D[0] Tok[7/2048] Rfb[2102/0/0/0/0/2102] txreg[170855] rxreg[629760]
 [51227.194296] [wlan][2782]TdlsexLinkMgt:(TDLS VOC) u4SetBufferLen=620
 [51227.198856] [wlan][2782]TdlsexLinkMgt:(TDLS VOC) prCmd->ucActionCode=10, prCmd->ucDialogToken=1
@@ -25186,8 +25186,8 @@
 [51227.205799] [FTS_TS]fts_input_report_b:[B]P0(5936, 20250)[p:63,tm:32] DOWN!
 [51227.206525] [goodixFP] gf_irq, 883, exit
 [51227.208808] [FTS_TS]fts_irq_read_report:x:5936,y:20250
-[51227.209136] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[TDLS] Tag[0x47ada500] WIDX:PID[7:21] SN[1575] Status[0], MAC: 30:16:**:**:**:c7 SeqNo: 146 Xmit~Hif:1.845 Hif~Done:5.839
-[51227.209144] [wlan][2782]TdlsHandleTxDoneStatus:(TDLS VOC)  rTxDoneStatus=0, addr :30:16:**:**:**:c7, IsNeedWaitTeardownTxDone=0, IsNeedDisableLink=0
+[51227.209136] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[TDLS] Tag[0x47ada500] WIDX:PID[7:21] SN[1575] Status[0], MAC: BSSID_REDACTED SeqNo: 146 Xmit~Hif:1.845 Hif~Done:5.839
+[51227.209144] [wlan][2782]TdlsHandleTxDoneStatus:(TDLS VOC)  rTxDoneStatus=0, addr :BSSID_REDACTED, IsNeedWaitTeardownTxDone=0, IsNeedDisableLink=0
 [51227.215278] [FTS_TS]fts_irq_read_report:x:5936,y:20250
 [51227.217004] [FTS_TS]fts_irq_read_report:x:5936,y:20250
 [51227.220986] [FTS_TS]fts_irq_read_report:x:5936,y:20250
@@ -25563,7 +25563,7 @@
 [51228.207715] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51228.209228] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
 [51228.209783] [goodixFP] gf_irq, 883, exit
-[51228.210755] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-63, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=89398, RxOK=474528, FcsErr=0
+[51228.210755] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-63, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=89398, RxOK=474528, FcsErr=0
 [51228.225710] [goodixFP] gf_irq, 866, enter
 [51228.226364] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51228.227398] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -26497,7 +26497,7 @@
 [51231.261517] [CONN_BUS] version=20230215
 [51231.262050] [goodixFP] gf_irq, 883, exit
 [51231.262085] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51231.262415] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-64, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=89439, RxOK=474538, FcsErr=0
+[51231.262415] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-64, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=89439, RxOK=474538, FcsErr=0
 [51231.263354] [CONN_BUS_A][RC][0x84001e00][0xc0201120][0xc0201120][0xc0208963][0xc0208963][0x0000000d][0x000066ef][0x9c7fa177][0x00000101][0x08000000][0x00000000][0x000f5d20][0xc8000000][0x00000000][0x00000000]
 [51231.263570] [Awinic][7-0034]aw_dev_mute: done
 [51231.264013] [Awinic][7-0034]aw882xx_dev_clear_int_status: done
@@ -27376,11 +27376,11 @@
 [51234.314441] [goodixFP] gf_irq, 883, exit
 [51234.318227] [wlan][2783]wlanTxCmdDoneCb:(TX INFO) Add command: 0000000074046c22, 00000000be7e8ce4, cmd=0x82, seq=217
 [51234.320204] [wlan][2783]halDumpHifStats:(HAL VOC) I[0 / 635888 46031 0 7804 0 1 0x0 0x0 0] T[24999 24999 24593 / 282008 282008 282008 280768] R[943020 / 97565] T_Q:T_R[0:0 0:0 0:0 0:0 0:0 0:0 0:406 0:0]  R_R:R_N[0:0 0:0 0:0 0:0 0:0] Msdu:F[2047/2048]P[0]D[0] Tok[6/2048] Rfb[2100/2/0/0/0/2102] txreg[171135] rxreg[631883]
-[51234.320673] [wlan][2782]nicUpdateLinkQuality:(NIC INFO) Updating 30:16:**:**:**:c5RCPI [86]->[92] due to a long period of no updates.
+[51234.320673] [wlan][2782]nicUpdateLinkQuality:(NIC INFO) Updating BSSID_REDACTEDRCPI [86]->[92] due to a long period of no updates.
 [51234.324061] [wlan][2782]nicRxProcessEventPacket:(RX INFO) Not static config event: id=0x21, seq=216
 [51234.324190] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
 [51234.326053] [goodixFP] gf_irq, 866, enter
-[51234.327073] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-64, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=89564, RxOK=475067, FcsErr=0
+[51234.327073] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-64, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=89564, RxOK=475067, FcsErr=0
 [51234.327954] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51234.331622] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51234.332560] [goodixFP] gf_irq, 883, exit
@@ -28087,7 +28087,7 @@
 [51236.318599] [CONN_BUS_B][0x04001000][0xc0200c0e][0x00100010][0xebe9ebe9][0x04001000][0x00000080][0xa002161f][0x00000000][0x0000003f][0xfdf5f7f0][0x00000000][0x00000000][0x00000000][0x00000000][0x00000000][0x00000006][0x02060002][0x00000001][0x00000000][0x00000000][0x00000003][0x00000000][0x3ff8777e]
 [51236.320682] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51236.321817] [CONN_BUS_C]conn_infra_cfg_clk:[0xc0200c0e][0x00000080][0x00100010][0xebe9ebe9][0xa002161f][0x00000000] systrap:[0x436f5b67]
-[51236.322871] [wlan][10704]statsParseARPInfo:(TX INFO) <TX> ARP Req DA=00:08:**:**:**:fb SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[00:00:**:**:**:00]/[192.***.***.129], SeqNo: 147
+[51236.322871] [wlan][10704]statsParseARPInfo:(TX INFO) <TX> ARP Req DA=BSSID_REDACTED SRC MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], TAR MAC/IP[BSSID_REDACTED]/[192.***.***.129], SeqNo: 147
 [51236.322944] [wlan][2782]nic_txd_v2_compose:(TX INFO) TX[ARP] WIDX[7] PID[22]
 [51236.324946] [goodixFP] gf_irq, 883, exit
 [51236.333058] [CONN_BUS_C]ahb_apb_timeout:[0x18001004][0x00006000][0x18004058][0x00000002][0x00000000][0x00000000][0x00000000]
@@ -28106,9 +28106,9 @@
 [51236.352989] [goodixFP] gf_irq, 866, enter
 [51236.355164] [wlan][2782]nicRxProcessEventPacket:(RX INFO) Not static config event: id=0x21, seq=222
 [51236.355282] [goodixFP] [gf_netlink_send] : enter, send command 1
-[51236.356092] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ARP] Tag[0xe3bbe100] WIDX:PID[7:22] SN[1900] Status[0], MAC: 00:08:**:**:**:fb SeqNo: 147 Xmit~Hif:31.255 Hif~Done:1.174
+[51236.356092] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[ARP] Tag[0xe3bbe100] WIDX:PID[7:22] SN[1900] Status[0], MAC: BSSID_REDACTED SeqNo: 147 Xmit~Hif:31.255 Hif~Done:1.174
 [51236.356545] [goodixFP] [gf_netlink_send] : send done, data length is 32
-[51236.360297] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Rsp DA=8a:c6:**:**:**:78 SRC MAC/IP[00:08:**:**:**:fb]/[192.***.***.129], TAR MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], SeqNo: 4089
+[51236.360297] [wlan][2782]statsParseARPInfo:(RX INFO) <RX> ARP Rsp DA=8a:c6:**:**:**:78 SRC MAC/IP[BSSID_REDACTED]/[192.***.***.129], TAR MAC/IP[8a:c6:**:**:**:78]/[192.***.***.159], SeqNo: 4089
 [51236.360561] [goodixFP] gf_irq, 883, exit
 [51236.372655] [goodixFP] gf_irq, 866, enter
 [51236.373296] [goodixFP] [gf_netlink_send] : enter, send command 1
@@ -28315,7 +28315,7 @@
 [51237.272491] [wlan][2782]cnmTimerStartTimer:(CNM WARN) Invalid NextExpiredSysTime: 50937264, currentSysTime: 50937268
 [51237.275553] [wlan][2782]TdlsStateTimer:(TDLS VOC) TDLS: setup timeout
 [51237.277919] [goodixFP] gf_irq, 866, enter
-[51237.277932] [wlan][2782]TdlsAutoTeardown:(TDLS VOC) [0] Teardown 30:16:**:**:**:c7 due to Setup Failed, 0
+[51237.277932] [wlan][2782]TdlsAutoTeardown:(TDLS VOC) [0] Teardown BSSID_REDACTED due to Setup Failed, 0
 [51237.278540] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51237.280826] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51237.281764] [goodixFP] gf_irq, 883, exit
@@ -28364,9 +28364,9 @@
 [51237.361748] [wlan][2783]halSwWfdmaWriteCmd:(HAL INFO) Write CMD DRV[1] FW[0] CID[0x81]
 [51237.363118] [goodixFP] gf_irq, 883, exit
 [51237.364158] [wlan][2782]nicRxProcessEventPacket:(RX INFO) Not static config event: id=0x21, seq=225
-[51237.365825] [wlan][2782]nicUpdateLinkQuality:(NIC INFO) Updating 30:16:**:**:**:c5RCPI [92]->[90] due to a long period of no updates.
+[51237.365825] [wlan][2782]nicUpdateLinkQuality:(NIC INFO) Updating BSSID_REDACTEDRCPI [92]->[90] due to a long period of no updates.
 [51237.367318] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51237.370613] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-65, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=89816, RxOK=476776, FcsErr=0
+[51237.370613] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-65, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=89816, RxOK=476776, FcsErr=0
 [51237.376318] [goodixFP] gf_irq, 866, enter
 [51237.376958] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51237.377847] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -29111,7 +29111,7 @@
 [51240.394853] [wlan][2783]wlanTxCmdDoneCb:(TX INFO) Add command: 00000000a2fa6237, 00000000b8b9ebd2, cmd=0x81, seq=236
 [51240.397511] [wlan][2783]halSwWfdmaWriteCmd:(HAL INFO) Write CMD DRV[2] FW[1] CID[0x81]
 [51240.399958] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51240.401130] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-68, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=89935, RxOK=478399, FcsErr=0
+[51240.401130] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-68, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=89935, RxOK=478399, FcsErr=0
 [51240.406955] [goodixFP] gf_irq, 866, enter
 [51240.407587] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51240.408475] [goodixFP] [gf_netlink_send] : send done, data length is 32
@@ -29505,7 +29505,7 @@
 [51242.101045] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51242.101221] [wlan][2782]qmHandleRxPackets:(RX WARN) Mark NULL the Packet for non-interesting type
 [51242.101973] [goodixFP] gf_irq, 883, exit
-[51242.115331] [wlan][2782]TdlsAutoSetup:(TDLS VOC) [0] Build up 00:08:**:**:**:fb, 14281
+[51242.115331] [wlan][2782]TdlsAutoSetup:(TDLS VOC) [0] Build up BSSID_REDACTED, 14281
 [51242.117107] [wlan][2782]TdlsexLinkMgt:(TDLS VOC) u4SetBufferLen=620
 [51242.118063] [wlan][2782]TdlsexLinkMgt:(TDLS VOC) prCmd->ucActionCode=10, prCmd->ucDialogToken=1
 [51242.119104] [goodixFP] gf_irq, 866, enter
@@ -29516,21 +29516,21 @@
 [51242.122858] [wlan][2878]mtk_cfg80211_tdls_mgmt:(REQ INFO) rStatus: 0
 [51242.122973] [wlan][2782]nic_txd_v2_compose:(TX INFO) TX[TDLS] WIDX[7] PID[23]
 [51242.123799] [goodixFP] gf_irq, 883, exit
-[51242.127623] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[TDLS] Tag[0xc5a69d00] WIDX:PID[7:23] SN[2119] Status[0], MAC: 00:08:**:**:**:fb SeqNo: 148 Xmit~Hif:1.897 Hif~Done:4.494
-[51242.129859] [wlan][2782]TdlsHandleTxDoneStatus:(TDLS VOC)  rTxDoneStatus=0, addr :00:08:**:**:**:fb, IsNeedWaitTeardownTxDone=0, IsNeedDisableLink=0
+[51242.127623] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[TDLS] Tag[0xc5a69d00] WIDX:PID[7:23] SN[2119] Status[0], MAC: BSSID_REDACTED SeqNo: 148 Xmit~Hif:1.897 Hif~Done:4.494
+[51242.129859] [wlan][2782]TdlsHandleTxDoneStatus:(TDLS VOC)  rTxDoneStatus=0, addr :BSSID_REDACTED, IsNeedWaitTeardownTxDone=0, IsNeedDisableLink=0
 [51242.136205] [wlan][2782]nicRxProcessActionFrame:(RSN INFO) [Rx]RobustAction ff 0
 [51242.137313] [wlan][2782]rlmProcessPublicAction:(RLM INFO2) [Public Action]rlmProcessPublicAction
 [51242.138523] [wlan][2782]p2pFuncValidateRxActionFrame:(P2P INFO2) ignore rx action frame 4 on state:0, ReqChnl:0, RxChnl:149
 [51242.138788] [goodixFP] gf_irq, 866, enter
-[51242.140174] [wlan][2782]TdlsProcessPublicAction:(TDLS VOC)  staTdls->aucAddr 30:16:**:**:**:c7
+[51242.140174] [wlan][2782]TdlsProcessPublicAction:(TDLS VOC)  staTdls->aucAddr BSSID_REDACTED
 [51242.140736] [goodixFP] [gf_netlink_send] : enter, send command 1
-[51242.141902] [wlan][2782]TdlsProcessPublicAction:(TDLS VOC)  staTdls->aucAddr 00:08:**:**:**:fb
+[51242.141902] [wlan][2782]TdlsProcessPublicAction:(TDLS VOC)  staTdls->aucAddr BSSID_REDACTED
 [51242.142793] [goodixFP] [gf_netlink_send] : send done, data length is 32
-[51242.143986] [wlan][2782]TdlsProcessPublicAction:(TDLS VOC) 00:08:**:**:**:fb auto send setup request
+[51242.143986] [wlan][2782]TdlsProcessPublicAction:(TDLS VOC) BSSID_REDACTED auto send setup request
 [51242.144882] [goodixFP] gf_irq, 883, exit
 [51242.152135] [wlan][2782]cnmStaRecAlloc:(MEM INFO2) LINK_INITIALIZE list=00000000d31e2945, BssIdx=0, StaRecIdx=1
-[51242.153517] [wlan][2782]secPrivacySeekForEntry:(RSN INFO2) [Wlan index] BSS#0 keyid#0 P=1 use WlanIndex#6 STAIdx=1 00:08:**:**:**:fb staType=81
-[51242.155541] [wlan][2782]secPrivacyDumpWTBL:(RSN INFO) (bssIdx,keyid,pairwise,staIdx,Addr) #4 (4,255,0,254, 02:08:**:**:**:fc) #5 (0,1,0,0, 30:16:**:**:**:c5) #6 (0,255,1,1, 00:08:**:**:**:fb) #7 (0,0,1,0, 30:16:**:**:**:c5) 
+[51242.153517] [wlan][2782]secPrivacySeekForEntry:(RSN INFO2) [Wlan index] BSS#0 keyid#0 P=1 use WlanIndex#6 STAIdx=1 BSSID_REDACTED staType=81
+[51242.155541] [wlan][2782]secPrivacyDumpWTBL:(RSN INFO) (bssIdx,keyid,pairwise,staIdx,Addr) #4 (4,255,0,254, 02:08:**:**:**:fc) #5 (0,1,0,0, BSSID_REDACTED) #6 (0,255,1,1, BSSID_REDACTED) #7 (0,0,1,0, BSSID_REDACTED) 
 [51242.158458] [goodixFP] gf_irq, 866, enter
 [51242.158468] [wlan][2782]nicTxUpdateStaRecDefaultRate:(TX WARN) nicTxUpdateStaRecDefaultRate:HE_ER Disable
 [51242.158481] [wlan][2782]asicConnac2xFillCmdTxdInfo:(TX INFO) TX CMD: ID[0x13] SEQ[240] SET[1] LEN[268]
@@ -29546,9 +29546,9 @@
 [51242.171434] [wlan][2782]TdlsexLinkMgt:(TDLS VOC) rResult=0
 [51242.172243] [wlan][2878]mtk_cfg80211_tdls_mgmt:(REQ INFO) rStatus: 0
 [51242.172246] [wlan][2782]nic_txd_v2_compose:(TX INFO) TX[TDLS] WIDX[7] PID[24]
-[51242.177878] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[TDLS] Tag[0xc5a69800] WIDX:PID[7:24] SN[2123] Status[0], MAC: 00:08:**:**:**:fb SeqNo: 149 Xmit~Hif:2.666 Hif~Done:3.653
+[51242.177878] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[TDLS] Tag[0xc5a69800] WIDX:PID[7:24] SN[2123] Status[0], MAC: BSSID_REDACTED SeqNo: 149 Xmit~Hif:2.666 Hif~Done:3.653
 [51242.178152] [goodixFP] gf_irq, 866, enter
-[51242.180125] [wlan][2782]TdlsHandleTxDoneStatus:(TDLS VOC)  rTxDoneStatus=0, addr :00:08:**:**:**:fb, IsNeedWaitTeardownTxDone=0, IsNeedDisableLink=0
+[51242.180125] [wlan][2782]TdlsHandleTxDoneStatus:(TDLS VOC)  rTxDoneStatus=0, addr :BSSID_REDACTED, IsNeedWaitTeardownTxDone=0, IsNeedDisableLink=0
 [51242.182604] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51242.183552] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51242.184510] [goodixFP] gf_irq, 883, exit
@@ -29560,7 +29560,7 @@
 [51242.199382] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51242.201611] [goodixFP] gf_irq, 883, exit
 [51242.210868] [name:spm&][SPM] MCUSYSOFF wake up by  R12_CPU_WAKEUPEVENT_B, timer_out = 0, r13 = 0x8444fe00, debug_flag = 0x8000000 0x2, r12 = 0x10000000, r12_ext = 0x0, raw_sta = 0x0 0x0 0x0, idle_sta = 0x181fb, req_sta =  0x7ffffa0 0xfff0fff 0x3f00dbf 0x2011d80 0x70000000 0x728001, cg_check_sta =0x1f, isr = 0x0, rt_req_sta0 = 0x0 rt_req_sta1 = 0x0 rt_req_sta2 = 0xffffffff rt_req_sta3 = 0xffffffff dram_sw_con_3 = 0x0, raw_ext_sta = 0xe11255, wake_misc = 0x0, pcm_flag = 0x400 0x0 0x400 0x400, req = 0x4360004,  clk_settle = 0x60fe, 
-[51242.214882] [wlan][2878]mtk_cfg80211_add_key:(RSN INFO) keyIdx = 0 pairwise = 1 mac = 00:08:**:**:**:fb
+[51242.214882] [wlan][2878]mtk_cfg80211_add_key:(RSN INFO) keyIdx = 0 pairwise = 1 mac = BSSID_REDACTED
 [51242.217515] [goodixFP] gf_irq, 866, enter
 [51242.222651] mt635x-auxadc mt635x-auxadc: name:CHIP_TEMP, channel=4, adc_out=0x60c, adc_result=680
 [51242.222782] [goodixFP] [gf_netlink_send] : enter, send command 1
@@ -29582,21 +29582,21 @@
 [51242.238351] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51242.239621] [wlan][2782]wlanSetAddKeyImpl:(RSN INFO) Assign client PMF flag = 0
 [51242.240082] [goodixFP] [gf_netlink_send] : send done, data length is 32
-[51242.241451] [wlan][2782]wlanSetAddKeyImpl:(RSN INFO) Add key to wlanIdx 6,BSS=0,00:08:**:**:**:fbTx=1,type=1,Auth=0,cipher=4,keyid=0,keylen=16
+[51242.241451] [wlan][2782]wlanSetAddKeyImpl:(RSN INFO) Add key to wlanIdx 6,BSS=0,BSSID_REDACTEDTx=1,type=1,Auth=0,cipher=4,keyid=0,keylen=16
 [51242.241975] [goodixFP] gf_irq, 883, exit
 [51242.243706] [wlan][2782]wlanSetAddKeyImpl:(RSN INFO) wepkeyUsed=0,wepkeyWlanIdx=255
 [51242.243711] [wlan][2782]wlanSetAddKeyImpl:(RSN INFO) ucBMCWlanIndexSUsed=0,ucBMCWlanIndexS=255,ucBcnProtInstalled=0
 [51242.246769] [wlan][2782]asicConnac2xFillCmdTxdInfo:(TX INFO) TX CMD: ID[0x07] SEQ[241] SET[1] LEN[128]
 [51242.251773] [wlan][2783]halSwWfdmaWriteCmd:(HAL INFO) Write CMD DRV[3] FW[2] CID[0x07]
 [51242.253394] [wlan][2878]kalIoctlByBssIdx:(OID WARN) ret(c00000bb) time: 65 us
-[51242.254133] [wlan][2782]nicEventAddPkeyDone:(RSN INFO) EVENT_ID_ADD_PKEY_DONE BSSIDX=0 00:08:**:**:**:fb
+[51242.254133] [wlan][2782]nicEventAddPkeyDone:(RSN INFO) EVENT_ID_ADD_PKEY_DONE BSSIDX=0 BSSID_REDACTED
 [51242.254709] [wlan][2878]mtk_cfg80211_change_station:(REQ INFO) rStatus: c00000bb
-[51242.255729] [wlan][2782]nicEventAddPkeyDone:(RSN INFO) STA 00:08:**:**:**:fb Add Key Done!!
+[51242.255729] [wlan][2782]nicEventAddPkeyDone:(RSN INFO) STA BSSID_REDACTED Add Key Done!!
 [51242.255735] [wlan][2782]qmSetStaRecTxAllowed:(QM INFO) Set Sta[1] TxAllowed from [0] to [0] pending TxQ
 [51242.256910] [goodixFP] gf_irq, 866, enter
 [51242.258253] [wlan][2782]cnmDumpStaRec:(SW4 VOC) ============= DUMP STA[1] ===========
 [51242.259257] [goodixFP] [gf_netlink_send] : enter, send command 1
-[51242.259826] [wlan][2782]cnmDumpStaRec:(SW4 VOC) [1][1],[2][0],[3][00:08:**:**:**:fb],[4][LEGACY DLS],[5][6],[6][1],[7][0],[8][1],[9][1/0],[10][0]
+[51242.259826] [wlan][2782]cnmDumpStaRec:(SW4 VOC) [1][1],[2][0],[3][BSSID_REDACTED],[4][LEGACY DLS],[5][6],[6][1],[7][0],[8][1],[9][1/0],[10][0]
 [51242.260929] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51242.261740] [wlan][2782]cnmDumpStaRec:(SW4 VOC) [11][0],[12][1],[13][1],[14][0x78],[15][0x18],[16][0x3],[17][0x540],[18][0x3fc0],[19][0x3fc0],[20][0x4b]
 [51242.263480] [goodixFP] gf_irq, 883, exit
@@ -29623,12 +29623,12 @@
 [51242.289446] [wlan][2782]qmSetStaRecTxAllowed:(QM INFO) Set Sta[1] TxAllowed from [0] to [1] normal TxQ
 [51242.290726] [wlan][2782]mddpIsSupportMcifWifi:(INIT VOC) mddp enable: 1.
 [51242.291689] [wlan][2782]qmActivateStaRec:(QM INFO) QM: +STA[1]
-[51242.292525] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[TDLS] Tag[0xc4998700] WIDX:PID[7:25] SN[2126] Status[0], MAC: 00:08:**:**:**:fb SeqNo: 150 Xmit~Hif:3.588 Hif~Done:9.459
-[51242.294742] [wlan][2782]TdlsHandleTxDoneStatus:(TDLS VOC)  rTxDoneStatus=0, addr :00:08:**:**:**:fb, IsNeedWaitTeardownTxDone=0, IsNeedDisableLink=0
+[51242.292525] [wlan][2782]wlanPktTxDone:(TX VOC) TX DONE, TX DONE, Type[TDLS] Tag[0xc4998700] WIDX:PID[7:25] SN[2126] Status[0], MAC: BSSID_REDACTED SeqNo: 150 Xmit~Hif:3.588 Hif~Done:9.459
+[51242.294742] [wlan][2782]TdlsHandleTxDoneStatus:(TDLS VOC)  rTxDoneStatus=0, addr :BSSID_REDACTED, IsNeedWaitTeardownTxDone=0, IsNeedDisableLink=0
 [51242.296248] [goodixFP] gf_irq, 866, enter
 [51242.297116] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51242.297118] [wlan][2782]TdlsexLinkOper:(TDLS VOC) prCmd->oper=3, u4SetBufferLen=16
-[51242.297124] [wlan][2782]TdlsAutoSetupTarget:(TDLS VOC) Create TDLS peer[00:08:**:**:**:fb] reason Enable Link
+[51242.297124] [wlan][2782]TdlsAutoSetupTarget:(TDLS VOC) Create TDLS peer[BSSID_REDACTED] reason Enable Link
 [51242.297999] [goodixFP] [gf_netlink_send] : send done, data length is 32
 [51242.299016] [wlan][2782]TdlsexLinkOper:(TDLS VOC) TDLS total link = 1
 [51242.299042] [wlan][2878]mtk_cfg80211_tdls_oper:(REQ INFO2) rStatus: 0
@@ -29932,7 +29932,7 @@
 [51243.447704] [wlan][2783]wlanTxCmdDoneCb:(TX INFO) Add command: 00000000109e3c12, 00000000b8b9ebd2, cmd=0x81, seq=249
 [51243.449854] [wlan][2782]nicRxProcessEventPacket:(RX INFO) Not static config event: id=0x21, seq=247
 [51243.450464] [wlan][2878]mtk_cfg80211_get_station:(REQ WARN) last Rx link speed
-[51243.453977] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-67, mac:[30:16:**:**:**:c5], idx=0,TxFail=0, TxTimeOut=0, TxOK=90130, RxOK=478502, FcsErr=0
+[51243.453977] [wlan][2878]mtk_cfg80211_get_station:(REQ VOC) link speed=12010/0, bw=0/0, rssi=-67, mac:[BSSID_REDACTED], idx=0,TxFail=0, TxTimeOut=0, TxOK=90130, RxOK=478502, FcsErr=0
 [51243.457427] [goodixFP] gf_irq, 866, enter
 [51243.458056] [goodixFP] [gf_netlink_send] : enter, send command 1
 [51243.459000] [goodixFP] [gf_netlink_send] : send done, data length is 32
