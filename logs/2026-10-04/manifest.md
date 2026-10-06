@@ -29,3 +29,23 @@
   - pstore.txt (91 bytes)
   - softirqs.txt (115 bytes)
   - thermal.txt (1427 bytes)
+
+## Known gaps in this capture
+
+Seven files are header-only or contain only an error. Do **not** read them as
+"nothing to report" — the collector failed, not the device.
+
+| File | Size | Cause |
+|---|---|---|
+| `dumpsys-meminfo.txt` | 99 B | `/system/bin` not on the Termux sshd `PATH`, so bare `dumpsys` failed with "command not found"; `2>/dev/null` hid it. Also truncated by `head -n 120`, before the per-process RSS block. |
+| `dumpsys-cpuinfo.txt` | 85 B | same `PATH` problem |
+| `dumpsys-battery.txt` | 85 B | same `PATH` problem |
+| `interrupts.txt` | 119 B | `cat: /proc/interrupts: Permission denied` — root-only source collected unprivileged |
+| `softirqs.txt` | 115 B | `cat: /proc/softirqs: Permission denied` — same |
+| `modules.txt` | 94 B | `/proc/modules` unreadable without root |
+| `pstore.txt` | 91 B | `/sys/fs/pstore` unreadable without root |
+
+Fixed in `scripts/collect-logs.sh` on 2026-10-06 (absolute `dumpsys` path,
+`head` removed, four sources moved to `su_run`, plus an `# WARNING: empty
+capture` marker). **The fix is unverified — `note12` has been unreachable since
+2026-10-01.** Blocker for ISSUE-002 step 3 (per-process RSS).

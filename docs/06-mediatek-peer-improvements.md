@@ -22,7 +22,7 @@
 | # | Improvement | Peer source | Applies to ruby | Risk | Verify by |
 |---|-------------|-------------|-----------------|------|-----------|
 | M1 | Clean/limit MTK vendor log spam (`CONN_BUS`, `wlan`, codec) | MT6878-mainline style | **High** | Low | dmesg line rate |
-| M2 | Fix codec `dma_buf` flush path (`mtk_vcodec_mem.c`) | OnePlus mt6877 / upstream mtk-vcodec | **High** | Low | `Cache flush buffer fail` = 0 |
+| M2 | Fix VP9 `dma_buf` flush path (`mtk_vcodec_mem.c`) | OnePlus mt6877 / upstream mtk-vcodec | **High** | Med | `Cache flush buffer fail` = 0 during VP9 playback |
 | M3 | zram/LMKD tuning for 7.5 GiB | pmos-thunder, Lineage defaults | **High** | Med | PSI, no binder kills |
 | M4 | GPU: Mali kbase backport vs Panfrost | pmos-thunder (Panfrost), MT6878 (mainline) | Med | Med | `dumpsys gfxinfo`, glmark |
 | M5 | cpuidle / EAS / PELT tuning | mt6785-mainline, MT6878 | Med | Med | idle power, jank |
@@ -39,10 +39,14 @@ prints (`goodixFP` 18 483, `FTS_TS` 3 510, `wlan` 1 836, `haptic_hv` 1 366).
 Production kernels demote these to `*_ratelimited`/debug. Peer trees that are
 "quiet" by default (mainline-style) are the model.
 
-### M2 — Codec flush fix **[V]**
-The `Cache flush buffer fail` string is from `mtk_vcodec_mem.c`. The fix is a
-guard on the cache-maintenance call (skip when the attachment is not mapped) or
-demoting the message; upstream `mtk-vcodec` is the reference. **Not a GPU bug.**
+### M2 — Codec flush fix **[V]** trigger · **[I]** fix
+The `Cache flush buffer fail` string is from `mtk_vcodec_mem.c`, on the VP9 decode
+path: all 1 219 occurrences in the 2026-10-04 capture fall in a 37 s burst at
+33/s bounded to the millisecond by one `fops_vcodec_open`/`release` pair, over 10
+fixed 8 MB-strided VCU buffers that are not the picture buffer. The fix is in the
+buffer/stride selection for VP9, not in the log level and not in an
+"unmapped attachment" guard — that hypothesis was disproved. Upstream `mtk-vcodec`
+is the reference. **Not a GPU bug.** See `docs/04-kernel-gpu-audit.md` §2.
 
 ### M3 — Memory tuning **[V]**
 `MemFree` ~300 MB, swap ~72% used, and `am_kill: binder space running out while

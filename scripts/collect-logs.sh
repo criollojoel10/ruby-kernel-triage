@@ -10,6 +10,14 @@
 #
 # Requirements on the device: sshd (Termux or adb-over-tcp). Root is optional
 # but unlocks dmesg/full logcat; without it we still capture what is readable.
+#
+# Two device-side gotchas this script works around, both learned from the
+# 2026-10-04 capture that silently produced empty files:
+#   1. `/system/bin` is NOT on the PATH of a Termux sshd session, so bare
+#      `dumpsys ... 2>/dev/null` fails with "command not found" and captures
+#      nothing. Always use the absolute path.
+#   2. /proc/interrupts, /proc/softirqs, /proc/modules and /sys/fs/pstore are
+#      root-only on Android; an unprivileged read returns "Permission denied".
 
 set -uo pipefail
 
@@ -22,6 +30,17 @@ mkdir -p "$OUT"
 
 log() { printf '%s\n' "== $*" >&2; }
 
+# finish <file> <name>: flag a capture that came back with no data, so an
+# empty file is never mistaken for "nothing to report" later.
+finish() {
+  local file="$1" name="$2" payload
+  payload="$(tail -n +5 "$file" 2>/dev/null)"
+  if [ -z "${payload//[[:space:]]/}" ]; then
+    echo "# WARNING: empty capture — source produced no output" >>"$file"
+    log "WARNING: $name is empty"
+  fi
+}
+
 # run <name> <remote-command>  -> writes $OUT/<name>.txt
 run() {
   local name="$1"; shift
@@ -33,6 +52,7 @@ run() {
     echo
     timeout 90 ssh "${SSH_OPTS[@]}" "$SSH_HOST" "$*" 2>&1
   } >"$OUT/${name}.txt"
+  finish "$OUT/${name}.txt" "$name"
 }
 
 # su_run: same, but wrapped in `su -c` for root-only sources.
@@ -46,6 +66,7 @@ su_run() {
     echo
     timeout 90 ssh "${SSH_OPTS[@]}" "$SSH_HOST" "su -c '$*'" 2>&1
   } >"$OUT/${name}.txt"
+  finish "$OUT/${name}.txt" "$name"
 }
 
 ## --- Device identity -------------------------------------------------------
@@ -56,10 +77,10 @@ run cmdline "cat /proc/cmdline"
 ## --- Kernel / hardware -----------------------------------------------------
 su_run dmesg "dmesg"
 su_run dmesg-warn "dmesg | grep -iE 'error|fail|warn|denied|timeout|panic|oom' | tail -n 2000"
-run pstore "ls -la /sys/fs/pstore 2>/dev/null"
-run modules "cat /proc/modules 2>/dev/null | sort"
-run interrupts "cat /proc/interrupts"
-run softirqs "cat /proc/softirqs"
+su_run pstore "ls -la /sys/fs/pstore"
+su_run modules "cat /proc/modules | sort"
+su_run interrupts "cat /proc/interrupts"
+su_run softirqs "cat /proc/softirqs"
 run loadavg "cat /proc/loadavg; cat /proc/pressure/cpu 2>/dev/null; cat /proc/pressure/io 2>/dev/null"
 run meminfo "cat /proc/meminfo"
 run thermal "for z in /sys/class/thermal/thermal_zone*/; do echo \"--- \$z\"; cat \$z/type 2>/dev/null; cat \$z/temp 2>/dev/null; done"
@@ -78,9 +99,13 @@ su_run logcat-crash "logcat -d -b crash -v threadtime"
 su_run logcat-events "logcat -d -b events -v threadtime"
 su_run logcat-errors "logcat -d -v threadtime | grep -iE ' E |error|exception|fatal|denied' | tail -n 3000"
 ## --- Services / system -----------------------------------------------------
-run dumpsys-meminfo "dumpsys meminfo 2>/dev/null | head -n 120"
-run dumpsys-cpuinfo "dumpsys cpuinfo 2>/dev/null"
-run dumpsys-battery "dumpsys battery 2>/dev/null"
+# Absolute path: bare `dumpsys` is not on a Termux sshd PATH.
+# No `head` on meminfo: the per-process RSS breakdown we need for ISSUE-002
+# lives *after* the ~120-line summary block, so truncating there loses exactly
+# the part we are looking for.
+su_run dumpsys-meminfo "/system/bin/dumpsys meminfo"
+su_run dumpsys-cpuinfo "/system/bin/dumpsys cpuinfo"
+su_run dumpsys-battery "/system/bin/dumpsys battery"
 run props-all "getprop | sort"
 
 ## --- Manifest --------------------------------------------------------------
