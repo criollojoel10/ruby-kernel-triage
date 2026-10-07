@@ -1,0 +1,98 @@
+T+000.002 STAGE2_ENTER
+T+000.009 DEVPTS_MOUNTED
+T+000.011 PROC_MOUNTED
+T+000.012 SYSFS_MOUNTED
+T+000.014 PROCESS_SNAPSHOT_BEFORE_CLEANUP
+T+000.077 KILL_ALL_CHILDREN_BEGIN
+T+000.096 ST23_KILL pid=360
+T+000.099 ST23_KILL pid=361
+T+000.101 ST23_KILL pid=362
+T+000.123 ST23_RECOUNT T+10ms reaped=3 readers=0
+T+000.150 ST23_RECOUNT T+25ms reaped=3 readers=0
+T+000.186 ST23_RECOUNT T+50ms reaped=3 readers=0
+T+000.198 KILL_ALL_CHILDREN_END
+T+000.203 PROCESS_SNAPSHOT_AFTER_CLEANUP
+T+000.282 SHELL_SPAWN_BEGIN
+T+000.290 SHELL_SPAWNED pid=411
+T+000.291 PROCESS_SNAPSHOT_AFTER_SHELL
+T+000.384 CONSOLE_GATE_PASS
+T+000.386 STAGE2_READY
+T+000.397 CONSOLE_FD_OWNERS=1 INTERACTIVE_READERS=1 STAGE2_SHELL_READERS=0 PID1_OWNED=0
+T+000.405 DIAG_GUARD_FORKED pid=412
+T+000.005 ST24_GUARD_STARTED state=DIAGNOSTIC
+T+000.009 GUARD_GATE_OK
+T+000.012 GUARD_GATE_OK
+T+000.015 GUARD_GATE_OK
+T+000.028 GUARD_GATE_OK
+T+000.040 GUARD_GATE_OK
+T+000.043 GUARD_GATE_OK
+T+000.046 GUARD_GATE_OK
+T+000.049 GUARD_GATE_OK
+T+000.052 GUARD_GATE_OK
+T+000.055 GUARD_GATE_OK
+T+000.061 GUARD_TRANSITION_DIAGNOSTIC_TO_WORK_SESSION
+T+000.073 GUARD_POLL t=0s readers=1 owners=1 stage2=1
+T+010.087 GUARD_POLL t=10s readers=1 owners=1 stage2=1
+T+020.124 GUARD_POLL t=20s readers=1 owners=1 stage2=1
+T+030.140 GUARD_POLL t=30s readers=1 owners=1 stage2=1
+T+040.155 GUARD_POLL t=40s readers=1 owners=1 stage2=1
+T+050.197 GUARD_POLL t=50s readers=1 owners=1 stage2=1
+T+060.250 GUARD_POLL t=60s readers=1 owners=1 stage2=1
+T+070.279 GUARD_POLL t=70s readers=1 owners=1 stage2=1
+T+080.316 GUARD_POLL t=80s readers=1 owners=1 stage2=1
+T+090.371 GUARD_POLL t=90s readers=1 owners=1 stage2=1
+T+100.441 GUARD_POLL t=100s readers=1 owners=1 stage2=1
+T+110.495 GUARD_POLL t=110s readers=1 owners=1 stage2=1
+T+120.527 GUARD_POLL t=121s readers=1 owners=1 stage2=1
+T+130.570 GUARD_POLL t=131s readers=1 owners=1 stage2=1
+T+140.646 GUARD_POLL t=141s readers=1 owners=1 stage2=1
+T+150.678 GUARD_POLL t=151s readers=1 owners=1 stage2=1
+T+160.705 GUARD_POLL t=161s readers=1 owners=1 stage2=1
+T+170.735 GUARD_POLL t=171s readers=1 owners=1 stage2=1
+T+180.769 GUARD_POLL t=181s readers=1 owners=1 stage2=1
+T+190.807 GUARD_POLL t=191s readers=1 owners=1 stage2=1
+T+200.834 GUARD_POLL t=201s readers=1 owners=1 stage2=1
+T+210.871 GUARD_POLL t=211s readers=1 owners=1 stage2=1
+T+220.921 GUARD_POLL t=221s readers=1 owners=1 stage2=1
+T+230.952 GUARD_POLL t=231s readers=1 owners=1 stage2=1
+T+240.983 GUARD_POLL t=241s readers=1 owners=1 stage2=1
+T+251.010 GUARD_POLL t=251s readers=1 owners=1 stage2=1
+T+260.039 GUARD_POLL t=260s readers=1 owners=1 stage2=1
+T+270.069 GUARD_POLL t=270s readers=1 owners=1 stage2=1
+T+280.091 GUARD_POLL t=280s readers=1 owners=1 stage2=1
+T+290.118 GUARD_POLL t=290s readers=1 owners=1 stage2=1
+T+300.166 GUARD_POLL t=300s readers=1 owners=1 stage2=1
+T+310.198 GUARD_POLL t=310s readers=1 owners=1 stage2=1
+T+320.238 GUARD_POLL t=320s readers=1 owners=1 stage2=1
+T+330.268 GUARD_POLL t=330s readers=1 owners=1 stage2=1
+T+340.298 GUARD_POLL t=340s readers=1 owners=1 stage2=1
+T+350.328 GUARD_POLL t=350s readers=1 owners=1 stage2=1
+T+360.358 GUARD_POLL t=360s readers=1 owners=1 stage2=1
+T+370.387 GUARD_POLL t=370s readers=1 owners=1 stage2=1
+T+380.453 GUARD_POLL t=380s readers=1 owners=1 stage2=1
+T+390.487 GUARD_POLL t=390s readers=1 owners=1 stage2=1
+T+400.516 GUARD_POLL t=401s readers=1 owners=1 stage2=1
+T+410.548 GUARD_POLL t=411s readers=1 owners=1 stage2=1
+T+420.577 GUARD_POLL t=421s readers=1 owners=1 stage2=1
+T+430.614 GUARD_POLL t=431s readers=1 owners=1 stage2=1
+T+440.642 GUARD_POLL t=441s readers=1 owners=1 stage2=1
+T+450.674 GUARD_POLL t=451s readers=1 owners=1 stage2=1
+T+460.704 GUARD_POLL t=461s readers=1 owners=1 stage2=1
+T+470.736 GUARD_POLL t=471s readers=1 owners=1 stage2=1
+T+480.769 GUARD_POLL t=481s readers=1 owners=1 stage2=1
+T+490.795 GUARD_POLL t=491s readers=1 owners=1 stage2=1
+T+500.861 GUARD_POLL t=501s readers=1 owners=1 stage2=1
+T+510.910 GUARD_POLL t=511s readers=1 owners=1 stage2=1
+T+520.940 GUARD_POLL t=521s readers=1 owners=1 stage2=1
+T+530.972 GUARD_POLL t=531s readers=1 owners=1 stage2=1
+T+541.020 GUARD_POLL t=541s readers=1 owners=1 stage2=1
+T+550.073 GUARD_POLL t=550s readers=1 owners=1 stage2=1
+T+560.112 GUARD_POLL t=560s readers=1 owners=1 stage2=1
+T+570.150 GUARD_POLL t=570s readers=1 owners=1 stage2=1
+T+580.187 GUARD_POLL t=580s readers=1 owners=1 stage2=1
+T+590.220 GUARD_POLL t=590s readers=1 owners=1 stage2=1
+T+591.267 GUARD_TOKEN_VALID
+T+591.276 GUARD_DISARMED
+T+645.373 GUARD_REBOOT_TOKEN_VALID
+T+645.516 GUARD_FINAL owners=1 interactive_readers=1 stage2_readers=1 pid1_owned=0
+T+645.521 GUARD_REBOOT_BOOTLOADER

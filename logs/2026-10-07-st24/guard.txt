@@ -1,0 +1,36 @@
+ST24_GUARD_STARTED
+state_initial=DIAGNOSTIC
+timeout_diagnostic=240s
+timeout_work_session=1800s
+poll=10s
+disarmable=solo con token BOOT_ID
+lee_ttyGS0=no (a proposito)
+reloj=CLOCK_MONOTONIC
+boot_id=<boot-id>
+disarm_file=/run/ruby-boot/disarm
+reboot_file=/run/ruby-boot/reboot-bootloader
+
+time	event
+
+GUARD_TRANSITION diagnostic->work_session
+GUARD_STATE=WORK_SESSION
+GUARD_TIMEOUT=1800s
+work_deadline_T=1800.1
+GUARD_DISARM_REQUEST path=/run/ruby-boot/disarm
+GUARD_TOKEN_INVALID reason=token_no_coincide
+  esperado=<boot-id>
+  recibido=invalid-tokenn
+GUARD_DISARM_REQUEST path=/run/ruby-boot/disarm
+GUARD_TOKEN_INVALID reason=token_no_coincide
+  esperado=<boot-id>
+  recibido=invalid-token
+GUARD_DISARM_REQUEST path=/run/ruby-boot/disarm
+GUARD_TOKEN_VALID
+GUARD_DISARMED
+GUARD_STATE=DISARMED
+timeout=desactivado
+canal de control sigue activo
+GUARD_REBOOT_REQUEST path=/run/ruby-boot/reboot-bootloader
+GUARD_REBOOT_TOKEN_VALID
+GUARD_LAST_STATE=DISARMED
+GUARD_FINAL owners=1 interactive_readers=1 stage2_readers=1 pid1_owned=0SYNC_HECHO, reboot a bootloader desde el estado DISARMED

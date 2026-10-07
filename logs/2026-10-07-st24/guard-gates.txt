@@ -1,0 +1,13 @@
+
+=== verificacion de gates ===
+GATE rootfs_writable          PASS
+GATE proc_mounted             PASS
+GATE sys_mounted              PASS
+GATE devpts_mounted           PASS
+GATE build_id_ok              PASS
+GATE cleanup_done             PASS
+GATE readers_after_cleanup_zero PASS
+GATE shell_created            PASS
+GATE readers_after_shell_one  PASS
+GATE console_gate_pass        PASS
+RESULT=PASS

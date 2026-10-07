@@ -41,6 +41,9 @@ See [`docs/issues/`](docs/issues/) for the per-issue write-ups (symptom → evid
 │   ├── 10-doble-artefacto.md  # Why five experiments didn't change anything
 │   ├── ISSUE-003-stage2-multiple-tty-readers.md
 │   │                          # atol() read 'state' instead of 'ppid'; killed nothing
+│   ├── ADR-0010-guard-operacional-tres-estados.md
+│   │                          # DIAGNOSTIC -> WORK_SESSION -> DISARMED, token BOOT_ID
+│   ├── EXP-ST24-GUARD-OPERACIONAL.md
 │   ├── issues/                # One file per ISSUE-xxx
 │   └── references.md          # Comparable devices / ROMs to learn from
 └── .gitignore
