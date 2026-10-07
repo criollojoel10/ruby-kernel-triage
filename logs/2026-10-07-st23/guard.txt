@@ -1,0 +1,1 @@
+T+240 SYNC_HECHO, reboot a bootloader

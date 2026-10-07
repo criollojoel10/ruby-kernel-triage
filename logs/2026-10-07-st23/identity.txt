@@ -1,0 +1,14 @@
+RUBY_INIT_BUILD=ST23-rootfs-v4-31d0307
+MODE=--rootfs
+SOURCE_COMMIT=31d0307
+SOURCE_SHA256=ed009a2263e37d08bf50048b53275ffe0d6de284c8b73a2c4b86dfa0dfe137b6
+ROOTFS_GENERATION=v4-ST23
+BUILD_TIMESTAMP=2026-10-07T11:09:20Z
+ROOTFS_SOURCE=super+4GiB
+BOOT_ID=<boot-id>
+
+KERNEL_CMDLINE=console=tty0_console=uart8250,mmio32,0x11002000,921600n8_earlycon=mtk8250,mmio32,0x11002000_ignore_loglevel_mtk_printk_ctrl.disable_uart=0_nokaslr_clk_ignore_unused_pd_ignore_unused_bootconfig_androidboot.tee_type=2_androidboot.init_fatal_reboot_target=recovery_initcall_debug_root=/dev/ram_has_battery_removed=0_ramoops.mem_address=0x48090000_ramoops.mem_size=0xe0000_ramoops.pmsg_size=0x10000_ramoops.console_size=0x40000_loop.max_part=7_androidboot.boot_devices=bootdevice,soc/11230000.mmc,11230000.mmc,soc/11230000.msdc,11230000.msdc,soc/11270000.ufshci,11270000.ufshci_androidboot.rsc=GL_androidboot.panel_color=BLACK_androidboot.oled_wp=01f2030000030104_panel-m16-42-0d-0a-dsc-vdo.oled_wp=01f2030000030104_ramoops.mem_address=0x48090000_ramoops.mem_size=0xe0000_ramoops.pmsg_size=0x10000_ramoops.console_size=0x40000_bootopt=64S3,32N2,64N2_androidboot.tee_type=2_root=/dev/ram_rdinit=/init_panic=10_selinux=0_root=/dev/ram_androidboot.vbmeta.device=PARTUUID=<partuuid>_androidboot.vbmeta.avb
+UPTIME_MONOTONIC=0.008
+GUARD_TIMEOUT=240
+NOTE=El sha256 integral del rootfs NO va dentro de la imagen: se guarda
+fuera en work/<rootfs>.sha256, build-manifest.json y evidence/installations/.

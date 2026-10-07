@@ -1,0 +1,11 @@
+# inventario de la consola  T+0.283
+# pgrp_foreground=-1
+# LECTORES = procesos con fd/0 hacia la consola (los que se pelean la entrada)
+# ESCRITORES = procesos con fd/1 o fd/2 (solo mezclan salida)
+
+1       0      0      R      LECTOR ESCRIT /dev/console           /dev/console           /dev/console           init
+416     416    416    S      LECTOR ESCRIT /dev/ttyGS0            /dev/ttyGS0            /dev/ttyGS0            sh
+
+LECTORES_STDIN=2
+ESCRITORES=2
+CONSOLE_FDS=VIOLADO (2 lectores)

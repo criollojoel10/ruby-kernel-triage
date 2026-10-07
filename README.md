@@ -39,6 +39,8 @@ See [`docs/issues/`](docs/issues/) for the per-issue write-ups (symptom → evid
 │   ├── 02-methodology.md      # How logs are collected and sanitized
 │   ├── 09-bringup-linux-ruby.md # Booting our own Linux on the device
 │   ├── 10-doble-artefacto.md  # Why five experiments didn't change anything
+│   ├── ISSUE-003-stage2-multiple-tty-readers.md
+│   │                          # atol() read 'state' instead of 'ppid'; killed nothing
 │   ├── issues/                # One file per ISSUE-xxx
 │   └── references.md          # Comparable devices / ROMs to learn from
 └── .gitignore
