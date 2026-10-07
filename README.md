@@ -38,6 +38,7 @@ See [`docs/issues/`](docs/issues/) for the per-issue write-ups (symptom → evid
 │   ├── 01-device-profile.md   # Hardware + software ground truth
 │   ├── 02-methodology.md      # How logs are collected and sanitized
 │   ├── 09-bringup-linux-ruby.md # Booting our own Linux on the device
+│   ├── 10-doble-artefacto.md  # Why five experiments didn't change anything
 │   ├── issues/                # One file per ISSUE-xxx
 │   └── references.md          # Comparable devices / ROMs to learn from
 └── .gitignore

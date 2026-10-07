@@ -1,0 +1,24 @@
+sh: RUBYPROBE: not found
+RUBYPROBE # 
+RUBYPROBE # 
+RUBYPROBE # 
+RUBYPROBE # R# ^[[6nRUB SWIe or dRUBYPROBE TICK t=5s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=10s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=15s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=20s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=25s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=30s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=35s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=40s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=45s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=50s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=55s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=60s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=65s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=70s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=75s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=80s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=85s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=90s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=95s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
+RUBYPROBE TICK t=100s stage=SUPER_OPEN_FALLO errno=2 (No such file or directory) usb=si
